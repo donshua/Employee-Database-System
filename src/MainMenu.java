@@ -154,7 +154,7 @@ public class MainMenu extends javax.swing.JFrame
         jPanel2.setVisible(false);
         jPanel1.setVisible(true);
         System.out.println("Hello test test, hiii");
-        System.out.println("test 2");
+        System.out.println("test from hp laptop aye");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
