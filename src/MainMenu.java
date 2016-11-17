@@ -153,7 +153,7 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         jPanel2.setVisible(false);
         jPanel1.setVisible(true);
-        System.out.println("Hello test test");
+        System.out.println("Hello test test, hiii");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
