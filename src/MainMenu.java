@@ -111,6 +111,11 @@ public class MainMenu extends javax.swing.JFrame {
         mainPan.add(addBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 120, 60));
 
         removeBut.setText("Remove");
+        removeBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButActionPerformed(evt);
+            }
+        });
         mainPan.add(removeBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 120, 60));
 
         searchBut.setText("Search");
@@ -478,6 +483,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void homeButFromAddPan1clickedHomeButFromAddPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromAddPan1clickedHomeButFromAddPan
         // TODO add your handling code here:
+        RemovePan.setVisible(false);
+        mainPan.setVisible(true);
     }//GEN-LAST:event_homeButFromAddPan1clickedHomeButFromAddPan
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -491,11 +498,19 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void exitBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut1ActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_exitBut1ActionPerformed
 
     private void exitBut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut2ActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_exitBut2ActionPerformed
+
+    private void removeButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButActionPerformed
+        // TODO add your handling code here:
+        RemovePan.setVisible(true);
+        mainPan.setVisible(false);
+    }//GEN-LAST:event_removeButActionPerformed
 
     /**
      * @param args the command line arguments
