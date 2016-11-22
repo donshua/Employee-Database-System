@@ -16,6 +16,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
         addPan.setVisible(false);
+        removePan.setVisible(false);
         mainPan.setVisible(true);
     }
 
@@ -26,7 +27,8 @@ public class MainMenu extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         genderSelectionRadButGroup = new javax.swing.ButtonGroup();
         empTypeSelectionRadButGroup = new javax.swing.ButtonGroup();
@@ -72,18 +74,19 @@ public class MainMenu extends javax.swing.JFrame {
         annualSalaryLabel = new javax.swing.JLabel();
         annualSalaryInput = new javax.swing.JFormattedTextField();
         exitBut1 = new javax.swing.JButton();
-        RemovePan = new javax.swing.JPanel();
+        errorEmpNum = new javax.swing.JLabel();
+        removePan = new javax.swing.JPanel();
         removeTitle = new javax.swing.JLabel();
-        homeButFromAddPan1 = new javax.swing.JButton();
+        homeButFromRemovePan = new javax.swing.JButton();
         employeeNumberLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        noteLabel = new javax.swing.JLabel();
+        empNumRemoveSearchInput = new javax.swing.JTextField();
+        removeNoteLabel = new javax.swing.JLabel();
         note2Label = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        searchButToRemove = new javax.swing.JButton();
         exitBut2 = new javax.swing.JButton();
-        notFindPanel = new javax.swing.JPanel();
-        notFindLabel = new javax.swing.JLabel();
-        resultPanel = new javax.swing.JPanel();
+        notFoundPanel = new javax.swing.JPanel();
+        notFoundLabel = new javax.swing.JLabel();
+        removeResultPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 450));
@@ -103,17 +106,21 @@ public class MainMenu extends javax.swing.JFrame {
         addBut.setMaximumSize(new java.awt.Dimension(50, 20));
         addBut.setMinimumSize(new java.awt.Dimension(50, 20));
         addBut.setPreferredSize(new java.awt.Dimension(50, 20));
-        addBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedAddFromMainPan(evt);
             }
         });
         mainPan.add(addBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 120, 60));
 
         removeBut.setText("Remove");
-        removeBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeButActionPerformed(evt);
+        removeBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clickedRemoveFromMainPan(evt);
             }
         });
         mainPan.add(removeBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 120, 60));
@@ -134,8 +141,10 @@ public class MainMenu extends javax.swing.JFrame {
         mainPan.add(loadBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 120, 60));
 
         exitBut.setText("Exit");
-        exitBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitButActionPerformed(evt);
             }
         });
@@ -149,8 +158,10 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeButFromAddPan.setText("Home");
-        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedHomeButFromAddPan(evt);
             }
         });
@@ -161,15 +172,15 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.add(addTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
         empNumLabel.setText("Employee Number:");
-        addPan.add(empNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, 20));
+        addPan.add(empNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
         addPan.add(empNumInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 140, -1));
 
         fNameLabel.setText("First Name:");
-        addPan.add(fNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 90, 20));
+        addPan.add(fNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, 20));
         addPan.add(fNameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, -1));
 
         lNameLabel.setText("Last Name:");
-        addPan.add(lNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 90, 20));
+        addPan.add(lNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 90, 20));
         addPan.add(lNameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 140, -1));
 
         sexLabel.setText("Sex:");
@@ -195,8 +206,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         empTypeSelectionRadButGroup.add(fullTimeRadBut);
         fullTimeRadBut.setText("Full Time");
-        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 fullTimeRadButClicked(evt);
             }
         });
@@ -204,8 +217,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         empTypeSelectionRadButGroup.add(partTimeRadBut);
         partTimeRadBut.setText("Part Time");
-        partTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        partTimeRadBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 partTimeRadButClicked(evt);
             }
         });
@@ -218,12 +233,21 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.add(deductionsRateInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 70, -1));
 
         saveButFromAddPan.setText("Save");
+        saveButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clickedSaveButFromAddPan(evt);
+            }
+        });
         addPan.add(saveButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 70, -1));
 
         cancelButFromAddPan.setText("Cancel");
-        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                canelButFromAddPanClicked(evt);
+        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ClickedcanelButFromAddPan(evt);
             }
         });
         addPan.add(cancelButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
@@ -252,19 +276,18 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(fullTimeInputsPanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(fullTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hoursPerWeekLabel)
                     .addGroup(fullTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fullTimeInputsPanLayout.createSequentialGroup()
-                            .addComponent(hourlyWageLabel)
-                            .addGap(38, 38, 38)
-                            .addComponent(hourlyWageInput, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(hourlyWageInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fullTimeInputsPanLayout.createSequentialGroup()
                             .addComponent(weeksPerYearLabel)
-                            .addGap(18, 18, 18)
+                            .addGap(24, 24, 24)
                             .addGroup(fullTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(weeksPerYearInput, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                                .addComponent(hoursPerWeekInput)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(weeksPerYearInput, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(hoursPerWeekInput, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(fullTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(hourlyWageLabel)
+                        .addComponent(hoursPerWeekLabel)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         fullTimeInputsPanLayout.setVerticalGroup(
             fullTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,151 +318,121 @@ public class MainMenu extends javax.swing.JFrame {
         partTimeInputsPanLayout.setHorizontalGroup(
             partTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(partTimeInputsPanLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(annualSalaryLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(annualSalaryInput, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         partTimeInputsPanLayout.setVerticalGroup(
             partTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(partTimeInputsPanLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(partTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(partTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(annualSalaryInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(annualSalaryLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         addPan.add(partTimeInputsPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
 
         exitBut1.setText("Exit");
-        exitBut1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut1ActionPerformed(evt);
             }
         });
         addPan.add(exitBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
 
+        errorEmpNum.setForeground(new java.awt.Color(255, 0, 51));
+        errorEmpNum.setText("The field you entered is not valid");
+        addPan.add(errorEmpNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 160, 20));
+
         getContentPane().add(addPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
+
+        removePan.setMaximumSize(new java.awt.Dimension(600, 450));
+        removePan.setMinimumSize(new java.awt.Dimension(600, 450));
+        removePan.setPreferredSize(new java.awt.Dimension(600, 450));
+        removePan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         removeTitle.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
         removeTitle.setText("Remove");
+        removePan.add(removeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 32, -1, -1));
 
-        homeButFromAddPan1.setText("Home");
-        homeButFromAddPan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButFromAddPan1clickedHomeButFromAddPan(evt);
+        homeButFromRemovePan.setText("Home");
+        homeButFromRemovePan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                homeButFromRemovePanclicked(evt);
             }
         });
+        removePan.add(homeButFromRemovePan, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         employeeNumberLabel.setText("Employee Number:");
+        removePan.add(employeeNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 84, -1, -1));
+        removePan.add(empNumRemoveSearchInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 81, 80, -1));
 
-        jTextField1.setText("jTextField1");
-
-        noteLabel.setText("* You must enter the exact employee number.");
+        removeNoteLabel.setText("* You must enter the exact employee number.");
+        removePan.add(removeNoteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 112, -1, -1));
 
         note2Label.setText(" Otherwise it will not find the employee.");
+        removePan.add(note2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 132, -1, -1));
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        searchButToRemove.setText("Search");
+        searchButToRemove.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                searchButToRemoveActionPerformed(evt);
             }
         });
+        removePan.add(searchButToRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         exitBut2.setText("Exit");
-        exitBut2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut2ActionPerformed(evt);
             }
         });
+        removePan.add(exitBut2, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 40, -1, -1));
 
-        notFindLabel.setText("* The employee is not in the database.");
+        notFoundLabel.setText("* The employee is not in the database.");
 
-        javax.swing.GroupLayout notFindPanelLayout = new javax.swing.GroupLayout(notFindPanel);
-        notFindPanel.setLayout(notFindPanelLayout);
-        notFindPanelLayout.setHorizontalGroup(
-            notFindPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(notFindPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout notFoundPanelLayout = new javax.swing.GroupLayout(notFoundPanel);
+        notFoundPanel.setLayout(notFoundPanelLayout);
+        notFoundPanelLayout.setHorizontalGroup(
+            notFoundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notFoundPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(notFindLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                .addComponent(notFoundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        notFindPanelLayout.setVerticalGroup(
-            notFindPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(notFindLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        notFoundPanelLayout.setVerticalGroup(
+            notFoundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(notFoundLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout resultPanelLayout = new javax.swing.GroupLayout(resultPanel);
-        resultPanel.setLayout(resultPanelLayout);
-        resultPanelLayout.setHorizontalGroup(
-            resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        removePan.add(notFoundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 181, -1, -1));
+
+        javax.swing.GroupLayout removeResultPanelLayout = new javax.swing.GroupLayout(removeResultPanel);
+        removeResultPanel.setLayout(removeResultPanelLayout);
+        removeResultPanelLayout.setHorizontalGroup(
+            removeResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 329, Short.MAX_VALUE)
         );
-        resultPanelLayout.setVerticalGroup(
-            resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        removeResultPanelLayout.setVerticalGroup(
+            removeResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 61, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout RemovePanLayout = new javax.swing.GroupLayout(RemovePan);
-        RemovePan.setLayout(RemovePanLayout);
-        RemovePanLayout.setHorizontalGroup(
-            RemovePanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RemovePanLayout.createSequentialGroup()
-                .addGroup(RemovePanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RemovePanLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(RemovePanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(noteLabel)
-                            .addGroup(RemovePanLayout.createSequentialGroup()
-                                .addComponent(employeeNumberLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(note2Label)))
-                    .addGroup(RemovePanLayout.createSequentialGroup()
-                        .addGap(242, 242, 242)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(RemovePanLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(RemovePanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(notFindPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(RemovePanLayout.createSequentialGroup()
-                        .addComponent(homeButFromAddPan1)
-                        .addGap(142, 142, 142)
-                        .addComponent(removeTitle))
-                    .addComponent(resultPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                .addComponent(exitBut2)
-                .addGap(44, 44, 44))
-        );
-        RemovePanLayout.setVerticalGroup(
-            RemovePanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RemovePanLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(RemovePanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(homeButFromAddPan1)
-                    .addComponent(removeTitle)
-                    .addComponent(exitBut2))
-                .addGap(18, 18, 18)
-                .addGroup(RemovePanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(employeeNumberLabel)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(noteLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(note2Label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(notFindPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resultPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
-        );
+        removePan.add(removeResultPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 201, 329, -1));
 
-        getContentPane().add(RemovePan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
+        getContentPane().add(removePan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -474,22 +467,22 @@ public class MainMenu extends javax.swing.JFrame {
         fullTimeInputsPan.setVisible(true);
     }//GEN-LAST:event_partTimeRadButClicked
 
-    private void canelButFromAddPanClicked(java.awt.event.ActionEvent evt)//GEN-FIRST:event_canelButFromAddPanClicked
-    {//GEN-HEADEREND:event_canelButFromAddPanClicked
+    private void ClickedcanelButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ClickedcanelButFromAddPan
+    {//GEN-HEADEREND:event_ClickedcanelButFromAddPan
         // TODO add your handling code here:
         addPan.setVisible(false);
         mainPan.setVisible(true);
-    }//GEN-LAST:event_canelButFromAddPanClicked
+    }//GEN-LAST:event_ClickedcanelButFromAddPan
 
-    private void homeButFromAddPan1clickedHomeButFromAddPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromAddPan1clickedHomeButFromAddPan
+    private void homeButFromRemovePanclicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromRemovePanclicked
         // TODO add your handling code here:
-        RemovePan.setVisible(false);
+        removePan.setVisible(false);
         mainPan.setVisible(true);
-    }//GEN-LAST:event_homeButFromAddPan1clickedHomeButFromAddPan
+    }//GEN-LAST:event_homeButFromRemovePanclicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void searchButToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButToRemoveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_searchButToRemoveActionPerformed
 
     private void exitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButActionPerformed
         // TODO add your handling code here:
@@ -506,11 +499,36 @@ public class MainMenu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitBut2ActionPerformed
 
-    private void removeButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButActionPerformed
+    private void clickedRemoveFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedRemoveFromMainPan
         // TODO add your handling code here:
-        RemovePan.setVisible(true);
+        removePan.setVisible(true);
         mainPan.setVisible(false);
-    }//GEN-LAST:event_removeButActionPerformed
+    }//GEN-LAST:event_clickedRemoveFromMainPan
+
+    private void clickedSaveButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedSaveButFromAddPan
+    {//GEN-HEADEREND:event_clickedSaveButFromAddPan
+        // TODO add your handling code here:
+        int tempEmpNum=Integer.parseInt(empNumInput.getText());
+        String tempFName=fNameInput.getText();
+        String tempLName=lNameInput.getText();
+        int tempSex=0;
+        if (maleRadBut.isSelected()==true)
+            tempSex=0;
+        else if (femaleRadBut.isSelected()==true)
+            tempSex=1;
+        else if (otherRadBut.isSelected()==true)
+            tempSex=2;
+        int tempWorkLocation=0;
+        if(workLocationDropdown.getSelectedIndex()==1)
+            tempWorkLocation = 0;
+        else if (workLocationDropdown.getSelectedIndex()==2)
+            tempWorkLocation = 1;
+        else if (workLocationDropdown.getSelectedIndex()==3)
+            tempWorkLocation = 2;
+        double tempAnnualSalary = Double.parseDouble(annualSalaryInput.getText());
+        double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText());
+        System.out.println(tempEmpNum+tempFName+tempLName+tempSex+tempWorkLocation+tempAnnualSalary+tempDeductionsRate); //it worked HAHA!!
+    }//GEN-LAST:event_clickedSaveButFromAddPan
 
     /**
      * @param args the command line arguments
@@ -549,7 +567,6 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel RemovePan;
     private javax.swing.JLabel Title;
     private javax.swing.JButton addBut;
     private javax.swing.JPanel addPan;
@@ -562,9 +579,11 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton displayBut;
     private javax.swing.JTextField empNumInput;
     private javax.swing.JLabel empNumLabel;
+    private javax.swing.JTextField empNumRemoveSearchInput;
     private javax.swing.ButtonGroup empTypeSelectionRadButGroup;
     private javax.swing.JLabel employeeNumberLabel;
     private javax.swing.JLabel employeeTypeLabel;
+    private javax.swing.JLabel errorEmpNum;
     private javax.swing.JButton exitBut;
     private javax.swing.JButton exitBut1;
     private javax.swing.JButton exitBut2;
@@ -575,31 +594,31 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JRadioButton fullTimeRadBut;
     private javax.swing.ButtonGroup genderSelectionRadButGroup;
     private javax.swing.JButton homeButFromAddPan;
-    private javax.swing.JButton homeButFromAddPan1;
+    private javax.swing.JButton homeButFromRemovePan;
     private javax.swing.JFormattedTextField hourlyWageInput;
     private javax.swing.JLabel hourlyWageLabel;
     private javax.swing.JFormattedTextField hoursPerWeekInput;
     private javax.swing.JLabel hoursPerWeekLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField lNameInput;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JButton loadBut;
     private javax.swing.JPanel mainPan;
     private javax.swing.JRadioButton maleRadBut;
     private javax.swing.JButton modifyBut;
-    private javax.swing.JLabel notFindLabel;
-    private javax.swing.JPanel notFindPanel;
+    private javax.swing.JLabel notFoundLabel;
+    private javax.swing.JPanel notFoundPanel;
     private javax.swing.JLabel note2Label;
-    private javax.swing.JLabel noteLabel;
     private javax.swing.JRadioButton otherRadBut;
     private javax.swing.JPanel partTimeInputsPan;
     private javax.swing.JRadioButton partTimeRadBut;
     private javax.swing.JButton removeBut;
+    private javax.swing.JLabel removeNoteLabel;
+    private javax.swing.JPanel removePan;
+    private javax.swing.JPanel removeResultPanel;
     private javax.swing.JLabel removeTitle;
-    private javax.swing.JPanel resultPanel;
     private javax.swing.JButton saveButFromAddPan;
     private javax.swing.JButton searchBut;
+    private javax.swing.JButton searchButToRemove;
     private javax.swing.JLabel sexLabel;
     private javax.swing.JFormattedTextField weeksPerYearInput;
     private javax.swing.JLabel weeksPerYearLabel;
