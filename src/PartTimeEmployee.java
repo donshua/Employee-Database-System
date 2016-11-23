@@ -15,10 +15,10 @@ public class PartTimeEmployee extends EmployeeInfo // PartTImeEmployee is a
     private double hoursPerWeek;
     private double weeksPerYear;
 
-    public PartTimeEmployee(int ID, String fName, String lName, int gender, int location, double wage,
+    public PartTimeEmployee(int ID, String fName, String lName, int gender, int location, double dedRate, double wage,
             double hrsPerWeek, double weeks)
     {
-        super(ID, fName, lName, gender, location);
+        super(ID, fName, lName, gender, location,dedRate);
         hourlyWage = wage;
         hoursPerWeek = hrsPerWeek;
         weeksPerYear = weeks;

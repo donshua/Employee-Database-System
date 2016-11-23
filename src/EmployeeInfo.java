@@ -16,17 +16,18 @@
         protected String lastName;
         protected int sex;             //0-Male, 1-Female, 2-Other
         protected int workLocation;    //0-Mississauga, 1-Ottawa, 2-Chicago
-        protected double deductionsRate = 0.02;     //fixed deductions rate, protected since other
+        protected double deductionsRate;     //fixed deductions rate, protected since other
         //subclasses have to access it    
         //CONSTRUCTOR for EmployeeInfo class, to assign passed values to the attributes
 
-        public EmployeeInfo(int ID, String fName, String lName, int gender, int location)
+        public EmployeeInfo(int ID, String fName, String lName, int gender, int location, double dedRate)
         {                             //set the variables
             empNumber = ID;
             firstName = fName;
             lastName = lName;
             sex = gender;
             workLocation = location;
+            deductionsRate = dedRate;
         }
 
         //getter method for getting employee number

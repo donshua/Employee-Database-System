@@ -13,9 +13,9 @@ public class FullTimeEmployee extends EmployeeInfo
 
     private double annualSalary;
 
-    public FullTimeEmployee(int ID, String fName, String lName, int gender, int location, double salary)
+    public FullTimeEmployee(int ID, String fName, String lName, int gender, int location, double dedRate, double salary)
     {
-        super(ID, fName, lName, gender, location);
+        super(ID, fName, lName, gender, location,dedRate);
         annualSalary = salary;
     }
 
