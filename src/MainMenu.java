@@ -1,3 +1,10 @@
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +17,9 @@
  */
 public class MainMenu extends javax.swing.JFrame
 {
-OpenHashTable theTable = new OpenHashTable(2);
+
+    OpenHashTable theTable = new OpenHashTable(2);
+
     /**
      * Creates new form NewJFrame
      */
@@ -20,7 +29,7 @@ OpenHashTable theTable = new OpenHashTable(2);
         addPan.setVisible(false);
         removePan.setVisible(false);
         mainPan.setVisible(true);
-        
+
     }
 
     /**
@@ -30,7 +39,8 @@ OpenHashTable theTable = new OpenHashTable(2);
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         genderSelectionRadButGroup = new javax.swing.ButtonGroup();
         empTypeSelectionRadButGroup = new javax.swing.ButtonGroup();
@@ -77,6 +87,7 @@ OpenHashTable theTable = new OpenHashTable(2);
         annualSalaryInput = new javax.swing.JFormattedTextField();
         exitBut1 = new javax.swing.JButton();
         errorEmpNum = new javax.swing.JLabel();
+        empExistNotice = new javax.swing.JLabel();
         removePan = new javax.swing.JPanel();
         removeTitle = new javax.swing.JLabel();
         homeButFromRemovePan = new javax.swing.JButton();
@@ -110,16 +121,20 @@ OpenHashTable theTable = new OpenHashTable(2);
         addBut.setMaximumSize(new java.awt.Dimension(50, 20));
         addBut.setMinimumSize(new java.awt.Dimension(50, 20));
         addBut.setPreferredSize(new java.awt.Dimension(50, 20));
-        addBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedAddFromMainPan(evt);
             }
         });
         mainPan.add(addBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 120, 60));
 
         removeBut.setText("Remove");
-        removeBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedRemoveFromMainPan(evt);
             }
         });
@@ -141,9 +156,11 @@ OpenHashTable theTable = new OpenHashTable(2);
         mainPan.add(loadBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 120, 60));
 
         exitBut.setText("Exit");
-        exitBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButActionPerformed(evt);
+        exitBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clickedExitButFromMainPan(evt);
             }
         });
         mainPan.add(exitBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
@@ -156,8 +173,10 @@ OpenHashTable theTable = new OpenHashTable(2);
         addPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeButFromAddPan.setText("Home");
-        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedHomeButFromAddPan(evt);
             }
         });
@@ -202,8 +221,10 @@ OpenHashTable theTable = new OpenHashTable(2);
 
         empTypeSelectionRadButGroup.add(fullTimeRadBut);
         fullTimeRadBut.setText("Full Time");
-        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 fullTimeRadButClicked(evt);
             }
         });
@@ -211,34 +232,40 @@ OpenHashTable theTable = new OpenHashTable(2);
 
         empTypeSelectionRadButGroup.add(partTimeRadBut);
         partTimeRadBut.setText("Part Time");
-        partTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        partTimeRadBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 partTimeRadButClicked(evt);
             }
         });
         addPan.add(partTimeRadBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
         deductionsRateLabel.setText("Deductions Rate:");
-        addPan.add(deductionsRateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 160, 20));
+        addPan.add(deductionsRateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 160, 20));
 
-        deductionsRateInput.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
-        addPan.add(deductionsRateInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 70, -1));
+        deductionsRateInput.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
+        addPan.add(deductionsRateInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 70, -1));
 
         saveButFromAddPan.setText("Save");
-        saveButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        saveButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedSaveButFromAddPan(evt);
             }
         });
-        addPan.add(saveButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 70, -1));
+        addPan.add(saveButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 70, -1));
 
         cancelButFromAddPan.setText("Cancel");
-        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClickedcanelButFromAddPan(evt);
+        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clickedCanelButFromAddPan(evt);
             }
         });
-        addPan.add(cancelButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
+        addPan.add(cancelButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
 
         employeeTypeLabel.setText("Employee Type:");
         addPan.add(employeeTypeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 130, 20));
@@ -325,8 +352,10 @@ OpenHashTable theTable = new OpenHashTable(2);
         addPan.add(partTimeInputsPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
 
         exitBut1.setText("Exit");
-        exitBut1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut1ActionPerformed(evt);
             }
         });
@@ -335,6 +364,10 @@ OpenHashTable theTable = new OpenHashTable(2);
         errorEmpNum.setForeground(new java.awt.Color(255, 0, 51));
         errorEmpNum.setText("The field you entered is not valid");
         addPan.add(errorEmpNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 180, 20));
+
+        empExistNotice.setForeground(new java.awt.Color(255, 0, 51));
+        empExistNotice.setText("No need to add, the employee already exist in the database!");
+        addPan.add(empExistNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 330, 30));
 
         getContentPane().add(addPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
@@ -348,8 +381,10 @@ OpenHashTable theTable = new OpenHashTable(2);
         removePan.add(removeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 32, -1, -1));
 
         homeButFromRemovePan.setText("Home");
-        homeButFromRemovePan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromRemovePan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 homeButFromRemovePanclicked(evt);
             }
         });
@@ -366,26 +401,33 @@ OpenHashTable theTable = new OpenHashTable(2);
         removePan.add(note2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 132, -1, -1));
 
         searchButToRemove.setText("Search");
-        searchButToRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButToRemove.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 searchButToRemoveActionPerformed(evt);
             }
         });
         removePan.add(searchButToRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         exitBut2.setText("Exit");
-        exitBut2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut2ActionPerformed(evt);
             }
         });
         removePan.add(exitBut2, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 40, -1, -1));
 
         NOLabel.setText("NO.");
-        NOLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+        NOLabel.addInputMethodListener(new java.awt.event.InputMethodListener()
+        {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt)
+            {
             }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt)
+            {
                 NOLabelInputMethodTextChanged(evt);
             }
         });
@@ -393,10 +435,13 @@ OpenHashTable theTable = new OpenHashTable(2);
         jLabel2.setText("jLabel2");
 
         jLabel1.setText("jLabel1");
-        jLabel1.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+        jLabel1.addInputMethodListener(new java.awt.event.InputMethodListener()
+        {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt)
+            {
             }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt)
+            {
                 jLabel1InputMethodTextChanged(evt);
             }
         });
@@ -445,6 +490,7 @@ OpenHashTable theTable = new OpenHashTable(2);
         addPan.setVisible(true);
         fullTimeInputsPan.setVisible(false);
         partTimeInputsPan.setVisible(false);
+        empExistNotice.setVisible(false);
     }//GEN-LAST:event_clickedAddFromMainPan
 
     private void clickedHomeButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedHomeButFromAddPan
@@ -468,12 +514,23 @@ OpenHashTable theTable = new OpenHashTable(2);
         fullTimeInputsPan.setVisible(true);
     }//GEN-LAST:event_partTimeRadButClicked
 
-    private void ClickedcanelButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ClickedcanelButFromAddPan
-    {//GEN-HEADEREND:event_ClickedcanelButFromAddPan
+    private void clickedCanelButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedCanelButFromAddPan
+    {//GEN-HEADEREND:event_clickedCanelButFromAddPan
         // TODO add your handling code here:
         addPan.setVisible(false);
         mainPan.setVisible(true);
-    }//GEN-LAST:event_ClickedcanelButFromAddPan
+        empNumInput.setText(null);
+        fNameInput.setText(null);
+        lNameInput.setText(null);
+        genderSelectionRadButGroup.clearSelection();
+        workLocationDropdown.setSelectedIndex(0);
+        empTypeSelectionRadButGroup.clearSelection();
+        deductionsRateInput.setText(null);
+        annualSalaryInput.setText(null);
+        hourlyWageInput.setText(null);
+        hoursPerWeekInput.setText(null);
+        weeksPerYearInput.setText(null);
+    }//GEN-LAST:event_clickedCanelButFromAddPan
 
     private void homeButFromRemovePanclicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromRemovePanclicked
         // TODO add your handling code here:
@@ -485,20 +542,30 @@ OpenHashTable theTable = new OpenHashTable(2);
         // TODO add your handling code here:
         int tempEmpNum = Integer.parseInt(empNumInput.getText());
         theTable.search(tempEmpNum);
-        if(theTable.search(tempEmpNum)<0)
+        if (theTable.search(tempEmpNum) < 0)
         {
             notFoundLabel.setVisible(true);
-        }
-        else
+        } else
         {
-            
+
         }
     }//GEN-LAST:event_searchButToRemoveActionPerformed
 
-    private void exitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_exitButActionPerformed
+    private void clickedExitButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedExitButFromMainPan
+            // TODO add your handling code here:
+            System.exit(0);
+         /*    the file writter that will save to a text file
+         try
+         {
+            BufferedWriter writer;
+            writer = new BufferedWriter(new FileWriter(".\\SavedEmployeeData.txt"));
+            writer.write(theTable.displayContents());
+            writer.close();
+        } catch (IOException ex)
+        {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_clickedExitButFromMainPan
 
     private void exitBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut1ActionPerformed
         // TODO add your handling code here:
@@ -547,37 +614,40 @@ OpenHashTable theTable = new OpenHashTable(2);
         }
         double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText());
 
-        double tempAnnualSalary =0;
-        double tempHourlyWage =0;
-        int tempHoursPerWeek =0;
-        int tempWeeksPerYear =0;
-        
-        if (fullTimeRadBut.isSelected() == true)
+        double tempAnnualSalary = 0;
+        double tempHourlyWage = 0;
+        int tempHoursPerWeek = 0;
+        int tempWeeksPerYear = 0;
+
+        if (theTable.search(tempEmpNum) == -1)
         {
-             tempAnnualSalary = Double.parseDouble(annualSalaryInput.getText());
-        }
-        else if (partTimeRadBut.isSelected() == true)
+            if (fullTimeRadBut.isSelected() == true)
+            {
+                tempAnnualSalary = Double.parseDouble(annualSalaryInput.getText());
+            } else if (partTimeRadBut.isSelected() == true)
+            {
+                tempHourlyWage = Double.parseDouble(hourlyWageInput.getText());
+                tempHoursPerWeek = Integer.parseInt(hoursPerWeekInput.getText());
+                tempWeeksPerYear = Integer.parseInt(weeksPerYearInput.getText());
+            }
+            FullTimeEmployee tempFullEmp = new FullTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation, tempDeductionsRate, tempAnnualSalary);
+            PartTimeEmployee tempPartEmp = new PartTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation, tempDeductionsRate, tempHourlyWage, tempHoursPerWeek, tempWeeksPerYear);
+
+            if (fullTimeRadBut.isSelected() == true)
+            {
+                theTable.add(tempFullEmp);
+            } else if (partTimeRadBut.isSelected() == true)
+            {
+                theTable.add(tempPartEmp);
+            }
+        } else
         {
-            tempHourlyWage = Double.parseDouble(hourlyWageInput.getText());
-            tempHoursPerWeek  = Integer.parseInt(hoursPerWeekInput.getText());
-            tempWeeksPerYear  = Integer.parseInt(weeksPerYearInput.getText());
-        }
-        FullTimeEmployee tempFullEmp = new FullTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation,tempDeductionsRate,tempAnnualSalary);
-        PartTimeEmployee tempPartEmp = new PartTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation,tempDeductionsRate,tempHourlyWage,tempHoursPerWeek,tempWeeksPerYear);
-        
-        if (fullTimeRadBut.isSelected() == true)
-        {
-             theTable.add(tempFullEmp);
-        }
-        else if (partTimeRadBut.isSelected() == true)
-        {
-            theTable.add(tempPartEmp);
+            empExistNotice.setVisible(true);
         }
         
         theTable.displayContents();
-        
-        
-        
+
+
     }//GEN-LAST:event_clickedSaveButFromAddPan
 
     private void NOLabelInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_NOLabelInputMethodTextChanged
@@ -586,7 +656,7 @@ OpenHashTable theTable = new OpenHashTable(2);
 
     private void jLabel1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jLabel1InputMethodTextChanged
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jLabel1InputMethodTextChanged
 
     /**
@@ -647,6 +717,7 @@ OpenHashTable theTable = new OpenHashTable(2);
     private javax.swing.JFormattedTextField deductionsRateInput;
     private javax.swing.JLabel deductionsRateLabel;
     private javax.swing.JButton displayBut;
+    private javax.swing.JLabel empExistNotice;
     private javax.swing.JTextField empNumInput;
     private javax.swing.JLabel empNumLabel;
     private javax.swing.JTextField empNumRemoveSearchInput;
