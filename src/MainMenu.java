@@ -86,8 +86,10 @@ OpenHashTable theTable = new OpenHashTable(2);
         note2Label = new javax.swing.JLabel();
         searchButToRemove = new javax.swing.JButton();
         exitBut2 = new javax.swing.JButton();
-        notFoundPanel = new javax.swing.JPanel();
         removeResultPanel = new javax.swing.JPanel();
+        NOLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         notFoundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -273,7 +275,7 @@ OpenHashTable theTable = new OpenHashTable(2);
                     .addGroup(fullTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(hourlyWageLabel)
                         .addComponent(hoursPerWeekLabel)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fullTimeInputsPanLayout.setVerticalGroup(
             fullTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,7 +319,7 @@ OpenHashTable theTable = new OpenHashTable(2);
                 .addGroup(partTimeInputsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(annualSalaryInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(annualSalaryLabel))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         addPan.add(partTimeInputsPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
@@ -355,7 +357,7 @@ OpenHashTable theTable = new OpenHashTable(2);
 
         employeeNumberLabel.setText("Employee Number:");
         removePan.add(employeeNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 84, -1, -1));
-        removePan.add(empNumRemoveSearchInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 81, 80, -1));
+        removePan.add(empNumRemoveSearchInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 80, -1));
 
         removeNoteLabel.setText("* You must enter the exact employee number.");
         removePan.add(removeNoteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 112, -1, -1));
@@ -379,31 +381,53 @@ OpenHashTable theTable = new OpenHashTable(2);
         });
         removePan.add(exitBut2, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 40, -1, -1));
 
-        javax.swing.GroupLayout notFoundPanelLayout = new javax.swing.GroupLayout(notFoundPanel);
-        notFoundPanel.setLayout(notFoundPanelLayout);
-        notFoundPanelLayout.setHorizontalGroup(
-            notFoundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 329, Short.MAX_VALUE)
-        );
-        notFoundPanelLayout.setVerticalGroup(
-            notFoundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 14, Short.MAX_VALUE)
-        );
+        NOLabel.setText("NO.");
+        NOLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                NOLabelInputMethodTextChanged(evt);
+            }
+        });
 
-        removePan.add(notFoundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 181, -1, -1));
+        jLabel2.setText("jLabel2");
+
+        jLabel1.setText("jLabel1");
+        jLabel1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jLabel1InputMethodTextChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout removeResultPanelLayout = new javax.swing.GroupLayout(removeResultPanel);
         removeResultPanel.setLayout(removeResultPanelLayout);
         removeResultPanelLayout.setHorizontalGroup(
             removeResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 329, Short.MAX_VALUE)
+            .addGroup(removeResultPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(NOLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(removeResultPanelLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 27, Short.MAX_VALUE))
         );
         removeResultPanelLayout.setVerticalGroup(
             removeResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 61, Short.MAX_VALUE)
+            .addGroup(removeResultPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(removeResultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NOLabel)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
-        removePan.add(removeResultPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 329, -1));
+        removePan.add(removeResultPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 480, 180));
 
         notFoundLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         notFoundLabel.setText("* The employee is not in the database.");
@@ -459,6 +483,16 @@ OpenHashTable theTable = new OpenHashTable(2);
 
     private void searchButToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButToRemoveActionPerformed
         // TODO add your handling code here:
+        int tempEmpNum = Integer.parseInt(empNumInput.getText());
+        theTable.search(tempEmpNum);
+        if(theTable.search(tempEmpNum)<0)
+        {
+            notFoundLabel.setVisible(true);
+        }
+        else
+        {
+            
+        }
     }//GEN-LAST:event_searchButToRemoveActionPerformed
 
     private void exitButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButActionPerformed
@@ -480,6 +514,7 @@ OpenHashTable theTable = new OpenHashTable(2);
         // TODO add your handling code here:
         removePan.setVisible(true);
         mainPan.setVisible(false);
+        notFoundLabel.setVisible(false);
     }//GEN-LAST:event_clickedRemoveFromMainPan
 
     private void clickedSaveButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedSaveButFromAddPan
@@ -530,12 +565,29 @@ OpenHashTable theTable = new OpenHashTable(2);
         FullTimeEmployee tempFullEmp = new FullTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation,tempDeductionsRate,tempAnnualSalary);
         PartTimeEmployee tempPartEmp = new PartTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation,tempDeductionsRate,tempHourlyWage,tempHoursPerWeek,tempWeeksPerYear);
         
-        theTable.add(tempFullEmp);
+        if (fullTimeRadBut.isSelected() == true)
+        {
+             theTable.add(tempFullEmp);
+        }
+        else if (partTimeRadBut.isSelected() == true)
+        {
+            theTable.add(tempPartEmp);
+        }
+        
         theTable.displayContents();
         
         
         
     }//GEN-LAST:event_clickedSaveButFromAddPan
+
+    private void NOLabelInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_NOLabelInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NOLabelInputMethodTextChanged
+
+    private void jLabel1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jLabel1InputMethodTextChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel1InputMethodTextChanged
 
     /**
      * @param args the command line arguments
@@ -584,6 +636,7 @@ OpenHashTable theTable = new OpenHashTable(2);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel NOLabel;
     private javax.swing.JLabel Title;
     private javax.swing.JButton addBut;
     private javax.swing.JPanel addPan;
@@ -616,6 +669,8 @@ OpenHashTable theTable = new OpenHashTable(2);
     private javax.swing.JLabel hourlyWageLabel;
     private javax.swing.JFormattedTextField hoursPerWeekInput;
     private javax.swing.JLabel hoursPerWeekLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField lNameInput;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JButton loadBut;
@@ -623,7 +678,6 @@ OpenHashTable theTable = new OpenHashTable(2);
     private javax.swing.JRadioButton maleRadBut;
     private javax.swing.JButton modifyBut;
     private javax.swing.JLabel notFoundLabel;
-    private javax.swing.JPanel notFoundPanel;
     private javax.swing.JLabel note2Label;
     private javax.swing.JRadioButton otherRadBut;
     private javax.swing.JPanel partTimeInputsPan;
