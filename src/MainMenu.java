@@ -26,9 +26,11 @@ public class MainMenu extends javax.swing.JFrame
     public MainMenu()
     {
         initComponents();
+        mainPan.setVisible(true);
         addPan.setVisible(false);
         removePan.setVisible(false);
-        mainPan.setVisible(true);
+        searchPan.setVisible(false);
+        displayPan.setVisible(false);
 
     }
 
@@ -115,12 +117,13 @@ public class MainMenu extends javax.swing.JFrame
         jLabel3 = new javax.swing.JLabel();
         empInfoDisplayLabel1 = new javax.swing.JLabel();
         notFoundLabel1 = new javax.swing.JLabel();
-        diaplayPan = new javax.swing.JPanel();
+        displayPan = new javax.swing.JPanel();
         diaplayTitle = new javax.swing.JLabel();
         homeButFromRemovePan2 = new javax.swing.JButton();
         exitBut4 = new javax.swing.JButton();
         diaplayScrollPan = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        displayOuputField = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(600, 450));
@@ -167,6 +170,11 @@ public class MainMenu extends javax.swing.JFrame
         mainPan.add(searchBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 120, 60));
 
         displayBut.setText("Display");
+        displayBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clickedDisplayButFromMainPan(evt);
+            }
+        });
         mainPan.add(displayBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 120, 60));
 
         modifyBut.setText("Modify");
@@ -431,6 +439,8 @@ public class MainMenu extends javax.swing.JFrame
         });
         removePan.add(exitBut2, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 40, -1, -1));
 
+        removeResultPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         NOLabel.setText("NO.");
         NOLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
@@ -439,10 +449,11 @@ public class MainMenu extends javax.swing.JFrame
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
+        removeResultPan.add(NOLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 13, -1, -1));
 
         jLabel2.setText("jLabel2");
+        removeResultPan.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 13, -1, -1));
 
-        empInfoDisplayLabel.setText("jLabel1");
         empInfoDisplayLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 empInfoDisplayLabelInputMethodTextChanged(evt);
@@ -450,32 +461,7 @@ public class MainMenu extends javax.swing.JFrame
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
-
-        javax.swing.GroupLayout removeResultPanLayout = new javax.swing.GroupLayout(removeResultPan);
-        removeResultPan.setLayout(removeResultPanLayout);
-        removeResultPanLayout.setHorizontalGroup(
-            removeResultPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(removeResultPanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(NOLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(removeResultPanLayout.createSequentialGroup()
-                .addComponent(empInfoDisplayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
-        );
-        removeResultPanLayout.setVerticalGroup(
-            removeResultPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(removeResultPanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(removeResultPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NOLabel)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(empInfoDisplayLabel)
-                .addContainerGap(118, Short.MAX_VALUE))
-        );
+        removeResultPan.add(empInfoDisplayLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 44, 453, 30));
 
         removePan.add(removeResultPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 480, 180));
 
@@ -515,7 +501,7 @@ public class MainMenu extends javax.swing.JFrame
         searchButToRemove1.setText("Search");
         searchButToRemove1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButToRemove1ActionPerformed(evt);
+                clickedSearchButFromSearchPan(evt);
             }
         });
         searchPan.add(searchButToRemove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
@@ -528,6 +514,8 @@ public class MainMenu extends javax.swing.JFrame
         });
         searchPan.add(exitBut3, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 40, -1, -1));
 
+        searchResultPan1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         NOLabel1.setText("NO.");
         NOLabel1.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
@@ -536,10 +524,11 @@ public class MainMenu extends javax.swing.JFrame
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
+        searchResultPan1.add(NOLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 13, -1, -1));
 
         jLabel3.setText("jLabel2");
+        searchResultPan1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 13, -1, -1));
 
-        empInfoDisplayLabel1.setText("jLabel1");
         empInfoDisplayLabel1.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 empInfoDisplayLabel1InputMethodTextChanged(evt);
@@ -547,32 +536,7 @@ public class MainMenu extends javax.swing.JFrame
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
-
-        javax.swing.GroupLayout searchResultPan1Layout = new javax.swing.GroupLayout(searchResultPan1);
-        searchResultPan1.setLayout(searchResultPan1Layout);
-        searchResultPan1Layout.setHorizontalGroup(
-            searchResultPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchResultPan1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(NOLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(searchResultPan1Layout.createSequentialGroup()
-                .addComponent(empInfoDisplayLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
-        );
-        searchResultPan1Layout.setVerticalGroup(
-            searchResultPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(searchResultPan1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(searchResultPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NOLabel1)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(empInfoDisplayLabel1)
-                .addContainerGap(118, Short.MAX_VALUE))
-        );
+        searchResultPan1.add(empInfoDisplayLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 470, 30));
 
         searchPan.add(searchResultPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 480, 180));
 
@@ -599,40 +563,49 @@ public class MainMenu extends javax.swing.JFrame
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        diaplayScrollPan.setViewportView(jTextArea1);
+        displayOuputField.setColumns(20);
+        displayOuputField.setRows(5);
+        diaplayScrollPan.setViewportView(displayOuputField);
 
-        javax.swing.GroupLayout diaplayPanLayout = new javax.swing.GroupLayout(diaplayPan);
-        diaplayPan.setLayout(diaplayPanLayout);
-        diaplayPanLayout.setHorizontalGroup(
-            diaplayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, diaplayPanLayout.createSequentialGroup()
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout displayPanLayout = new javax.swing.GroupLayout(displayPan);
+        displayPan.setLayout(displayPanLayout);
+        displayPanLayout.setHorizontalGroup(
+            displayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, displayPanLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addGroup(diaplayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(diaplayScrollPan)
-                    .addGroup(diaplayPanLayout.createSequentialGroup()
-                        .addComponent(homeButFromRemovePan2)
-                        .addGap(144, 144, 144)
-                        .addComponent(diaplayTitle)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
-                        .addComponent(exitBut4)))
-                .addGap(39, 39, 39))
+                .addGroup(displayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(displayPanLayout.createSequentialGroup()
+                        .addGroup(displayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(displayPanLayout.createSequentialGroup()
+                                .addComponent(homeButFromRemovePan2)
+                                .addGap(144, 144, 144)
+                                .addComponent(diaplayTitle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                                .addComponent(exitBut4)))
+                        .addGap(39, 39, 39))
+                    .addGroup(displayPanLayout.createSequentialGroup()
+                        .addComponent(diaplayScrollPan)
+                        .addContainerGap())))
         );
-        diaplayPanLayout.setVerticalGroup(
-            diaplayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(diaplayPanLayout.createSequentialGroup()
+        displayPanLayout.setVerticalGroup(
+            displayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(displayPanLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(diaplayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(displayPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(exitBut4)
                     .addComponent(diaplayTitle)
                     .addComponent(homeButFromRemovePan2))
-                .addGap(18, 18, 18)
-                .addComponent(diaplayScrollPan, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(diaplayScrollPan, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        getContentPane().add(diaplayPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
+        getContentPane().add(displayPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -843,9 +816,21 @@ public class MainMenu extends javax.swing.JFrame
         mainPan.setVisible(true);
     }//GEN-LAST:event_homeButFromRemovePan1clicked
 
-    private void searchButToRemove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButToRemove1ActionPerformed
+    private void clickedSearchButFromSearchPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSearchButFromSearchPan
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchButToRemove1ActionPerformed
+        int tempEmpNum = Integer.parseInt(empNumInput.getText());
+        if (theTable.search(tempEmpNum) < 0)
+        {
+            notFoundLabel.setVisible(true);
+            searchResultPan1.setVisible(false);
+        } 
+        else
+        {
+            searchResultPan1.setVisible(true);
+            notFoundLabel1.setVisible(false);
+            //empInfoDisplayLabel1.setText()
+        }
+    }//GEN-LAST:event_clickedSearchButFromSearchPan
 
     private void exitBut3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut3ActionPerformed
         // TODO add your handling code here:
@@ -863,9 +848,6 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         mainPan.setVisible(false);
         addPan.setVisible(false);
-        fullTimeInputsPan.setVisible(false);
-        partTimeInputsPan.setVisible(false);
-        empExistNotice.setVisible(false);
         searchPan.setVisible(true);
 
     }//GEN-LAST:event_searchButActionPerformed
@@ -873,12 +855,20 @@ public class MainMenu extends javax.swing.JFrame
     private void homeButFromRemovePan2clicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromRemovePan2clicked
         // TODO add your handling code here:
         mainPan.setVisible(true);
+        removePan.setVisible(false);
     }//GEN-LAST:event_homeButFromRemovePan2clicked
 
     private void exitBut4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut4ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitBut4ActionPerformed
+
+    private void clickedDisplayButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedDisplayButFromMainPan
+        // TODO add your handling code here:
+        mainPan.setVisible(false);
+        displayPan.setVisible(true);
+        displayOuputField.setText(theTable.displayContents());
+    }//GEN-LAST:event_clickedDisplayButFromMainPan
 
     /**
      * @param args the command line arguments
@@ -938,10 +928,11 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JButton cancelButFromAddPan;
     private javax.swing.JFormattedTextField deductionsRateInput;
     private javax.swing.JLabel deductionsRateLabel;
-    private javax.swing.JPanel diaplayPan;
     private javax.swing.JScrollPane diaplayScrollPan;
     private javax.swing.JLabel diaplayTitle;
     private javax.swing.JButton displayBut;
+    private javax.swing.JTextArea displayOuputField;
+    private javax.swing.JPanel displayPan;
     private javax.swing.JLabel empExistNotice;
     private javax.swing.JLabel empInfoDisplayLabel;
     private javax.swing.JLabel empInfoDisplayLabel1;
@@ -973,9 +964,9 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JLabel hourlyWageLabel;
     private javax.swing.JFormattedTextField hoursPerWeekInput;
     private javax.swing.JLabel hoursPerWeekLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField lNameInput;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JButton loadBut;
