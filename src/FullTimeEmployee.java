@@ -19,6 +19,12 @@ public class FullTimeEmployee extends EmployeeInfo
         annualSalary = salary;
     }
 
+    public double getAnnualSalary()
+    {
+        return annualSalary;
+    }
+
+    
     public double calcAnnualIncome()
     {
         return (annualSalary * (1 - deductionsRate));

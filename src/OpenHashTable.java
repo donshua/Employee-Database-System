@@ -13,8 +13,6 @@ import java.util.ArrayList;
 public class OpenHashTable
 {
 
-    int numOfEmp;
-    private int numOfBuc;
     private ArrayList<EmployeeInfo>[] buckets;
     // buckets is an array of ArrayList.
     //Each item in an ArrayList is an EmployeeInfo object.
@@ -22,7 +20,6 @@ public class OpenHashTable
     //constructor
     public OpenHashTable(int howManyBuckets)
     {
-        numOfBuc=howManyBuckets;
         //instantiate an array to have an ArrayList as each element of the array.
         buckets = new ArrayList[howManyBuckets];
 
@@ -46,17 +43,38 @@ public class OpenHashTable
 
     public void displayContents()
     {
-        for (int a = 0; a < numOfBuc; a++)  //first to loop through the buckets
+        for (int a = 0; a < buckets.length; a++)  //first to loop through the buckets
         {
             System.out.println("Bucket " + a);
             for (int b = 0; b < buckets[a].size(); b++)  //then loop through each bucket's arraylist to print 
             {                                            //out all the employee's empNumber
                 System.out.print(buckets[a].get(b).getEmpNum() + " ");
+                System.out.println((buckets[a].get(b) instanceof FullTimeEmployee));
             }
             System.out.println("");
         }
     }
 
+    public String displayOneEmp (int theNumber)
+    {
+     int empNumForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getEmpNum();
+     String empNumOut = Integer.toString(empNumForOut);
+     String fNameOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getFirstName();
+     String lNameOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getLastName();
+     int sexCode = buckets[calcBuckets(theNumber)].get(search(theNumber)).getSex();
+     String sexOut = null;
+     if (sexCode==0)
+     sexOut="M";
+     else if (sexCode ==1)
+     sexOut="F";
+     else if(sexCode ==2)
+     sexOut="O";
+     double dedRateForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getDeductionsRate();
+     String dedRateOut = Double.toString(dedRateForOut);
+     String outPut=String.format("%3s %20s %20s %10s %10s",empNumOut,fNameOut,lNameOut,sexOut,dedRateOut);
+     return(outPut);
+    }
+    
     public int search(int keyToFind)
     {
         int targetBucket = calcBuckets(keyToFind);

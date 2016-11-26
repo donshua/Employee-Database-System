@@ -24,6 +24,22 @@ public class PartTimeEmployee extends EmployeeInfo // PartTImeEmployee is a
         weeksPerYear = weeks;
     }
 
+    public double getHourlyWage()
+    {
+        return hourlyWage;
+    }
+
+    public double getHoursPerWeek()
+    {
+        return hoursPerWeek;
+    }
+
+    public double getWeeksPerYear()
+    {
+        return weeksPerYear;
+    }
+
+    
     public double calcAnnualIncome()
     {
         return ((hourlyWage * hoursPerWeek * weeksPerYear) * (1 - deductionsRate));
