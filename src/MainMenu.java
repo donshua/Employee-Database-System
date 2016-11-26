@@ -63,7 +63,7 @@ public class MainMenu extends javax.swing.JFrame
         homeButFromAddPan = new javax.swing.JButton();
         addTitle = new javax.swing.JLabel();
         empNumLabel = new javax.swing.JLabel();
-        empNumInput = new javax.swing.JTextField();
+        empNumInput = new javax.swing.JFormattedTextField();
         fNameLabel = new javax.swing.JLabel();
         fNameInput = new javax.swing.JTextField();
         lNameLabel = new javax.swing.JLabel();
@@ -232,14 +232,8 @@ public class MainMenu extends javax.swing.JFrame
         empNumLabel.setText("Employee Number:");
         addPan.add(empNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
 
-        empNumInput.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                empNumInputActionPerformed(evt);
-            }
-        });
-        addPan.add(empNumInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 140, -1));
+        empNumInput.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#+0"))));
+        addPan.add(empNumInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 140, 30));
 
         fNameLabel.setText("First Name:");
         addPan.add(fNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, 20));
@@ -702,7 +696,7 @@ public class MainMenu extends javax.swing.JFrame
     private void clearSelectionsInAdd()
     {
         empNumInput.setText(null);
-        fNameInput.setText(null);
+        empNumInput.setText(null);
         lNameInput.setText(null);
         genderSelectionRadButGroup.clearSelection();
         workLocationDropdown.setSelectedIndex(0);
@@ -797,7 +791,7 @@ public class MainMenu extends javax.swing.JFrame
     {//GEN-HEADEREND:event_clickedSaveButFromAddPan
         // TODO add your handling code here:
         int tempEmpNum = Integer.parseInt(empNumInput.getText());
-        String tempFName = fNameInput.getText();
+        String tempFName = empNumInput.getText();
         String tempLName = lNameInput.getText();
         int tempSex = 0;
         if (maleRadBut.isSelected() == true)
@@ -872,10 +866,6 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         empInfoDisplayLabel.setText(empNumInput.getText());
     }//GEN-LAST:event_empInfoDisplayLabelInputMethodTextChanged
-
-    private void empNumInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empNumInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empNumInputActionPerformed
 
     private void workLocationDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workLocationDropdownActionPerformed
         // TODO add your handling code here:
@@ -1066,7 +1056,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JLabel empExistNotice;
     private javax.swing.JLabel empInfoDisplayLabel;
     private javax.swing.JLabel empInfoDisplayLabel1;
-    private javax.swing.JTextField empNumInput;
+    private javax.swing.JFormattedTextField empNumInput;
     private javax.swing.JLabel empNumLabel;
     private javax.swing.JTextField empNumRemoveSearchInput;
     private javax.swing.JTextField empNumSearchInput;
