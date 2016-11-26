@@ -3,8 +3,11 @@ import java.awt.Dimension;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import static jdk.nashorn.internal.objects.NativeMath.round;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -26,7 +29,7 @@ public class MainMenu extends javax.swing.JFrame
     public MainMenu()
     {
         initComponents();
-        setSize(600,470);
+        setSize(600, 470);
         mainPan.setVisible(true);
         addPan.setVisible(false);
         removePan.setVisible(false);
@@ -91,6 +94,8 @@ public class MainMenu extends javax.swing.JFrame
         exitBut1 = new javax.swing.JButton();
         errorEmpNum = new javax.swing.JLabel();
         empExistNotice = new javax.swing.JLabel();
+        percentSymbolLabel = new javax.swing.JLabel();
+        saveSuccessNotice = new javax.swing.JLabel();
         removePan = new javax.swing.JPanel();
         removeTitle = new javax.swing.JLabel();
         homeButFromRemovePan = new javax.swing.JButton();
@@ -124,7 +129,7 @@ public class MainMenu extends javax.swing.JFrame
         homeButFromRemovePan2 = new javax.swing.JButton();
         exitBut4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        outPutTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1024, 768));
@@ -331,7 +336,7 @@ public class MainMenu extends javax.swing.JFrame
 
         weeksPerYearLabel.setText("Weeks Per Year:");
 
-        hourlyWageInput.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        hourlyWageInput.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
         hoursPerWeekInput.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
@@ -421,6 +426,13 @@ public class MainMenu extends javax.swing.JFrame
         empExistNotice.setForeground(new java.awt.Color(255, 0, 51));
         empExistNotice.setText("No need to add, the employee already exist in the database!");
         addPan.add(empExistNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 330, 30));
+
+        percentSymbolLabel.setText("%");
+        addPan.add(percentSymbolLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
+
+        saveSuccessNotice.setForeground(new java.awt.Color(255, 0, 51));
+        saveSuccessNotice.setText("The employee info are saved successfully!");
+        addPan.add(saveSuccessNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, -1, -1));
 
         getContentPane().add(addPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
@@ -617,7 +629,7 @@ public class MainMenu extends javax.swing.JFrame
         });
         displayPan.add(exitBut4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1830, 27, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        outPutTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -638,22 +650,23 @@ public class MainMenu extends javax.swing.JFrame
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(1024, 768));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0)
+        outPutTable.setMaximumSize(new java.awt.Dimension(1024, 768));
+        jScrollPane1.setViewportView(outPutTable);
+        if (outPutTable.getColumnModel().getColumnCount() > 0)
         {
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(45);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(45);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(20);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(55);
-            jTable1.getColumnModel().getColumn(5).setPreferredWidth(45);
-            jTable1.getColumnModel().getColumn(6).setPreferredWidth(25);
-            jTable1.getColumnModel().getColumn(7).setPreferredWidth(25);
-            jTable1.getColumnModel().getColumn(8).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(9).setPreferredWidth(45);
-            jTable1.getColumnModel().getColumn(10).setPreferredWidth(40);
-            jTable1.getColumnModel().getColumn(11).setPreferredWidth(45);
-            jTable1.getColumnModel().getColumn(12).setPreferredWidth(45);
+            outPutTable.getColumnModel().getColumn(0).setPreferredWidth(40);
+            outPutTable.getColumnModel().getColumn(1).setPreferredWidth(45);
+            outPutTable.getColumnModel().getColumn(2).setPreferredWidth(45);
+            outPutTable.getColumnModel().getColumn(3).setPreferredWidth(15);
+            outPutTable.getColumnModel().getColumn(4).setPreferredWidth(55);
+            outPutTable.getColumnModel().getColumn(5).setPreferredWidth(45);
+            outPutTable.getColumnModel().getColumn(6).setPreferredWidth(15);
+            outPutTable.getColumnModel().getColumn(7).setPreferredWidth(15);
+            outPutTable.getColumnModel().getColumn(8).setPreferredWidth(45);
+            outPutTable.getColumnModel().getColumn(9).setPreferredWidth(35);
+            outPutTable.getColumnModel().getColumn(10).setPreferredWidth(40);
+            outPutTable.getColumnModel().getColumn(11).setPreferredWidth(45);
+            outPutTable.getColumnModel().getColumn(12).setPreferredWidth(40);
         }
 
         displayPan.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1250, 700));
@@ -673,6 +686,8 @@ public class MainMenu extends javax.swing.JFrame
         fullTimeInputsPan.setVisible(false);
         partTimeInputsPan.setVisible(false);
         empExistNotice.setVisible(false);
+        saveSuccessNotice.setVisible(false);
+        clearSelectionsInAdd();
     }//GEN-LAST:event_clickedAddFromMainPan
 
     private void clickedHomeButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedHomeButFromAddPan
@@ -680,21 +695,27 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         addPan.setVisible(false);
         mainPan.setVisible(true);
+        clearSelectionsInAdd();
 
+    }//GEN-LAST:event_clickedHomeButFromAddPan
+
+    private void clearSelectionsInAdd()
+    {
         empNumInput.setText(null);
         fNameInput.setText(null);
         lNameInput.setText(null);
         genderSelectionRadButGroup.clearSelection();
-        workLocationDropdown.resetKeyboardActions();
+        workLocationDropdown.setSelectedIndex(0);
         empTypeSelectionRadButGroup.clearSelection();
         annualSalaryInput.setText(null);
         hourlyWageInput.setText(null);
         hoursPerWeekInput.setText(null);
         weeksPerYearInput.setText(null);
         deductionsRateInput.setText(null);
-
-    }//GEN-LAST:event_clickedHomeButFromAddPan
-
+        fullTimeInputsPan.setVisible(false);
+        partTimeInputsPan.setVisible(false);
+    }
+    
     private void fullTimeRadButClicked(java.awt.event.ActionEvent evt)//GEN-FIRST:event_fullTimeRadButClicked
     {//GEN-HEADEREND:event_fullTimeRadButClicked
         // TODO add your handling code here:
@@ -714,17 +735,7 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         addPan.setVisible(false);
         mainPan.setVisible(true);
-        empNumInput.setText(null);
-        fNameInput.setText(null);
-        lNameInput.setText(null);
-        genderSelectionRadButGroup.clearSelection();
-        workLocationDropdown.resetKeyboardActions();
-        empTypeSelectionRadButGroup.clearSelection();
-        deductionsRateInput.setText(null);
-        annualSalaryInput.setText(null);
-        hourlyWageInput.setText(null);
-        hoursPerWeekInput.setText(null);
-        weeksPerYearInput.setText(null);
+        clearSelectionsInAdd();
     }//GEN-LAST:event_clickedCanelButFromAddPan
 
     private void homeButFromRemovePanclicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromRemovePanclicked
@@ -810,7 +821,7 @@ public class MainMenu extends javax.swing.JFrame
         {
             tempWorkLocation = 2;
         }
-        double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText());
+        double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText())/100;
 
         double tempAnnualSalary = 0;
         double tempHourlyWage = 0;
@@ -838,9 +849,14 @@ public class MainMenu extends javax.swing.JFrame
             {
                 theTable.add(tempPartEmp);
             }
+            empExistNotice.setVisible(false);
+            saveSuccessNotice.setVisible(true);
+            clearSelectionsInAdd();
         } else
         {
+            saveSuccessNotice.setVisible(false);
             empExistNotice.setVisible(true);
+            clearSelectionsInAdd();
         }
 
         theTable.displayContents();
@@ -877,8 +893,7 @@ public class MainMenu extends javax.swing.JFrame
         if (theTable.search(tempEmpNumInput) < 0)
         {
             notFoundLabelSearchPan.setVisible(true);
-        } 
-        else
+        } else
         {
             searchResultPan.setVisible(true);
             notFoundLabelSearchPan.setVisible(false);
@@ -906,10 +921,60 @@ public class MainMenu extends javax.swing.JFrame
     private void clickedDisplayButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedDisplayButFromMainPan
         // TODO add your handling code here:
         mainPan.setVisible(false);
-        setSize(1280,960);
-        displayPan.setSize(1280,960);
+        setSize(1280, 960);
+        displayPan.setSize(1280, 960);
         displayPan.setVisible(true);
         
+   DefaultTableModel model = (DefaultTableModel) outPutTable.getModel();
+   
+        for (int a = 0; a < theTable.getBuckets().length; a++)
+        {
+            for (int b = 0; b < theTable.getBuckets()[a].size(); b++)  
+            {                
+                if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee) {
+                    FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
+                    String sexOutput=null;
+                    String workLocOutput=null;
+                    if (realFullTimeEmp.getSex()==0)
+                        sexOutput = "Male";
+                    else if (realFullTimeEmp.getSex()==1)
+                        sexOutput = "Female";
+                    else if (realFullTimeEmp.getSex()==2)
+                        sexOutput = "Other";
+                    if (realFullTimeEmp.getWorkLocation()==0)
+                        workLocOutput= "Mississauga";
+                    else if (realFullTimeEmp.getWorkLocation()==1)
+                        workLocOutput = "Ottawa";
+                    else if (realFullTimeEmp.getWorkLocation()==2)
+                        workLocOutput = "Chicago";
+                    model.addRow (new Object[]{realFullTimeEmp.getEmpNum(),realFullTimeEmp.getFirstName(),realFullTimeEmp.getLastName(),
+                    sexOutput,workLocOutput,realFullTimeEmp.getDeductionsRate()*100+"%","*","-",realFullTimeEmp.getAnnualSalary(),"-","-","-",realFullTimeEmp.calcAnnualIncome()});
+                }
+                else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee) {
+                    PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
+                String sexOutput=null;
+                    String workLocOutput=null;
+                    if (realPartTimeEmp.getSex()==0)
+                        sexOutput = "Male";
+                    else if (realPartTimeEmp.getSex()==1)
+                        sexOutput = "Female";
+                    else if (realPartTimeEmp.getSex()==2)
+                        sexOutput = "Other";
+                    if (realPartTimeEmp.getWorkLocation()==0)
+                        workLocOutput= "Mississauga";
+                    else if (realPartTimeEmp.getWorkLocation()==1)
+                        workLocOutput = "Ottawa";
+                    else if (realPartTimeEmp.getWorkLocation()==2)
+                        workLocOutput = "Chicago"; 
+                    model.addRow (new Object[]{realPartTimeEmp.getEmpNum(),realPartTimeEmp.getFirstName(),realPartTimeEmp.getLastName(),
+                    sexOutput,workLocOutput,realPartTimeEmp.getDeductionsRate()*100+"%","-","*","-",realPartTimeEmp.getHourlyWage(),realPartTimeEmp.getHoursPerWeek(),
+                    realPartTimeEmp.getWeeksPerYear(),realPartTimeEmp.calcAnnualIncome()});
+                }
+            }
+        }
+
+
+
     }//GEN-LAST:event_clickedDisplayButFromMainPan
 
     private void exitBut4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_exitBut4ActionPerformed
@@ -944,20 +1009,32 @@ public class MainMenu extends javax.swing.JFrame
                 {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
+            java.util.logging.Logger.getLogger(MainMenu.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
+            java.util.logging.Logger.getLogger(MainMenu.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+            java.util.logging.Logger.getLogger(MainMenu.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenu.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -1021,7 +1098,6 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField lNameInput;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JButton loadBut;
@@ -1033,14 +1109,17 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JLabel note2Label;
     private javax.swing.JLabel note2Label1;
     private javax.swing.JRadioButton otherRadBut;
+    private javax.swing.JTable outPutTable;
     private javax.swing.JPanel partTimeInputsPan;
     private javax.swing.JRadioButton partTimeRadBut;
+    private javax.swing.JLabel percentSymbolLabel;
     private javax.swing.JButton removeBut;
     private javax.swing.JLabel removeNoteLabel;
     private javax.swing.JPanel removePan;
     private javax.swing.JPanel removeResultPan;
     private javax.swing.JLabel removeTitle;
     private javax.swing.JButton saveButFromAddPan;
+    private javax.swing.JLabel saveSuccessNotice;
     private javax.swing.JButton searchBut;
     private javax.swing.JButton searchButToRemove;
     private javax.swing.JButton searchButToRemove1;

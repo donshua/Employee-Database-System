@@ -8,7 +8,9 @@
  *
  * @author donshua
  */
+import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class OpenHashTable
 {
@@ -41,20 +43,24 @@ public class OpenHashTable
         buckets[targetBucket].add(itemToAdd);
     }
 
+    public ArrayList<EmployeeInfo>[] getBuckets()
+    {
+        return buckets;
+    }
+
     public void displayContents()
     {
         for (int a = 0; a < buckets.length; a++)  //first to loop through the buckets
         {
-            System.out.println("Bucket " + a);
+            System.out.println("Bucket " + a);	
             for (int b = 0; b < buckets[a].size(); b++)  //then loop through each bucket's arraylist to print 
             {                                            //out all the employee's empNumber
                 System.out.print(buckets[a].get(b).getEmpNum() + " ");
-                System.out.println((buckets[a].get(b) instanceof FullTimeEmployee));
             }
             System.out.println("");
         }
     }
-
+    
     public String displayOneEmp (int theNumber)
     {
      int empNumForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getEmpNum();
