@@ -111,6 +111,7 @@ public class MainMenu extends javax.swing.JFrame
         removeConfirmLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         outPutTable1 = new javax.swing.JTable();
+        removeSuccessNotice = new javax.swing.JLabel();
         searchPan = new javax.swing.JPanel();
         searchTitle1 = new javax.swing.JLabel();
         homeButFromRemovePan1 = new javax.swing.JButton();
@@ -413,9 +414,9 @@ public class MainMenu extends javax.swing.JFrame
 
         getContentPane().add(addPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
-        removePan.setMaximumSize(new java.awt.Dimension(1280, 450));
+        removePan.setMaximumSize(new java.awt.Dimension(1280, 960));
         removePan.setMinimumSize(new java.awt.Dimension(600, 450));
-        removePan.setPreferredSize(new java.awt.Dimension(600, 450));
+        removePan.setPreferredSize(new java.awt.Dimension(1280, 960));
         removePan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         removeTitle.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
@@ -465,7 +466,7 @@ public class MainMenu extends javax.swing.JFrame
         removeNoBut.setText("No");
         removeNoBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeNoButActionPerformed(evt);
+                clickedNoButFromRemovePan(evt);
             }
         });
         removeResultPan.add(removeNoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
@@ -473,7 +474,7 @@ public class MainMenu extends javax.swing.JFrame
         removeYesBut.setText("Yes");
         removeYesBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeYesButActionPerformed(evt);
+                clickedYesButFromRemovePan(evt);
             }
         });
         removeResultPan.add(removeYesBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
@@ -498,6 +499,7 @@ public class MainMenu extends javax.swing.JFrame
             }
         });
         outPutTable1.setMaximumSize(new java.awt.Dimension(1024, 768));
+        outPutTable1.setPreferredSize(new java.awt.Dimension(1280, 960));
         jScrollPane2.setViewportView(outPutTable1);
         if (outPutTable1.getColumnModel().getColumnCount() > 0) {
             outPutTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
@@ -517,9 +519,13 @@ public class MainMenu extends javax.swing.JFrame
 
         removeResultPan.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1250, 100));
 
+        removeSuccessNotice.setForeground(new java.awt.Color(255, 0, 0));
+        removeSuccessNotice.setText("The employee has been removed successfully!");
+        removeResultPan.add(removeSuccessNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 360, 30));
+
         removePan.add(removeResultPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 1270, 190));
 
-        getContentPane().add(removePan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(removePan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 960));
 
         searchPan.setMaximumSize(new java.awt.Dimension(600, 450));
         searchPan.setMinimumSize(new java.awt.Dimension(600, 450));
@@ -573,10 +579,10 @@ public class MainMenu extends javax.swing.JFrame
         searchResultPan.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         empInfoDisplayLabel1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 empInfoDisplayLabel1InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         searchResultPan.add(empInfoDisplayLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 460, 30));
@@ -736,10 +742,11 @@ public class MainMenu extends javax.swing.JFrame
         {
             removeResultPan.setVisible(true);
             notFoundLabel.setVisible(false);
+            removeSuccessNotice.setVisible(false);
             setSize(1280, 960);
             removePan.setSize(1280, 960);
             
-            DefaultTableModel model = (DefaultTableModel) outPutTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) outPutTable1.getModel();
             int a = theTable.calcBuckets(tempEmpNum);
             int b = theTable.search(tempEmpNum);
             
@@ -1008,20 +1015,20 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_fNameInputActionPerformed
 
-    private void removeYesButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeYesButActionPerformed
+    private void clickedYesButFromRemovePan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedYesButFromRemovePan
         // TODO add your handling code here:
-        int tempEmpNumInput = Integer.parseInt(empNumSearchInput.getText());
+        int tempEmpNumInput = Integer.parseInt(empNumRemoveSearchInput.getText());
         theTable.remove(tempEmpNumInput);
         notFoundLabel.setVisible(false);
         removeResultPan.setVisible(false);
+        removeSuccessNotice.setVisible(true);
+    }//GEN-LAST:event_clickedYesButFromRemovePan
 
-    }//GEN-LAST:event_removeYesButActionPerformed
-
-    private void removeNoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeNoButActionPerformed
+    private void clickedNoButFromRemovePan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedNoButFromRemovePan
         // TODO add your handling code here:
         notFoundLabel.setVisible(false);
         removeResultPan.setVisible(false);
-    }//GEN-LAST:event_removeNoButActionPerformed
+    }//GEN-LAST:event_clickedNoButFromRemovePan
 
     /**
      * @param args the command line arguments
@@ -1150,6 +1157,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JLabel removeNoteLabel;
     private javax.swing.JPanel removePan;
     private javax.swing.JPanel removeResultPan;
+    private javax.swing.JLabel removeSuccessNotice;
     private javax.swing.JLabel removeTitle;
     private javax.swing.JButton removeYesBut;
     private javax.swing.JButton saveButFromAddPan;
