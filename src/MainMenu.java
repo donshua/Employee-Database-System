@@ -785,6 +785,9 @@ public class MainMenu extends javax.swing.JFrame
                         workLocOutput = "Ottawa";
                     else if (realPartTimeEmp.getWorkLocation()==2)
                         workLocOutput = "Chicago"; 
+                    model.addRow (new Object[]{realPartTimeEmp.getEmpNum(),realPartTimeEmp.getFirstName(),realPartTimeEmp.getLastName(),
+                    sexOutput,workLocOutput,realPartTimeEmp.getDeductionsRate()*100+"%","-","*","-",realPartTimeEmp.getHourlyWage(),realPartTimeEmp.getHoursPerWeek(),
+                    realPartTimeEmp.getWeeksPerYear(),realPartTimeEmp.calcAnnualIncome()});
                 }
         }
     }//GEN-LAST:event_searchButToRemoveActionPerformed
