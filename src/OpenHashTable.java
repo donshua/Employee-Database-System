@@ -52,7 +52,7 @@ public class OpenHashTable
     {
         for (int a = 0; a < buckets.length; a++)  //first to loop through the buckets
         {
-            System.out.println("Bucket " + a);	
+            System.out.println("Bucket " + a);
             for (int b = 0; b < buckets[a].size(); b++)  //then loop through each bucket's arraylist to print 
             {                                            //out all the employee's empNumber
                 System.out.print(buckets[a].get(b).getEmpNum() + " ");
@@ -60,25 +60,35 @@ public class OpenHashTable
             System.out.println("");
         }
     }
-    
-    public String displayOneEmp (int theNumber)
+
+public String displayOneEmp (int theNumber)
     {
      int empNumForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getEmpNum();
      String empNumOut = Integer.toString(empNumForOut);
      String fNameOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getFirstName();
      String lNameOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getLastName();
      int sexCode = buckets[calcBuckets(theNumber)].get(search(theNumber)).getSex();
-     String sexOut = null;
-     if (sexCode==0)
-     sexOut="M";
-     else if (sexCode ==1)
-     sexOut="F";
-     else if(sexCode ==2)
-     sexOut="O";
+     String sexOut =Integer.toString(sexCode);
      double dedRateForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getDeductionsRate();
      String dedRateOut = Double.toString(dedRateForOut);
-     String outPut=String.format("%3s %20s %20s %10s %10s",empNumOut,fNameOut,lNameOut,sexOut,dedRateOut);
-     return(outPut);
+     if (buckets[calcBuckets(theNumber)].get(search(theNumber)) instanceof FullTimeEmployee)
+     {
+     FullTimeEmployee fullTimeEmpOut = (FullTimeEmployee) buckets[calcBuckets(theNumber)].get(search(theNumber));
+     String annualSalOut= Double.toString(fullTimeEmpOut.getAnnualSalary());
+     String fullTimeOutPut = ("F"+";"+empNumOut+";"+fNameOut+";"+lNameOut+";"+sexOut+";"+dedRateOut+";"+annualSalOut);
+     return(fullTimeOutPut);
+     }
+     else if (buckets[calcBuckets(theNumber)].get(search(theNumber)) instanceof PartTimeEmployee)
+     {
+     PartTimeEmployee partTimeEmpOut = (PartTimeEmployee) buckets[calcBuckets(theNumber)].get(search(theNumber));
+     String hourlyWageOut = Double.toString(partTimeEmpOut.getHourlyWage());
+     String hrsPerWeekOut = Double.toString(partTimeEmpOut.getHoursPerWeek());
+     String weeksPerYrOut = Double.toString(partTimeEmpOut.getWeeksPerYear());
+     String partTimeOutPut=("P"+";"+empNumOut+";"+fNameOut+";"+lNameOut+";"+sexOut+
+             ";"+dedRateOut+";"+hourlyWageOut+";"+hrsPerWeekOut+";"+weeksPerYrOut);
+     return(partTimeOutPut); 
+     }
+     return(null);
     }
     
     public int search(int keyToFind)
