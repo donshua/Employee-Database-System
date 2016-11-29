@@ -1,6 +1,9 @@
 
 import java.awt.Dimension;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -31,6 +34,7 @@ public class MainMenu extends javax.swing.JFrame
         initComponents();
         setSize(600, 470);
         mainPan.setVisible(true);
+        loadSuccessNotice.setVisible(false);
         addPan.setVisible(false);
         removePan.setVisible(false);
         searchPan.setVisible(false);
@@ -59,6 +63,7 @@ public class MainMenu extends javax.swing.JFrame
         modifyBut = new javax.swing.JButton();
         loadBut = new javax.swing.JButton();
         exitBut = new javax.swing.JButton();
+        loadSuccessNotice = new javax.swing.JLabel();
         addPan = new javax.swing.JPanel();
         homeButFromAddPan = new javax.swing.JButton();
         addTitle = new javax.swing.JLabel();
@@ -203,7 +208,7 @@ public class MainMenu extends javax.swing.JFrame
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                loadButActionPerformed(evt);
+                clickedLoadButFromMainPan(evt);
             }
         });
         mainPan.add(loadBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 120, 60));
@@ -217,6 +222,10 @@ public class MainMenu extends javax.swing.JFrame
             }
         });
         mainPan.add(exitBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+
+        loadSuccessNotice.setForeground(new java.awt.Color(255, 0, 51));
+        loadSuccessNotice.setText("The employee info has been retrieved from the text file!");
+        mainPan.add(loadSuccessNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
 
         getContentPane().add(mainPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -769,7 +778,7 @@ public class MainMenu extends javax.swing.JFrame
         fullTimeInputsPan.setVisible(false);
         partTimeInputsPan.setVisible(false);
     }
-    
+
     private void fullTimeRadButClicked(java.awt.event.ActionEvent evt)//GEN-FIRST:event_fullTimeRadButClicked
     {//GEN-HEADEREND:event_fullTimeRadButClicked
         // TODO add your handling code here:
@@ -796,14 +805,14 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         removePan.setVisible(false);
         mainPan.setVisible(true);
-        setSize(600,450);
+        setSize(600, 450);
     }//GEN-LAST:event_homeButFromRemovePanclicked
 
     private void searchButToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButToRemoveActionPerformed
         // TODO add your handling code here:
         int tempEmpNum = Integer.parseInt(empNumRemoveSearchInput.getText());
         theTable.search(tempEmpNum);
-        
+
         if (theTable.search(tempEmpNum) < 0)
         {
             notFoundLabel.setVisible(true);
@@ -815,69 +824,93 @@ public class MainMenu extends javax.swing.JFrame
             removeSuccessNotice.setVisible(false);
             setSize(1280, 960);
             removePan.setSize(1280, 960);
-            
+
             DefaultTableModel model = (DefaultTableModel) outPutTable1.getModel();
             int a = theTable.calcBuckets(tempEmpNum);
             int b = theTable.search(tempEmpNum);
-            
-                if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee) {
-                    FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
-                    String sexOutput=null;
-                    String workLocOutput=null;
-                    if (realFullTimeEmp.getSex()==0)
-                        sexOutput = "Male";
-                    else if (realFullTimeEmp.getSex()==1)
-                        sexOutput = "Female";
-                    else if (realFullTimeEmp.getSex()==2)
-                        sexOutput = "Other";
-                    if (realFullTimeEmp.getWorkLocation()==0)
-                        workLocOutput= "Mississauga";
-                    else if (realFullTimeEmp.getWorkLocation()==1)
-                        workLocOutput = "Ottawa";
-                    else if (realFullTimeEmp.getWorkLocation()==2)
-                        workLocOutput = "Chicago";
-                    model.addRow (new Object[]{realFullTimeEmp.getEmpNum(),realFullTimeEmp.getFirstName(),realFullTimeEmp.getLastName(),
-                    sexOutput,workLocOutput,realFullTimeEmp.getDeductionsRate()*100+"%","*","-",realFullTimeEmp.getAnnualSalary(),"-","-","-",realFullTimeEmp.calcAnnualIncome()});
+
+            if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
+            {
+                FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
+                String sexOutput = null;
+                String workLocOutput = null;
+                if (realFullTimeEmp.getSex() == 0)
+                {
+                    sexOutput = "Male";
+                } else if (realFullTimeEmp.getSex() == 1)
+                {
+                    sexOutput = "Female";
+                } else if (realFullTimeEmp.getSex() == 2)
+                {
+                    sexOutput = "Other";
                 }
-                else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee) {
-                    PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
-                String sexOutput=null;
-                    String workLocOutput=null;
-                    if (realPartTimeEmp.getSex()==0)
-                        sexOutput = "Male";
-                    else if (realPartTimeEmp.getSex()==1)
-                        sexOutput = "Female";
-                    else if (realPartTimeEmp.getSex()==2)
-                        sexOutput = "Other";
-                    if (realPartTimeEmp.getWorkLocation()==0)
-                        workLocOutput= "Mississauga";
-                    else if (realPartTimeEmp.getWorkLocation()==1)
-                        workLocOutput = "Ottawa";
-                    else if (realPartTimeEmp.getWorkLocation()==2)
-                        workLocOutput = "Chicago"; 
-                    model.addRow (new Object[]{realPartTimeEmp.getEmpNum(),realPartTimeEmp.getFirstName(),realPartTimeEmp.getLastName(),
-                    sexOutput,workLocOutput,realPartTimeEmp.getDeductionsRate()*100+"%","-","*","-",realPartTimeEmp.getHourlyWage(),realPartTimeEmp.getHoursPerWeek(),
-                    realPartTimeEmp.getWeeksPerYear(),realPartTimeEmp.calcAnnualIncome()});
+                if (realFullTimeEmp.getWorkLocation() == 0)
+                {
+                    workLocOutput = "Mississauga";
+                } else if (realFullTimeEmp.getWorkLocation() == 1)
+                {
+                    workLocOutput = "Ottawa";
+                } else if (realFullTimeEmp.getWorkLocation() == 2)
+                {
+                    workLocOutput = "Chicago";
                 }
+                model.addRow(new Object[]
+                {
+                    realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
+                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
+                });
+            } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
+            {
+                PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
+                String sexOutput = null;
+                String workLocOutput = null;
+                if (realPartTimeEmp.getSex() == 0)
+                {
+                    sexOutput = "Male";
+                } else if (realPartTimeEmp.getSex() == 1)
+                {
+                    sexOutput = "Female";
+                } else if (realPartTimeEmp.getSex() == 2)
+                {
+                    sexOutput = "Other";
+                }
+                if (realPartTimeEmp.getWorkLocation() == 0)
+                {
+                    workLocOutput = "Mississauga";
+                } else if (realPartTimeEmp.getWorkLocation() == 1)
+                {
+                    workLocOutput = "Ottawa";
+                } else if (realPartTimeEmp.getWorkLocation() == 2)
+                {
+                    workLocOutput = "Chicago";
+                }
+                model.addRow(new Object[]
+                {
+                    realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
+                    sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
+                    realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
+                });
+            }
         }
     }//GEN-LAST:event_searchButToRemoveActionPerformed
 
     private void clickedExitButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedExitButFromMainPan
         // TODO add your handling code here:
-        
-         try
-         {
+
+        try
+        {
             BufferedWriter writer;
             writer = new BufferedWriter(new FileWriter(".\\SavedEmployeeData.txt"));
             for (int x = 0; x < theTable.getBuckets().length; x++)
             {
-                 for (int y = 0; y < theTable.getBuckets()[x].size(); y++)  
-                 {writer.write(theTable.displayOneEmp(theTable.getBuckets()[x].get(y).getEmpNum()));}
-            writer.newLine();
+                for (int y = 0; y < theTable.getBuckets()[x].size(); y++)
+                {
+                    writer.write(theTable.displayOneEmp(theTable.getBuckets()[x].get(y).getEmpNum()));
+                    writer.newLine();
+                }
             }
             writer.close();
-        } 
-         catch (IOException ex)
+        } catch (IOException ex)
         {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -902,7 +935,7 @@ public class MainMenu extends javax.swing.JFrame
         removeResultPan.setVisible(false);
         searchPan.setVisible(false);
         empNumRemoveSearchInput.setText(null);
-        saveSuccessNotice.setVisible(false);
+        removeSuccessNotice.setVisible(false);
     }//GEN-LAST:event_clickedRemoveFromMainPan
 
     private void clickedSaveButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedSaveButFromAddPan
@@ -933,7 +966,7 @@ public class MainMenu extends javax.swing.JFrame
         {
             tempWorkLocation = 2;
         }
-        double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText())/100;
+        double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText()) / 100;
 
         double tempAnnualSalary = 0;
         double tempHourlyWage = 0;
@@ -1024,55 +1057,82 @@ public class MainMenu extends javax.swing.JFrame
         setSize(1280, 960);
         displayPan.setSize(1280, 960);
         displayPan.setVisible(true);
-        
-   DefaultTableModel model = (DefaultTableModel) outPutTable.getModel();
-   
+
+        DefaultTableModel model = (DefaultTableModel) outPutTable.getModel();
+        int rows = model.getRowCount();
+        for (int i = rows - 1; i >= 0; i--)
+        {
+            model.removeRow(i);
+        }
+
         for (int a = 0; a < theTable.getBuckets().length; a++)
         {
-            for (int b = 0; b < theTable.getBuckets()[a].size(); b++)  
-            {                
-                if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee) {
+            for (int b = 0; b < theTable.getBuckets()[a].size(); b++)
+            {
+                if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
+                {
                     FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
-                    String sexOutput=null;
-                    String workLocOutput=null;
-                    if (realFullTimeEmp.getSex()==0)
+                    String sexOutput = null;
+                    String workLocOutput = null;
+                    if (realFullTimeEmp.getSex() == 0)
+                    {
                         sexOutput = "Male";
-                    else if (realFullTimeEmp.getSex()==1)
+                    } else if (realFullTimeEmp.getSex() == 1)
+                    {
                         sexOutput = "Female";
-                    else if (realFullTimeEmp.getSex()==2)
+                    } else if (realFullTimeEmp.getSex() == 2)
+                    {
                         sexOutput = "Other";
-                    if (realFullTimeEmp.getWorkLocation()==0)
-                        workLocOutput= "Mississauga";
-                    else if (realFullTimeEmp.getWorkLocation()==1)
+                    }
+                    if (realFullTimeEmp.getWorkLocation() == 0)
+                    {
+                        workLocOutput = "Mississauga";
+                    } else if (realFullTimeEmp.getWorkLocation() == 1)
+                    {
                         workLocOutput = "Ottawa";
-                    else if (realFullTimeEmp.getWorkLocation()==2)
+                    } else if (realFullTimeEmp.getWorkLocation() == 2)
+                    {
                         workLocOutput = "Chicago";
-                    model.addRow (new Object[]{realFullTimeEmp.getEmpNum(),realFullTimeEmp.getFirstName(),realFullTimeEmp.getLastName(),
-                    sexOutput,workLocOutput,realFullTimeEmp.getDeductionsRate()*100+"%","*","-",realFullTimeEmp.getAnnualSalary(),"-","-","-",realFullTimeEmp.calcAnnualIncome()});
-                }
-                else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee) {
+                    }
+                    model.addRow(new Object[]
+                    {
+                        realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
+                        sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
+                    });
+                } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
+                {
                     PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
-                String sexOutput=null;
-                    String workLocOutput=null;
-                    if (realPartTimeEmp.getSex()==0)
+                    String sexOutput = null;
+                    String workLocOutput = null;
+                    if (realPartTimeEmp.getSex() == 0)
+                    {
                         sexOutput = "Male";
-                    else if (realPartTimeEmp.getSex()==1)
+                    } else if (realPartTimeEmp.getSex() == 1)
+                    {
                         sexOutput = "Female";
-                    else if (realPartTimeEmp.getSex()==2)
+                    } else if (realPartTimeEmp.getSex() == 2)
+                    {
                         sexOutput = "Other";
-                    if (realPartTimeEmp.getWorkLocation()==0)
-                        workLocOutput= "Mississauga";
-                    else if (realPartTimeEmp.getWorkLocation()==1)
+                    }
+                    if (realPartTimeEmp.getWorkLocation() == 0)
+                    {
+                        workLocOutput = "Mississauga";
+                    } else if (realPartTimeEmp.getWorkLocation() == 1)
+                    {
                         workLocOutput = "Ottawa";
-                    else if (realPartTimeEmp.getWorkLocation()==2)
-                        workLocOutput = "Chicago"; 
-                    model.addRow (new Object[]{realPartTimeEmp.getEmpNum(),realPartTimeEmp.getFirstName(),realPartTimeEmp.getLastName(),
-                    sexOutput,workLocOutput,realPartTimeEmp.getDeductionsRate()*100+"%","-","*","-",realPartTimeEmp.getHourlyWage(),realPartTimeEmp.getHoursPerWeek(),
-                    realPartTimeEmp.getWeeksPerYear(),realPartTimeEmp.calcAnnualIncome()});
+                    } else if (realPartTimeEmp.getWorkLocation() == 2)
+                    {
+                        workLocOutput = "Chicago";
+                    }
+                    model.addRow(new Object[]
+                    {
+                        realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
+                        sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
+                        realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
+                    });
                 }
             }
         }
-
 
 
     }//GEN-LAST:event_clickedDisplayButFromMainPan
@@ -1087,7 +1147,7 @@ public class MainMenu extends javax.swing.JFrame
     {//GEN-HEADEREND:event_clickedHomeButFromDisplayPan
         // TODO add your handling code here:
         displayPan.setVisible(false);
-        setSize(600,470);
+        setSize(600, 470);
         mainPan.setVisible(true);
     }//GEN-LAST:event_clickedHomeButFromDisplayPan
 
@@ -1110,11 +1170,50 @@ public class MainMenu extends javax.swing.JFrame
         removeResultPan.setVisible(false);
     }//GEN-LAST:event_clickedNoButFromRemovePan
 
-    private void loadButActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_loadButActionPerformed
-    {//GEN-HEADEREND:event_loadButActionPerformed
+    private void clickedLoadButFromMainPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedLoadButFromMainPan
+    {//GEN-HEADEREND:event_clickedLoadButFromMainPan
         // TODO add your handling code here:
-        System.out.println(theTable.displayOneEmp(12));
-    }//GEN-LAST:event_loadButActionPerformed
+        BufferedReader reader;
+        try
+        {
+            reader = new BufferedReader(new FileReader(".\\SavedEmployeeData.txt"));
+            String line;
+            while ((line = reader.readLine()) != null)
+            {
+                String[] oneEmp = line.split(";");
+                int empNumForInput = Integer.parseInt(oneEmp[1]);
+                String fNameForInput = oneEmp[2];
+                String lNameForInput = oneEmp[3];
+                int sexCodeForInput = Integer.parseInt(oneEmp[4]);
+                int worklocCodeForInput = Integer.parseInt(oneEmp[5]);
+                double dedRateForInput = Double.parseDouble(oneEmp[6]);
+
+                if ("F".equals(oneEmp[0]))
+                {
+                    double annualSalForInput = Double.parseDouble(oneEmp[7]);
+                    FullTimeEmployee fullTimeInput = new FullTimeEmployee(empNumForInput, fNameForInput, lNameForInput, sexCodeForInput,
+                            worklocCodeForInput, dedRateForInput, annualSalForInput);
+                    theTable.add(fullTimeInput);
+                } else if ("P".equals(oneEmp[0]))
+                {
+                    double hrlyWageForInput = Double.parseDouble(oneEmp[7]);
+                    double hrsPerWeekForInput = Double.parseDouble(oneEmp[8]);
+                    double weeksPerYr = Double.parseDouble(oneEmp[9]);
+                    PartTimeEmployee partTimeInput = new PartTimeEmployee(empNumForInput, fNameForInput, lNameForInput, sexCodeForInput,
+                            worklocCodeForInput, dedRateForInput, hrlyWageForInput, hrsPerWeekForInput, weeksPerYr);
+                    theTable.add(partTimeInput);
+                }
+            }
+            loadSuccessNotice.setVisible(true);
+        } catch (FileNotFoundException ex)
+        {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex)
+        {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_clickedLoadButFromMainPan
 
     /**
      * @param args the command line arguments
@@ -1134,32 +1233,28 @@ public class MainMenu extends javax.swing.JFrame
                 {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-}
+                }
             }
         } catch (ClassNotFoundException ex)
         {
             java.util.logging.Logger.getLogger(MainMenu.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex)
+        } catch (InstantiationException ex)
         {
             java.util.logging.Logger.getLogger(MainMenu.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (IllegalAccessException ex)
+        } catch (IllegalAccessException ex)
         {
             java.util.logging.Logger.getLogger(MainMenu.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (javax.swing.UnsupportedLookAndFeelException ex)
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
             java.util.logging.Logger.getLogger(MainMenu.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -1224,6 +1319,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JTextField lNameInput;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JButton loadBut;
+    private javax.swing.JLabel loadSuccessNotice;
     private javax.swing.JPanel mainPan;
     private javax.swing.JRadioButton maleRadBut;
     private javax.swing.JButton modifyBut;

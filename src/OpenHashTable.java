@@ -69,13 +69,15 @@ public String displayOneEmp (int theNumber)
      String lNameOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getLastName();
      int sexCode = buckets[calcBuckets(theNumber)].get(search(theNumber)).getSex();
      String sexOut =Integer.toString(sexCode);
+     int workLocCode =  buckets[calcBuckets(theNumber)].get(search(theNumber)).getWorkLocation();
+     String workLocOut = Integer.toString(workLocCode);
      double dedRateForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getDeductionsRate();
      String dedRateOut = Double.toString(dedRateForOut);
      if (buckets[calcBuckets(theNumber)].get(search(theNumber)) instanceof FullTimeEmployee)
      {
      FullTimeEmployee fullTimeEmpOut = (FullTimeEmployee) buckets[calcBuckets(theNumber)].get(search(theNumber));
      String annualSalOut= Double.toString(fullTimeEmpOut.getAnnualSalary());
-     String fullTimeOutPut = ("F"+";"+empNumOut+";"+fNameOut+";"+lNameOut+";"+sexOut+";"+dedRateOut+";"+annualSalOut);
+     String fullTimeOutPut = ("F"+";"+empNumOut+";"+fNameOut+";"+lNameOut+";"+sexOut+";"+workLocOut+";"+dedRateOut+";"+annualSalOut);
      return(fullTimeOutPut);
      }
      else if (buckets[calcBuckets(theNumber)].get(search(theNumber)) instanceof PartTimeEmployee)
@@ -85,7 +87,7 @@ public String displayOneEmp (int theNumber)
      String hrsPerWeekOut = Double.toString(partTimeEmpOut.getHoursPerWeek());
      String weeksPerYrOut = Double.toString(partTimeEmpOut.getWeeksPerYear());
      String partTimeOutPut=("P"+";"+empNumOut+";"+fNameOut+";"+lNameOut+";"+sexOut+
-             ";"+dedRateOut+";"+hourlyWageOut+";"+hrsPerWeekOut+";"+weeksPerYrOut);
+             ";"+workLocOut+";"+dedRateOut+";"+hourlyWageOut+";"+hrsPerWeekOut+";"+weeksPerYrOut);
      return(partTimeOutPut); 
      }
      return(null);
