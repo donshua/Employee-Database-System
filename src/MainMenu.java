@@ -49,8 +49,7 @@ public class MainMenu extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         genderSelectionRadButGroup = new javax.swing.ButtonGroup();
         empTypeSelectionRadButGroup = new javax.swing.ButtonGroup();
@@ -127,12 +126,12 @@ public class MainMenu extends javax.swing.JFrame
         note2Label1 = new javax.swing.JLabel();
         searchButToRemove1 = new javax.swing.JButton();
         exitBut3 = new javax.swing.JButton();
-        searchResultPan = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        empInfoDisplayLabel1 = new javax.swing.JLabel();
         notFoundLabelSearchPan = new javax.swing.JLabel();
+        searchResultPan = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        outPutTable2 = new javax.swing.JTable();
         displayPan = new javax.swing.JPanel();
+        exitBut5 = new javax.swing.JButton();
         diaplayTitle = new javax.swing.JLabel();
         homeButFromRemovePan2 = new javax.swing.JButton();
         exitBut4 = new javax.swing.JButton();
@@ -158,20 +157,16 @@ public class MainMenu extends javax.swing.JFrame
         addBut.setMaximumSize(new java.awt.Dimension(50, 20));
         addBut.setMinimumSize(new java.awt.Dimension(50, 20));
         addBut.setPreferredSize(new java.awt.Dimension(50, 20));
-        addBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        addBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedAddFromMainPan(evt);
             }
         });
         mainPan.add(addBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 120, 60));
 
         removeBut.setText("Remove");
-        removeBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        removeBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedRemoveFromMainPan(evt);
             }
         });
@@ -181,20 +176,16 @@ public class MainMenu extends javax.swing.JFrame
         searchBut.setMaximumSize(new java.awt.Dimension(50, 20));
         searchBut.setMinimumSize(new java.awt.Dimension(50, 20));
         searchBut.setPreferredSize(new java.awt.Dimension(50, 20));
-        searchBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        searchBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedSearchButFromMainPan(evt);
             }
         });
         mainPan.add(searchBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 120, 60));
 
         displayBut.setText("Display");
-        displayBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        displayBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedDisplayButFromMainPan(evt);
             }
         });
@@ -204,20 +195,16 @@ public class MainMenu extends javax.swing.JFrame
         mainPan.add(modifyBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 120, 60));
 
         loadBut.setText("Load");
-        loadBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        loadBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedLoadButFromMainPan(evt);
             }
         });
         mainPan.add(loadBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 120, 60));
 
         exitBut.setText("Exit");
-        exitBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        exitBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedExitButFromMainPan(evt);
             }
         });
@@ -235,10 +222,8 @@ public class MainMenu extends javax.swing.JFrame
         addPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeButFromAddPan.setText("Home");
-        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedHomeButFromAddPan(evt);
             }
         });
@@ -257,10 +242,8 @@ public class MainMenu extends javax.swing.JFrame
         fNameLabel.setText("First Name:");
         addPan.add(fNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, 20));
 
-        fNameInput.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        fNameInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fNameInputActionPerformed(evt);
             }
         });
@@ -289,10 +272,8 @@ public class MainMenu extends javax.swing.JFrame
         addPan.add(workLocationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 120, 20));
 
         workLocationDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Mississauga", "Ottawa", "Chicago" }));
-        workLocationDropdown.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        workLocationDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 workLocationDropdownActionPerformed(evt);
             }
         });
@@ -300,10 +281,8 @@ public class MainMenu extends javax.swing.JFrame
 
         empTypeSelectionRadButGroup.add(fullTimeRadBut);
         fullTimeRadBut.setText("Full Time");
-        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fullTimeRadButClicked(evt);
             }
         });
@@ -311,10 +290,8 @@ public class MainMenu extends javax.swing.JFrame
 
         empTypeSelectionRadButGroup.add(partTimeRadBut);
         partTimeRadBut.setText("Part Time");
-        partTimeRadBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        partTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 partTimeRadButClicked(evt);
             }
         });
@@ -327,20 +304,16 @@ public class MainMenu extends javax.swing.JFrame
         addPan.add(deductionsRateInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 70, -1));
 
         saveButFromAddPan.setText("Save");
-        saveButFromAddPan.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        saveButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedSaveButFromAddPan(evt);
             }
         });
         addPan.add(saveButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 70, -1));
 
         cancelButFromAddPan.setText("Cancel");
-        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedCanelButFromAddPan(evt);
             }
         });
@@ -431,10 +404,8 @@ public class MainMenu extends javax.swing.JFrame
         addPan.add(partTimeInputsPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
 
         exitBut1.setText("Exit");
-        exitBut1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        exitBut1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBut1ActionPerformed(evt);
             }
         });
@@ -467,10 +438,8 @@ public class MainMenu extends javax.swing.JFrame
         removePan.add(removeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 32, -1, -1));
 
         homeButFromRemovePan.setText("Home");
-        homeButFromRemovePan.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        homeButFromRemovePan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButFromRemovePanclicked(evt);
             }
         });
@@ -491,20 +460,16 @@ public class MainMenu extends javax.swing.JFrame
         removePan.add(note2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 132, -1, -1));
 
         searchButToRemove.setText("Search");
-        searchButToRemove.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        searchButToRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButToRemoveActionPerformed(evt);
             }
         });
         removePan.add(searchButToRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         exitBut2.setText("Exit");
-        exitBut2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        exitBut2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBut2ActionPerformed(evt);
             }
         });
@@ -517,20 +482,16 @@ public class MainMenu extends javax.swing.JFrame
         removeResultPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         removeNoBut.setText("No");
-        removeNoBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        removeNoBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedNoButFromRemovePan(evt);
             }
         });
         removeResultPan.add(removeNoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
 
         removeYesBut.setText("Yes");
-        removeYesBut.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        removeYesBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedYesButFromRemovePan(evt);
             }
         });
@@ -540,31 +501,25 @@ public class MainMenu extends javax.swing.JFrame
         removeResultPan.add(removeConfirmLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 290, -1));
 
         outPutTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Emp Number", "First Name", "Last Name", "Sex", "Work Location", "Deductions Rate", "Full Time", "Part Time", "Annual Salary", "Hourly Wage", "Hours Per Week", "Weeks Per year", "Annual Income"
             }
-        )
-        {
-            boolean[] canEdit = new boolean []
-            {
+        ) {
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         outPutTable1.setMaximumSize(new java.awt.Dimension(1024, 768));
         outPutTable1.setPreferredSize(new java.awt.Dimension(1280, 960));
         jScrollPane2.setViewportView(outPutTable1);
-        if (outPutTable1.getColumnModel().getColumnCount() > 0)
-        {
+        if (outPutTable1.getColumnModel().getColumnCount() > 0) {
             outPutTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
             outPutTable1.getColumnModel().getColumn(1).setPreferredWidth(45);
             outPutTable1.getColumnModel().getColumn(2).setPreferredWidth(45);
@@ -586,9 +541,9 @@ public class MainMenu extends javax.swing.JFrame
 
         getContentPane().add(removePan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 960));
 
-        searchPan.setMaximumSize(new java.awt.Dimension(600, 450));
+        searchPan.setMaximumSize(new java.awt.Dimension(1280, 960));
         searchPan.setMinimumSize(new java.awt.Dimension(600, 450));
-        searchPan.setPreferredSize(new java.awt.Dimension(600, 450));
+        searchPan.setPreferredSize(new java.awt.Dimension(1280, 960));
         searchPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         searchTitle1.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
@@ -596,10 +551,8 @@ public class MainMenu extends javax.swing.JFrame
         searchPan.add(searchTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 32, -1, -1));
 
         homeButFromRemovePan1.setText("Home");
-        homeButFromRemovePan1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        homeButFromRemovePan1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedHomeButFromSearchPan(evt);
             }
         });
@@ -616,107 +569,121 @@ public class MainMenu extends javax.swing.JFrame
         searchPan.add(note2Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 132, -1, -1));
 
         searchButToRemove1.setText("Search");
-        searchButToRemove1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        searchButToRemove1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedSearchButFromSearchPan(evt);
             }
         });
         searchPan.add(searchButToRemove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         exitBut3.setText("Exit");
-        exitBut3.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        exitBut3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBut3ActionPerformed(evt);
             }
         });
         searchPan.add(exitBut3, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 40, -1, -1));
 
-        searchResultPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setText("jLabel4");
-        searchResultPan.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        jLabel5.setText("jLabel5");
-        searchResultPan.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
-
-        empInfoDisplayLabel1.addInputMethodListener(new java.awt.event.InputMethodListener()
-        {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt)
-            {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt)
-            {
-                empInfoDisplayLabel1InputMethodTextChanged(evt);
-            }
-        });
-        searchResultPan.add(empInfoDisplayLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 460, 30));
-
-        searchPan.add(searchResultPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 480, 180));
-
         notFoundLabelSearchPan.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         notFoundLabelSearchPan.setText("* The employee is not in the database.");
         searchPan.add(notFoundLabelSearchPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 309, 20));
 
-        getContentPane().add(searchPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        searchResultPan.setMinimumSize(new java.awt.Dimension(1280, 110));
+        searchResultPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        outPutTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Emp Number", "First Name", "Last Name", "Sex", "Work Location", "Deductions Rate", "Full Time", "Part Time", "Annual Salary", "Hourly Wage", "Hours Per Week", "Weeks Per year", "Annual Income"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        outPutTable2.setMaximumSize(new java.awt.Dimension(1024, 768));
+        outPutTable2.setPreferredSize(new java.awt.Dimension(1280, 960));
+        jScrollPane3.setViewportView(outPutTable2);
+        if (outPutTable2.getColumnModel().getColumnCount() > 0) {
+            outPutTable2.getColumnModel().getColumn(0).setPreferredWidth(40);
+            outPutTable2.getColumnModel().getColumn(1).setPreferredWidth(45);
+            outPutTable2.getColumnModel().getColumn(2).setPreferredWidth(45);
+            outPutTable2.getColumnModel().getColumn(3).setPreferredWidth(15);
+            outPutTable2.getColumnModel().getColumn(4).setPreferredWidth(55);
+            outPutTable2.getColumnModel().getColumn(5).setPreferredWidth(45);
+            outPutTable2.getColumnModel().getColumn(6).setPreferredWidth(15);
+            outPutTable2.getColumnModel().getColumn(7).setPreferredWidth(15);
+            outPutTable2.getColumnModel().getColumn(8).setPreferredWidth(45);
+            outPutTable2.getColumnModel().getColumn(9).setPreferredWidth(35);
+            outPutTable2.getColumnModel().getColumn(10).setPreferredWidth(40);
+            outPutTable2.getColumnModel().getColumn(11).setPreferredWidth(45);
+            outPutTable2.getColumnModel().getColumn(12).setPreferredWidth(40);
+        }
+
+        searchResultPan.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1250, 100));
+
+        searchPan.add(searchResultPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 1270, 190));
+
+        getContentPane().add(searchPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 960));
 
         displayPan.setMaximumSize(new java.awt.Dimension(1024, 768));
         displayPan.setMinimumSize(new java.awt.Dimension(600, 450));
         displayPan.setPreferredSize(new java.awt.Dimension(1280, 960));
         displayPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        exitBut5.setText("Exit");
+        exitBut5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBut5ActionPerformed(evt);
+            }
+        });
+        displayPan.add(exitBut5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 20, -1, -1));
+
         diaplayTitle.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
         diaplayTitle.setText("Display");
         displayPan.add(diaplayTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
         homeButFromRemovePan2.setText("Home");
-        homeButFromRemovePan2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        homeButFromRemovePan2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickedHomeButFromDisplayPan(evt);
             }
         });
         displayPan.add(homeButFromRemovePan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 27, -1, -1));
 
         exitBut4.setText("Exit");
-        exitBut4.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        exitBut4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBut4ActionPerformed(evt);
             }
         });
         displayPan.add(exitBut4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1830, 27, -1, -1));
 
         outPutTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][]
-            {
+            new Object [][] {
 
             },
-            new String []
-            {
+            new String [] {
                 "Emp Number", "First Name", "Last Name", "Sex", "Work Location", "Deductions Rate", "Full Time", "Part Time", "Annual Salary", "Hourly Wage", "Hours Per Week", "Weeks Per year", "Annual Income"
             }
-        )
-        {
-            boolean[] canEdit = new boolean []
-            {
+        ) {
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex)
-            {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         outPutTable.setMaximumSize(new java.awt.Dimension(1024, 768));
         jScrollPane1.setViewportView(outPutTable);
-        if (outPutTable.getColumnModel().getColumnCount() > 0)
-        {
+        if (outPutTable.getColumnModel().getColumnCount() > 0) {
             outPutTable.getColumnModel().getColumn(0).setPreferredWidth(40);
             outPutTable.getColumnModel().getColumn(1).setPreferredWidth(45);
             outPutTable.getColumnModel().getColumn(2).setPreferredWidth(45);
@@ -808,6 +775,7 @@ public class MainMenu extends javax.swing.JFrame
         setSize(600, 450);
     }//GEN-LAST:event_homeButFromRemovePanclicked
 
+    
     private void searchButToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButToRemoveActionPerformed
         // TODO add your handling code here:
         int tempEmpNum = Integer.parseInt(empNumRemoveSearchInput.getText());
@@ -1029,7 +997,75 @@ public class MainMenu extends javax.swing.JFrame
         {
             searchResultPan.setVisible(true);
             notFoundLabelSearchPan.setVisible(false);
-            empInfoDisplayLabel1.setText(theTable.displayOneEmp(tempEmpNumInput));
+            setSize(1280, 960);
+            searchPan.setSize(1280,960);
+            
+            DefaultTableModel model = (DefaultTableModel) outPutTable2.getModel();
+            int a = theTable.calcBuckets(tempEmpNumInput);
+            int b = theTable.search(tempEmpNumInput);
+
+            if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
+            {
+                FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
+                String sexOutput = null;
+                String workLocOutput = null;
+                if (realFullTimeEmp.getSex() == 0)
+                {
+                    sexOutput = "Male";
+                } else if (realFullTimeEmp.getSex() == 1)
+                {
+                    sexOutput = "Female";
+                } else if (realFullTimeEmp.getSex() == 2)
+                {
+                    sexOutput = "Other";
+                }
+                if (realFullTimeEmp.getWorkLocation() == 0)
+                {
+                    workLocOutput = "Mississauga";
+                } else if (realFullTimeEmp.getWorkLocation() == 1)
+                {
+                    workLocOutput = "Ottawa";
+                } else if (realFullTimeEmp.getWorkLocation() == 2)
+                {
+                    workLocOutput = "Chicago";
+                }
+                model.addRow(new Object[]
+                {
+                    realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
+                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
+                });
+            } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
+            {
+                PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
+                String sexOutput = null;
+                String workLocOutput = null;
+                if (realPartTimeEmp.getSex() == 0)
+                {
+                    sexOutput = "Male";
+                } else if (realPartTimeEmp.getSex() == 1)
+                {
+                    sexOutput = "Female";
+                } else if (realPartTimeEmp.getSex() == 2)
+                {
+                    sexOutput = "Other";
+                }
+                if (realPartTimeEmp.getWorkLocation() == 0)
+                {
+                    workLocOutput = "Mississauga";
+                } else if (realPartTimeEmp.getWorkLocation() == 1)
+                {
+                    workLocOutput = "Ottawa";
+                } else if (realPartTimeEmp.getWorkLocation() == 2)
+                {
+                    workLocOutput = "Chicago";
+                }
+                model.addRow(new Object[]
+                {
+                    realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
+                    sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
+                    realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
+                });
+            }
         }
     }//GEN-LAST:event_clickedSearchButFromSearchPan
 
@@ -1037,10 +1073,6 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitBut3ActionPerformed
-
-    private void empInfoDisplayLabel1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_empInfoDisplayLabel1InputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empInfoDisplayLabel1InputMethodTextChanged
 
     private void clickedSearchButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSearchButFromMainPan
         // TODO add your handling code here:
@@ -1215,6 +1247,11 @@ public class MainMenu extends javax.swing.JFrame
 
     }//GEN-LAST:event_clickedLoadButFromMainPan
 
+    private void exitBut5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut5ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_exitBut5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1283,7 +1320,6 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JButton displayBut;
     private javax.swing.JPanel displayPan;
     private javax.swing.JLabel empExistNotice;
-    private javax.swing.JLabel empInfoDisplayLabel1;
     private javax.swing.JFormattedTextField empNumInput;
     private javax.swing.JLabel empNumLabel;
     private javax.swing.JTextField empNumRemoveSearchInput;
@@ -1298,6 +1334,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JButton exitBut2;
     private javax.swing.JButton exitBut3;
     private javax.swing.JButton exitBut4;
+    private javax.swing.JButton exitBut5;
     private javax.swing.JTextField fNameInput;
     private javax.swing.JLabel fNameLabel;
     private javax.swing.JRadioButton femaleRadBut;
@@ -1312,10 +1349,9 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JLabel hourlyWageLabel;
     private javax.swing.JFormattedTextField hoursPerWeekInput;
     private javax.swing.JLabel hoursPerWeekLabel;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField lNameInput;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JButton loadBut;
@@ -1330,6 +1366,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JRadioButton otherRadBut;
     private javax.swing.JTable outPutTable;
     private javax.swing.JTable outPutTable1;
+    private javax.swing.JTable outPutTable2;
     private javax.swing.JPanel partTimeInputsPan;
     private javax.swing.JRadioButton partTimeRadBut;
     private javax.swing.JLabel percentSymbolLabel;
