@@ -158,14 +158,14 @@ public class MainMenu extends javax.swing.JFrame {
         saveButFromAddPan1 = new javax.swing.JButton();
         cancelButFromAddPan1 = new javax.swing.JButton();
         employeeTypeLabel1 = new javax.swing.JLabel();
-        fullTimeInputsPan1 = new javax.swing.JPanel();
+        partTimeInputsPan1 = new javax.swing.JPanel();
         hourlyWageLabel1 = new javax.swing.JLabel();
         hoursPerWeekLabel1 = new javax.swing.JLabel();
         weeksPerYearLabel1 = new javax.swing.JLabel();
         hourlyWageInput1 = new javax.swing.JFormattedTextField();
         hoursPerWeekInput1 = new javax.swing.JFormattedTextField();
         weeksPerYearInput1 = new javax.swing.JFormattedTextField();
-        partTimeInputsPan1 = new javax.swing.JPanel();
+        fullTimeInputsPan1 = new javax.swing.JPanel();
         annualSalaryLabel1 = new javax.swing.JLabel();
         annualSalaryInput1 = new javax.swing.JFormattedTextField();
         exitBut6 = new javax.swing.JButton();
@@ -229,6 +229,11 @@ public class MainMenu extends javax.swing.JFrame {
         mainPan.add(displayBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 120, 60));
 
         modifyBut.setText("Modify");
+        modifyBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyButActionPerformed(evt);
+            }
+        });
         mainPan.add(modifyBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 120, 60));
 
         loadBut.setText("Load");
@@ -295,6 +300,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         genderSelectionRadButGroup.add(maleRadBut);
         maleRadBut.setText("Male");
+        maleRadBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleRadButActionPerformed(evt);
+            }
+        });
         addPan.add(maleRadBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
 
         genderSelectionRadButGroup.add(femaleRadBut);
@@ -711,7 +721,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false, false, false, false
@@ -862,7 +872,7 @@ public class MainMenu extends javax.swing.JFrame {
         employeeTypeLabel1.setText("Employee Type:");
         modifyPan.add(employeeTypeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 130, 20));
 
-        fullTimeInputsPan1.setMaximumSize(new java.awt.Dimension(200, 200));
+        partTimeInputsPan1.setMaximumSize(new java.awt.Dimension(200, 200));
 
         hourlyWageLabel1.setText("Hourly Wage:");
 
@@ -876,72 +886,72 @@ public class MainMenu extends javax.swing.JFrame {
 
         weeksPerYearInput1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        javax.swing.GroupLayout fullTimeInputsPan1Layout = new javax.swing.GroupLayout(fullTimeInputsPan1);
-        fullTimeInputsPan1.setLayout(fullTimeInputsPan1Layout);
-        fullTimeInputsPan1Layout.setHorizontalGroup(
-            fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fullTimeInputsPan1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(hourlyWageInput1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fullTimeInputsPan1Layout.createSequentialGroup()
-                            .addComponent(weeksPerYearLabel1)
-                            .addGap(24, 24, 24)
-                            .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(weeksPerYearInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(hoursPerWeekInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(hourlyWageLabel1)
-                        .addComponent(hoursPerWeekLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        fullTimeInputsPan1Layout.setVerticalGroup(
-            fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fullTimeInputsPan1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hourlyWageLabel1)
-                    .addComponent(hourlyWageInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hoursPerWeekInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hoursPerWeekLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(weeksPerYearLabel1)
-                    .addComponent(weeksPerYearInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
-        modifyPan.add(fullTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 230, 120));
-
-        annualSalaryLabel1.setText("Annual Salary:");
-
-        annualSalaryInput1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-
         javax.swing.GroupLayout partTimeInputsPan1Layout = new javax.swing.GroupLayout(partTimeInputsPan1);
         partTimeInputsPan1.setLayout(partTimeInputsPan1Layout);
         partTimeInputsPan1Layout.setHorizontalGroup(
             partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(partTimeInputsPan1Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(annualSalaryLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(annualSalaryInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(hourlyWageInput1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, partTimeInputsPan1Layout.createSequentialGroup()
+                            .addComponent(weeksPerYearLabel1)
+                            .addGap(24, 24, 24)
+                            .addGroup(partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(weeksPerYearInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(hoursPerWeekInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(hourlyWageLabel1)
+                        .addComponent(hoursPerWeekLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         partTimeInputsPan1Layout.setVerticalGroup(
             partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(partTimeInputsPan1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hourlyWageLabel1)
+                    .addComponent(hourlyWageInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hoursPerWeekInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hoursPerWeekLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(partTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(weeksPerYearLabel1)
+                    .addComponent(weeksPerYearInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        modifyPan.add(partTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 230, 120));
+
+        annualSalaryLabel1.setText("Annual Salary:");
+
+        annualSalaryInput1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+
+        javax.swing.GroupLayout fullTimeInputsPan1Layout = new javax.swing.GroupLayout(fullTimeInputsPan1);
+        fullTimeInputsPan1.setLayout(fullTimeInputsPan1Layout);
+        fullTimeInputsPan1Layout.setHorizontalGroup(
+            fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fullTimeInputsPan1Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(annualSalaryLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(annualSalaryInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        fullTimeInputsPan1Layout.setVerticalGroup(
+            fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fullTimeInputsPan1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fullTimeInputsPan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(annualSalaryInput1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(annualSalaryLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        modifyPan.add(partTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
+        modifyPan.add(fullTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
 
         exitBut6.setText("Exit");
         exitBut6.addActionListener(new java.awt.event.ActionListener() {
@@ -1026,8 +1036,8 @@ public class MainMenu extends javax.swing.JFrame {
         hoursPerWeekInput1.setText(null);
         weeksPerYearInput1.setText(null);
         deductionsRateInput1.setText(null);
-        fullTimeInputsPan1.setVisible(false);
         partTimeInputsPan1.setVisible(false);
+        fullTimeInputsPan1.setVisible(false);
     }
 
     private void fullTimeRadButClicked(java.awt.event.ActionEvent evt)//GEN-FIRST:event_fullTimeRadButClicked
@@ -1468,6 +1478,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void homeButFromAddPan1clickedHomeButFromAddPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromAddPan1clickedHomeButFromAddPan
         // TODO add your handling code here:
+        modifyPan.setVisible(false);
+        mainPan.setVisible(true);
     }//GEN-LAST:event_homeButFromAddPan1clickedHomeButFromAddPan
 
     private void fNameInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fNameInput1ActionPerformed
@@ -1498,6 +1510,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void exitBut6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut6ActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_exitBut6ActionPerformed
 
     private void outPutTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outPutTableMouseClicked
@@ -1509,20 +1522,70 @@ public class MainMenu extends javax.swing.JFrame {
             String empNumFromTable = (outPutTable.getModel().getValueAt(row,0).toString());
             String fNameFromTable = (outPutTable.getModel().getValueAt(row,1).toString());
             String lNameFromTable = (outPutTable.getModel().getValueAt(row,2).toString());
-            
+            //String sexFromTable = (outPutTable.getModel().getValueAt(row,3).toString());
+            //String workLocationFromTable = (outPutTable.getModel().getValueAt(row,4).toString());
+            //int workLocationNumFromTable = Integer.parseInt(workLocationFromTable);
+            String deductionRateFromTable = (outPutTable.getModel().getValueAt(row,5).toString());
+            String fullTimeFromTable = (outPutTable.getModel().getValueAt(row,6).toString());
+            String partTimeFromTable = (outPutTable.getModel().getValueAt(row,7).toString());
+            String annualSalaryFromTable = (outPutTable.getModel().getValueAt(row,8).toString());
+            String hourlyWageFromTable = (outPutTable.getModel().getValueAt(row,9).toString());
+            String hoursPerWeekFromTable = (outPutTable.getModel().getValueAt(row,10).toString());
+            String weeksPerYearFromTable = (outPutTable.getModel().getValueAt(row,11).toString());
             
             displayPan.setVisible(false);
             modifyPan.setVisible(true);  
             empNumInput1.setText(empNumFromTable);
             fNameInput1.setText(fNameFromTable);
             lNameInput1.setText(lNameFromTable);
-            
+            /*if ("Male".equals(sexFromTable))
+            {
+                maleRadBut1.isSelected();
+            }
+            else if ("Female".equals(sexFromTable))
+            {
+                femaleRadBut1.isSelected();
+            }
+            else if ("Other".equals(sexFromTable))
+            {
+                otherRadBut1.isSelected();
+            }
+            workLocationDropdown1.getSelectedIndex(workLocationNumFromTable);*/
+            deductionsRateInput1.setText(deductionRateFromTable);
+            if("*".equals(fullTimeFromTable))
+            {
+                fullTimeInputsPan1.setVisible(true);
+                partTimeInputsPan1.setVisible(false);
+                deductionsRateInput1.setText(annualSalaryFromTable);
+            }
+            else if("*".equals(partTimeFromTable))
+            {
+                partTimeInputsPan1.setVisible(true);
+                fullTimeInputsPan1.setVisible(false);
+                hourlyWageInput1.setText(hourlyWageFromTable);
+                hoursPerWeekInput1.setText(hoursPerWeekFromTable);
+                weeksPerYearInput1.setText(weeksPerYearFromTable);
+            }
         }
             
       
 
 
     }//GEN-LAST:event_outPutTableMouseClicked
+
+    private void maleRadButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadButActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maleRadButActionPerformed
+
+    private void modifyButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButActionPerformed
+        // TODO add your handling code here:
+        modifyPan.setVisible(true);
+        mainPan.setVisible(false);
+        fullTimeInputsPan1.setVisible(false);
+        partTimeInputsPan1.setVisible(false);
+        empExistNotice1.setVisible(false);
+        saveSuccessNotice1.setVisible(false);
+    }//GEN-LAST:event_modifyButActionPerformed
 
     /**
      * @param args the command line arguments

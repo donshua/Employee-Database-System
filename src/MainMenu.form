@@ -152,6 +152,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Modify"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyButActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="110" y="280" width="120" height="60"/>
@@ -323,6 +326,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Male"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maleRadButActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="180" y="150" width="-1" height="-1"/>
@@ -1340,7 +1346,7 @@
                     <Column editable="false" title="Emp Number" type="java.lang.Integer"/>
                     <Column editable="false" title="First Name" type="java.lang.String"/>
                     <Column editable="false" title="Last Name" type="java.lang.String"/>
-                    <Column editable="false" title="Sex" type="java.lang.String"/>
+                    <Column editable="false" title="Sex" type="java.lang.Integer"/>
                     <Column editable="false" title="Work Location" type="java.lang.String"/>
                     <Column editable="false" title="Deductions Rate" type="java.lang.Object"/>
                     <Column editable="false" title="Full Time" type="java.lang.Object"/>
@@ -1715,7 +1721,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Container class="javax.swing.JPanel" name="fullTimeInputsPan1">
+        <Container class="javax.swing.JPanel" name="partTimeInputsPan1">
           <Properties>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[200, 200]"/>
@@ -1815,7 +1821,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="partTimeInputsPan1">
+        <Container class="javax.swing.JPanel" name="fullTimeInputsPan1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="90" y="230" width="240" height="50"/>
