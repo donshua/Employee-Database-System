@@ -40,7 +40,10 @@ public class OpenHashTable
     public void add(EmployeeInfo itemToAdd)
     {
         int targetBucket = calcBuckets(itemToAdd.getEmpNum());
-        buckets[targetBucket].add(itemToAdd);
+        if (search(itemToAdd.getEmpNum()) ==-1)
+             buckets[targetBucket].add(itemToAdd);
+        else
+        return;
     }
 
     public ArrayList<EmployeeInfo>[] getBuckets()
@@ -120,7 +123,12 @@ public String displayOneEmp (int theNumber)
             EmployeeInfo employeeToRemove = buckets[targetBucket].remove(positionInList);
             return (employeeToRemove);
         }
-
+    }
+    
+    
+    public void clearHashTable()
+    {
+        buckets=null;
     }
 
 }
