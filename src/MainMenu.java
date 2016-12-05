@@ -1249,6 +1249,10 @@ public class MainMenu extends javax.swing.JFrame {
             } else if (workLocationDropdown.getSelectedIndex() == 3) {
                 tempWorkLocation = 2;
             }
+              else if (workLocationDropdown.getSelectedIndex()==0) {
+                notFilledErrorMessage.setVisible(true);
+                return;
+            }
             double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText()) / 100;
             if (tempDeductionsRate > 1) {
                 notFilledErrorMessage.setVisible(true);
@@ -1287,7 +1291,7 @@ public class MainMenu extends javax.swing.JFrame {
                 empExistNotice.setVisible(true);
                 clearSelectionsInAdd();
             }
-
+            notFilledErrorMessage.setVisible(false);
         } catch (NumberFormatException e) {
             notFilledErrorMessage.setVisible(true);
         }
