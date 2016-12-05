@@ -1054,7 +1054,6 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.setVisible(false);
         mainPan.setVisible(true);
         clearSelectionsInAdd();
-
     }//GEN-LAST:event_clickedHomeButFromAddPan
 
     private void clearSelectionsInAdd() {
@@ -1122,7 +1121,6 @@ public class MainMenu extends javax.swing.JFrame {
     private void clickedSearchButToRemove(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSearchButToRemove
         // TODO add your handling code here:
         int tempEmpNum = Integer.parseInt(empNumRemoveSearchInput.getText());
-        theTable.search(tempEmpNum);
 
         if (theTable.search(tempEmpNum) < 0) {
             notFoundLabel.setVisible(true);
@@ -1744,7 +1742,7 @@ public class MainMenu extends javax.swing.JFrame {
         String pas = new String (passwordInput.getPassword());
         if (usernameInput.getText().equals("a") && pas.equals("b"))
         {
-         JOptionPane.showMessageDialog(null,"Login Successful");
+        JOptionPane.showMessageDialog(null,"Login Successful");
         loginPan.setVisible(false);
         mainPan.setVisible(true);
         }    
