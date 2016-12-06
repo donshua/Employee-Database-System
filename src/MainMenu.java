@@ -1386,7 +1386,7 @@ public class MainMenu extends javax.swing.JFrame {
         searchPan.setVisible(true);
         searchResultPan.setVisible(false);
         notFoundLabelSearchPan.setVisible(false);
-
+        empNumSearchInput.setText(null);
     }//GEN-LAST:event_clickedSearchButFromMainPan
 
     private void clickedDisplayButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedDisplayButFromMainPan
