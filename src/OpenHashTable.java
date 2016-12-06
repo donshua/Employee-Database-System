@@ -8,9 +8,7 @@
  *
  * @author donshua
  */
-import static java.awt.image.ImageObserver.HEIGHT;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 
 public class OpenHashTable
 {
