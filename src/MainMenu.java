@@ -22,19 +22,22 @@ import static jdk.nashorn.internal.objects.NativeMath.round;
  *
  * @author ljn
  */
-public class MainMenu extends javax.swing.JFrame {
+public class MainMenu extends javax.swing.JFrame
+{
 
     OpenHashTable theTable = new OpenHashTable(2);
 
     /**
      * Creates new form NewJFrame
      */
-    public MainMenu() {
+    public MainMenu()
+    {
         initComponents();
         setSize(600, 470);
         loginPan.setVisible(true);
         mainPan.setVisible(false);
         loadSuccessNotice.setVisible(false);
+        savedSuccessNotice.setVisible(false);
         addPan.setVisible(false);
         removePan.setVisible(false);
         searchPan.setVisible(false);
@@ -49,7 +52,8 @@ public class MainMenu extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         genderSelectionRadButGroup = new javax.swing.ButtonGroup();
         empTypeSelectionRadButGroup = new javax.swing.ButtonGroup();
@@ -63,6 +67,7 @@ public class MainMenu extends javax.swing.JFrame {
         loadBut = new javax.swing.JButton();
         exitBut = new javax.swing.JButton();
         loadSuccessNotice = new javax.swing.JLabel();
+        savedSuccessNotice = new javax.swing.JLabel();
         picture = new javax.swing.JLabel();
         addPan = new javax.swing.JPanel();
         homeButFromAddPan = new javax.swing.JButton();
@@ -142,7 +147,6 @@ public class MainMenu extends javax.swing.JFrame {
         modifyPan = new javax.swing.JPanel();
         homeButFromAddPan1 = new javax.swing.JButton();
         empNumLabel1 = new javax.swing.JLabel();
-        empNumInput1 = new javax.swing.JFormattedTextField();
         fNameLabel1 = new javax.swing.JLabel();
         fNameInput1 = new javax.swing.JTextField();
         lNameLabel1 = new javax.swing.JLabel();
@@ -176,6 +180,7 @@ public class MainMenu extends javax.swing.JFrame {
         saveSuccessNotice1 = new javax.swing.JLabel();
         modifyTitle = new javax.swing.JLabel();
         notFilledErrorMessage1 = new javax.swing.JLabel();
+        empNumModifyLabel = new javax.swing.JLabel();
         loginPan = new javax.swing.JPanel();
         pleaseLoginLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
@@ -204,16 +209,20 @@ public class MainMenu extends javax.swing.JFrame {
         addBut.setMaximumSize(new java.awt.Dimension(50, 20));
         addBut.setMinimumSize(new java.awt.Dimension(50, 20));
         addBut.setPreferredSize(new java.awt.Dimension(50, 20));
-        addBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedAddFromMainPan(evt);
             }
         });
         mainPan.add(addBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 120, 60));
 
         removeBut.setText("Remove");
-        removeBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedRemoveFromMainPan(evt);
             }
         });
@@ -223,40 +232,50 @@ public class MainMenu extends javax.swing.JFrame {
         searchBut.setMaximumSize(new java.awt.Dimension(50, 20));
         searchBut.setMinimumSize(new java.awt.Dimension(50, 20));
         searchBut.setPreferredSize(new java.awt.Dimension(50, 20));
-        searchBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedSearchButFromMainPan(evt);
             }
         });
         mainPan.add(searchBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 120, 60));
 
         displayBut.setText("Display");
-        displayBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        displayBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedDisplayButFromMainPan(evt);
             }
         });
         mainPan.add(displayBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 120, 60));
 
-        modifyBut.setText("Modify");
-        modifyBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modifyButActionPerformed(evt);
+        modifyBut.setText("Save");
+        modifyBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clickedModifyButActionFromMainPan(evt);
             }
         });
         mainPan.add(modifyBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 120, 60));
 
         loadBut.setText("Load");
-        loadBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        loadBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedLoadButFromMainPan(evt);
             }
         });
         mainPan.add(loadBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 120, 60));
 
         exitBut.setText("Exit");
-        exitBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedExitButFromMainPan(evt);
             }
         });
@@ -264,7 +283,11 @@ public class MainMenu extends javax.swing.JFrame {
 
         loadSuccessNotice.setForeground(new java.awt.Color(255, 0, 51));
         loadSuccessNotice.setText("The employee info has been retrieved from the text file!");
-        mainPan.add(loadSuccessNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, -1));
+        mainPan.add(loadSuccessNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
+
+        savedSuccessNotice.setForeground(new java.awt.Color(255, 51, 0));
+        savedSuccessNotice.setText("The employee info has been saved to the file!");
+        mainPan.add(savedSuccessNotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, 20));
 
         picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Little Man.jpg"))); // NOI18N
         mainPan.add(picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, -10, 470, 420));
@@ -277,8 +300,10 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeButFromAddPan.setText("Home");
-        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedHomeButFromAddPan(evt);
             }
         });
@@ -297,8 +322,10 @@ public class MainMenu extends javax.swing.JFrame {
         fNameLabel.setText("First Name:");
         addPan.add(fNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, 20));
 
-        fNameInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        fNameInput.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 fNameInputActionPerformed(evt);
             }
         });
@@ -327,8 +354,10 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.add(workLocationLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 120, 20));
 
         workLocationDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Mississauga", "Ottawa", "Chicago" }));
-        workLocationDropdown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        workLocationDropdown.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 workLocationDropdownActionPerformed(evt);
             }
         });
@@ -336,8 +365,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         empTypeSelectionRadButGroup.add(fullTimeRadBut);
         fullTimeRadBut.setText("Full Time");
-        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        fullTimeRadBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 fullTimeRadButClicked(evt);
             }
         });
@@ -345,8 +376,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         empTypeSelectionRadButGroup.add(partTimeRadBut);
         partTimeRadBut.setText("Part Time");
-        partTimeRadBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        partTimeRadBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 partTimeRadButClicked(evt);
             }
         });
@@ -359,21 +392,27 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.add(deductionsRateInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 70, -1));
 
         saveButFromAddPan.setText("Save");
-        saveButFromAddPan.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+        saveButFromAddPan.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
                 mouseExitSaveButAddPan(evt);
             }
         });
-        saveButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        saveButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedSaveButFromAddPan(evt);
             }
         });
         addPan.add(saveButFromAddPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 70, -1));
 
         cancelButFromAddPan.setText("Cancel");
-        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cancelButFromAddPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedCanelButFromAddPan(evt);
             }
         });
@@ -464,8 +503,10 @@ public class MainMenu extends javax.swing.JFrame {
         addPan.add(partTimeInputsPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
 
         exitBut1.setText("Exit");
-        exitBut1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut1ActionPerformed(evt);
             }
         });
@@ -498,8 +539,10 @@ public class MainMenu extends javax.swing.JFrame {
         removePan.add(removeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 32, -1, -1));
 
         homeButFromRemovePan.setText("Home");
-        homeButFromRemovePan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromRemovePan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 homeButFromRemovePanclicked(evt);
             }
         });
@@ -520,16 +563,20 @@ public class MainMenu extends javax.swing.JFrame {
         removePan.add(note2Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 132, -1, -1));
 
         searchButToRemove.setText("Search");
-        searchButToRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButToRemove.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedSearchButToRemove(evt);
             }
         });
         removePan.add(searchButToRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         exitBut2.setText("Exit");
-        exitBut2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut2ActionPerformed(evt);
             }
         });
@@ -542,16 +589,20 @@ public class MainMenu extends javax.swing.JFrame {
         removeResultPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         removeNoBut.setText("No");
-        removeNoBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeNoBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedNoButFromRemovePan(evt);
             }
         });
         removeResultPan.add(removeNoBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
 
         removeYesBut.setText("Yes");
-        removeYesBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeYesBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedYesButFromRemovePan(evt);
             }
         });
@@ -561,25 +612,31 @@ public class MainMenu extends javax.swing.JFrame {
         removeResultPan.add(removeConfirmLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 290, -1));
 
         outPutTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Emp Number", "First Name", "Last Name", "Sex", "Work Location", "Deductions Rate", "Full Time", "Part Time", "Annual Salary", "Hourly Wage", "Hours Per Week", "Weeks Per year", "Annual Income"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
         outPutTable1.setMaximumSize(new java.awt.Dimension(1024, 768));
         outPutTable1.setPreferredSize(new java.awt.Dimension(1280, 960));
         jScrollPane2.setViewportView(outPutTable1);
-        if (outPutTable1.getColumnModel().getColumnCount() > 0) {
+        if (outPutTable1.getColumnModel().getColumnCount() > 0)
+        {
             outPutTable1.getColumnModel().getColumn(0).setPreferredWidth(40);
             outPutTable1.getColumnModel().getColumn(1).setPreferredWidth(45);
             outPutTable1.getColumnModel().getColumn(2).setPreferredWidth(45);
@@ -611,8 +668,10 @@ public class MainMenu extends javax.swing.JFrame {
         searchPan.add(searchTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 32, -1, -1));
 
         homeButFromRemovePan1.setText("Home");
-        homeButFromRemovePan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromRemovePan1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedHomeButFromSearchPan(evt);
             }
         });
@@ -629,16 +688,20 @@ public class MainMenu extends javax.swing.JFrame {
         searchPan.add(note2Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 132, -1, -1));
 
         searchButToRemove1.setText("Search");
-        searchButToRemove1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        searchButToRemove1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedSearchButFromSearchPan(evt);
             }
         });
         searchPan.add(searchButToRemove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         exitBut3.setText("Exit");
-        exitBut3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut3.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut3ActionPerformed(evt);
             }
         });
@@ -652,25 +715,31 @@ public class MainMenu extends javax.swing.JFrame {
         searchResultPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         outPutTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Emp Number", "First Name", "Last Name", "Sex", "Work Location", "Deductions Rate", "Full Time", "Part Time", "Annual Salary", "Hourly Wage", "Hours Per Week", "Weeks Per year", "Annual Income"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
+        )
+        {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
         outPutTable2.setMaximumSize(new java.awt.Dimension(1024, 768));
         outPutTable2.setPreferredSize(new java.awt.Dimension(1280, 960));
         jScrollPane3.setViewportView(outPutTable2);
-        if (outPutTable2.getColumnModel().getColumnCount() > 0) {
+        if (outPutTable2.getColumnModel().getColumnCount() > 0)
+        {
             outPutTable2.getColumnModel().getColumn(0).setPreferredWidth(40);
             outPutTable2.getColumnModel().getColumn(1).setPreferredWidth(45);
             outPutTable2.getColumnModel().getColumn(2).setPreferredWidth(45);
@@ -698,8 +767,10 @@ public class MainMenu extends javax.swing.JFrame {
         displayPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         exitBut5.setText("Exit");
-        exitBut5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut5.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut5ActionPerformed(evt);
             }
         });
@@ -710,52 +781,66 @@ public class MainMenu extends javax.swing.JFrame {
         displayPan.add(diaplayTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
         homeButFromRemovePan2.setText("Home");
-        homeButFromRemovePan2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromRemovePan2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedHomeButFromDisplayPan(evt);
             }
         });
         displayPan.add(homeButFromRemovePan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 27, -1, -1));
 
         exitBut4.setText("Exit");
-        exitBut4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut4.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut4ActionPerformed(evt);
             }
         });
         displayPan.add(exitBut4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1830, 27, -1, -1));
 
         outPutTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "Emp Number", "First Name", "Last Name", "Sex", "Work Location", "Deductions Rate", "Full Time", "Part Time", "Annual Salary", "Hourly Wage", "Hours Per Week", "Weeks Per year", "Annual Income"
             }
-        ) {
-            Class[] types = new Class [] {
+        )
+        {
+            Class[] types = new Class []
+            {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
+            public Class getColumnClass(int columnIndex)
+            {
                 return types [columnIndex];
             }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
         outPutTable.setMaximumSize(new java.awt.Dimension(1024, 768));
-        outPutTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        outPutTable.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 outPutTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(outPutTable);
-        if (outPutTable.getColumnModel().getColumnCount() > 0) {
+        if (outPutTable.getColumnModel().getColumnCount() > 0)
+        {
             outPutTable.getColumnModel().getColumn(0).setPreferredWidth(40);
             outPutTable.getColumnModel().getColumn(1).setPreferredWidth(45);
             outPutTable.getColumnModel().getColumn(2).setPreferredWidth(45);
@@ -774,8 +859,10 @@ public class MainMenu extends javax.swing.JFrame {
         displayPan.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1250, 700));
 
         ModifyButFromDisplayPan.setText("Modify");
-        ModifyButFromDisplayPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ModifyButFromDisplayPan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ModifyButFromDisplayPanActionPerformed(evt);
             }
         });
@@ -789,8 +876,10 @@ public class MainMenu extends javax.swing.JFrame {
         modifyPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeButFromAddPan1.setText("Home");
-        homeButFromAddPan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        homeButFromAddPan1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 homeButFromAddPan1clickedHomeButFromAddPan(evt);
             }
         });
@@ -798,9 +887,6 @@ public class MainMenu extends javax.swing.JFrame {
 
         empNumLabel1.setText("Employee Number:");
         modifyPan.add(empNumLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
-
-        empNumInput1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#+0"))));
-        modifyPan.add(empNumInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 140, 30));
 
         fNameLabel1.setText("First Name:");
         modifyPan.add(fNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, 20));
@@ -833,8 +919,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         empTypeSelectionRadButGroup.add(fullTimeRadBut1);
         fullTimeRadBut1.setText("Full Time");
-        fullTimeRadBut1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        fullTimeRadBut1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedFullTimeRadBut1FromModifyPan(evt);
             }
         });
@@ -842,8 +930,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         empTypeSelectionRadButGroup.add(partTimeRadBut1);
         partTimeRadBut1.setText("Part Time");
-        partTimeRadBut1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        partTimeRadBut1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedPartTimeRadButFromModifyPan(evt);
             }
         });
@@ -856,16 +946,20 @@ public class MainMenu extends javax.swing.JFrame {
         modifyPan.add(deductionsRateInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 70, -1));
 
         saveButFromAddPan1.setText("Save");
-        saveButFromAddPan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButFromAddPan1clickedSaveButFromAddPan(evt);
+        saveButFromAddPan1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clickedSaveButFromModifyPan(evt);
             }
         });
         modifyPan.add(saveButFromAddPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 70, -1));
 
         cancelButFromAddPan1.setText("Cancel");
-        cancelButFromAddPan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cancelButFromAddPan1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 cancelButFromAddPan1clickedCanelButFromModifyPan(evt);
             }
         });
@@ -956,22 +1050,24 @@ public class MainMenu extends javax.swing.JFrame {
         modifyPan.add(fullTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
 
         exitBut6.setText("Exit");
-        exitBut6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitBut6.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 exitBut6ActionPerformed(evt);
             }
         });
         modifyPan.add(exitBut6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
 
         empExistNotice1.setForeground(new java.awt.Color(255, 0, 51));
-        empExistNotice1.setText("No need to add, the employee already exist in the database!");
-        modifyPan.add(empExistNotice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 480, 30));
+        empExistNotice1.setText("No changes were made to existing employee data");
+        modifyPan.add(empExistNotice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 480, 30));
 
         percentSymbolLabel1.setText("%");
         modifyPan.add(percentSymbolLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
         saveSuccessNotice1.setForeground(new java.awt.Color(255, 0, 51));
-        saveSuccessNotice1.setText("The employee info are saved successfully!");
+        saveSuccessNotice1.setText("The employee info are changed successfully!");
         modifyPan.add(saveSuccessNotice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, -1, -1));
 
         modifyTitle.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
@@ -981,6 +1077,9 @@ public class MainMenu extends javax.swing.JFrame {
         notFilledErrorMessage1.setForeground(new java.awt.Color(255, 0, 0));
         notFilledErrorMessage1.setText("The fields are not filled out correctly");
         modifyPan.add(notFilledErrorMessage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 330, 20));
+
+        empNumModifyLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        modifyPan.add(empNumModifyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 60, 20));
 
         getContentPane().add(modifyPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
@@ -1005,8 +1104,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         loginBut.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         loginBut.setText("Login");
-        loginBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        loginBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedLoginBut(evt);
             }
         });
@@ -1014,8 +1115,10 @@ public class MainMenu extends javax.swing.JFrame {
 
         loginCancelBut.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         loginCancelBut.setText("Cancel");
-        loginCancelBut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        loginCancelBut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 clickedCancelButFromLoginPan(evt);
             }
         });
@@ -1028,7 +1131,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
     private void clickedAddFromMainPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedAddFromMainPan
     {//GEN-HEADEREND:event_clickedAddFromMainPan
         // TODO add your handling code here:
@@ -1050,7 +1153,8 @@ public class MainMenu extends javax.swing.JFrame {
         clearSelectionsInAdd();
     }//GEN-LAST:event_clickedHomeButFromAddPan
 
-    private void clearSelectionsInAdd() {
+    private void clearSelectionsInAdd()
+    {
         empNumInput.setText(null);
         fNameInput.setText(null);
         lNameInput.setText(null);
@@ -1066,8 +1170,9 @@ public class MainMenu extends javax.swing.JFrame {
         partTimeInputsPan.setVisible(false);
     }
 
-    private void clearSelectionsInModify() {
-        empNumInput1.setText(null);
+    private void clearSelectionsInModify()
+    {
+        empNumModifyLabel.setText(null);
         fNameInput1.setText(null);
         lNameInput1.setText(null);
         genderSelectionRadButGroup.clearSelection();
@@ -1116,10 +1221,12 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
         int tempEmpNum = Integer.parseInt(empNumRemoveSearchInput.getText());
 
-        if (theTable.search(tempEmpNum) < 0) {
+        if (theTable.search(tempEmpNum) < 0)
+        {
             notFoundLabel.setVisible(true);
             removeResultPan.setVisible(false);
-        } else {
+        } else
+        {
             removeResultPan.setVisible(true);
             notFoundLabel.setVisible(false);
             removeSuccessNotice.setVisible(false);
@@ -1127,50 +1234,71 @@ public class MainMenu extends javax.swing.JFrame {
             removePan.setSize(1280, 960);
 
             DefaultTableModel model = (DefaultTableModel) outPutTable1.getModel();
+            int rows = model.getRowCount();
+            for (int i = rows - 1; i >= 0; i--)
+            {
+                model.removeRow(i);
+            }
             int a = theTable.calcBuckets(tempEmpNum);
             int b = theTable.search(tempEmpNum);
 
-            if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee) {
+            if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
+            {
                 FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
                 String sexOutput = null;
                 String workLocOutput = null;
-                if (realFullTimeEmp.getSex() == 0) {
+                if (realFullTimeEmp.getSex() == 0)
+                {
                     sexOutput = "Male";
-                } else if (realFullTimeEmp.getSex() == 1) {
+                } else if (realFullTimeEmp.getSex() == 1)
+                {
                     sexOutput = "Female";
-                } else if (realFullTimeEmp.getSex() == 2) {
+                } else if (realFullTimeEmp.getSex() == 2)
+                {
                     sexOutput = "Other";
                 }
-                if (realFullTimeEmp.getWorkLocation() == 0) {
+                if (realFullTimeEmp.getWorkLocation() == 0)
+                {
                     workLocOutput = "Mississauga";
-                } else if (realFullTimeEmp.getWorkLocation() == 1) {
+                } else if (realFullTimeEmp.getWorkLocation() == 1)
+                {
                     workLocOutput = "Ottawa";
-                } else if (realFullTimeEmp.getWorkLocation() == 2) {
+                } else if (realFullTimeEmp.getWorkLocation() == 2)
+                {
                     workLocOutput = "Chicago";
                 }
-                model.addRow(new Object[]{
+                model.addRow(new Object[]
+                {
                     realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
                     sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
                 });
-            } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee) {
+            } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
+            {
                 PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
                 String sexOutput = null;
                 String workLocOutput = null;
-                if (realPartTimeEmp.getSex() == 0) {
+                if (realPartTimeEmp.getSex() == 0)
+                {
                     sexOutput = "Male";
-                } else if (realPartTimeEmp.getSex() == 1) {
+                } else if (realPartTimeEmp.getSex() == 1)
+                {
                     sexOutput = "Female";
-                } else if (realPartTimeEmp.getSex() == 2) {
+                } else if (realPartTimeEmp.getSex() == 2)
+                {
                     sexOutput = "Other";
                 }
-                if (realPartTimeEmp.getWorkLocation() == 0) {
+                if (realPartTimeEmp.getWorkLocation() == 0)
+                {
                     workLocOutput = "Mississauga";
-                } else if (realPartTimeEmp.getWorkLocation() == 1) {
+                } else if (realPartTimeEmp.getWorkLocation() == 1)
+                {
                     workLocOutput = "Ottawa";
-                } else if (realPartTimeEmp.getWorkLocation() == 2) {
+                } else if (realPartTimeEmp.getWorkLocation() == 2)
+                {
                     workLocOutput = "Chicago";
                 }
-                model.addRow(new Object[]{
+                model.addRow(new Object[]
+                {
                     realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
                     sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
                     realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
@@ -1181,20 +1309,6 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void clickedExitButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedExitButFromMainPan
         // TODO add your handling code here:
-
-        try {
-            BufferedWriter writer;
-            writer = new BufferedWriter(new FileWriter(".\\SavedEmployeeData.txt"));
-            for (int x = 0; x < theTable.getBuckets().length; x++) {
-                for (int y = 0; y < theTable.getBuckets()[x].size(); y++) {
-                    writer.write(theTable.displayOneEmp(theTable.getBuckets()[x].get(y).getEmpNum()));
-                    writer.newLine();
-                }
-            }
-            writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
         System.exit(0);
     }//GEN-LAST:event_clickedExitButFromMainPan
 
@@ -1222,31 +1336,40 @@ public class MainMenu extends javax.swing.JFrame {
     private void clickedSaveButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedSaveButFromAddPan
     {//GEN-HEADEREND:event_clickedSaveButFromAddPan
         // TODO add your handling code here:
-        try {
+        try
+        {
             int tempEmpNum = Integer.parseInt(empNumInput.getText());
             String tempFName = fNameInput.getText();
             String tempLName = lNameInput.getText();
             int tempSex = 0;
-            if (maleRadBut.isSelected() == true) {
+            if (maleRadBut.isSelected() == true)
+            {
                 tempSex = 0;
-            } else if (femaleRadBut.isSelected() == true) {
+            } else if (femaleRadBut.isSelected() == true)
+            {
                 tempSex = 1;
-            } else if (otherRadBut.isSelected() == true) {
+            } else if (otherRadBut.isSelected() == true)
+            {
                 tempSex = 2;
             }
             int tempWorkLocation = 0;
-            if (workLocationDropdown.getSelectedIndex() == 1) {
+            if (workLocationDropdown.getSelectedIndex() == 1)
+            {
                 tempWorkLocation = 0;
-            } else if (workLocationDropdown.getSelectedIndex() == 2) {
+            } else if (workLocationDropdown.getSelectedIndex() == 2)
+            {
                 tempWorkLocation = 1;
-            } else if (workLocationDropdown.getSelectedIndex() == 3) {
+            } else if (workLocationDropdown.getSelectedIndex() == 3)
+            {
                 tempWorkLocation = 2;
-            } else if (workLocationDropdown.getSelectedIndex() == 0) {
+            } else if (workLocationDropdown.getSelectedIndex() == 0)
+            {
                 notFilledErrorMessage.setVisible(true);
                 return;
             }
             double tempDeductionsRate = Double.parseDouble(deductionsRateInput.getText()) / 100;
-            if (tempDeductionsRate > 1) {
+            if (tempDeductionsRate > 1)
+            {
                 notFilledErrorMessage.setVisible(true);
                 return;
             }
@@ -1255,14 +1378,18 @@ public class MainMenu extends javax.swing.JFrame {
             int tempHoursPerWeek = 0;
             int tempWeeksPerYear = 0;
 
-            if (theTable.search(tempEmpNum) == -1) {
-                if (fullTimeRadBut.isSelected() == true) {
+            if (theTable.search(tempEmpNum) == -1)
+            {
+                if (fullTimeRadBut.isSelected() == true)
+                {
                     tempAnnualSalary = Double.parseDouble(annualSalaryInput.getText());
-                } else if (partTimeRadBut.isSelected() == true) {
+                } else if (partTimeRadBut.isSelected() == true)
+                {
                     tempHourlyWage = Double.parseDouble(hourlyWageInput.getText());
                     tempHoursPerWeek = Integer.parseInt(hoursPerWeekInput.getText());
                     tempWeeksPerYear = Integer.parseInt(weeksPerYearInput.getText());
-                    if (tempHoursPerWeek >= 168 || tempWeeksPerYear >= 52) {
+                    if (tempHoursPerWeek >= 168 || tempWeeksPerYear >= 52)
+                    {
                         notFilledErrorMessage.setVisible(true);
                         return;
                     }
@@ -1270,31 +1397,33 @@ public class MainMenu extends javax.swing.JFrame {
                 FullTimeEmployee tempFullEmp = new FullTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation, tempDeductionsRate, tempAnnualSalary);
                 PartTimeEmployee tempPartEmp = new PartTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation, tempDeductionsRate, tempHourlyWage, tempHoursPerWeek, tempWeeksPerYear);
 
-                if (fullTimeRadBut.isSelected() == true) {
+                if (fullTimeRadBut.isSelected() == true)
+                {
                     theTable.add(tempFullEmp);
                     saveSuccessNotice.setVisible(true);
-                } else if (partTimeRadBut.isSelected() == true) {
+                } else if (partTimeRadBut.isSelected() == true)
+                {
                     theTable.add(tempPartEmp);
                 }
                 empExistNotice.setVisible(false);
                 saveSuccessNotice.setVisible(true);
                 clearSelectionsInAdd();
-            } else {
+            } else
+            {
                 saveSuccessNotice.setVisible(false);
                 empExistNotice.setVisible(true);
                 clearSelectionsInAdd();
             }
             notFilledErrorMessage.setVisible(false);
-            
-        } 
-        catch (NumberFormatException e) {
+
+        } catch (NumberFormatException e)
+        {
             notFilledErrorMessage.setVisible(true);
         }
         theTable.displayContents();
     }//GEN-LAST:event_clickedSaveButFromAddPan
 
-    
-    
+
     private void workLocationDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workLocationDropdownActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_workLocationDropdownActionPerformed
@@ -1309,59 +1438,82 @@ public class MainMenu extends javax.swing.JFrame {
     private void clickedSearchButFromSearchPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSearchButFromSearchPan
         // TODO add your handling code here:
         int tempEmpNumInput = Integer.parseInt(empNumSearchInput.getText());
-        if (theTable.search(tempEmpNumInput) < 0) {
+        if (theTable.search(tempEmpNumInput) < 0)
+        {
             notFoundLabelSearchPan.setVisible(true);
-        } else {
+        } else
+        {
             searchResultPan.setVisible(true);
             notFoundLabelSearchPan.setVisible(false);
             setSize(1280, 960);
             searchPan.setSize(1280, 960);
 
             DefaultTableModel model = (DefaultTableModel) outPutTable2.getModel();
+            int rows = model.getRowCount();
+            for (int i = rows - 1; i >= 0; i--)
+            {
+                model.removeRow(i);
+            }
             int a = theTable.calcBuckets(tempEmpNumInput);
             int b = theTable.search(tempEmpNumInput);
 
-            if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee) {
+            if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
+            {
                 FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
                 String sexOutput = null;
                 String workLocOutput = null;
-                if (realFullTimeEmp.getSex() == 0) {
+                if (realFullTimeEmp.getSex() == 0)
+                {
                     sexOutput = "Male";
-                } else if (realFullTimeEmp.getSex() == 1) {
+                } else if (realFullTimeEmp.getSex() == 1)
+                {
                     sexOutput = "Female";
-                } else if (realFullTimeEmp.getSex() == 2) {
+                } else if (realFullTimeEmp.getSex() == 2)
+                {
                     sexOutput = "Other";
                 }
-                if (realFullTimeEmp.getWorkLocation() == 0) {
+                if (realFullTimeEmp.getWorkLocation() == 0)
+                {
                     workLocOutput = "Mississauga";
-                } else if (realFullTimeEmp.getWorkLocation() == 1) {
+                } else if (realFullTimeEmp.getWorkLocation() == 1)
+                {
                     workLocOutput = "Ottawa";
-                } else if (realFullTimeEmp.getWorkLocation() == 2) {
+                } else if (realFullTimeEmp.getWorkLocation() == 2)
+                {
                     workLocOutput = "Chicago";
                 }
-                model.addRow(new Object[]{
+                model.addRow(new Object[]
+                {
                     realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
                     sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
                 });
-            } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee) {
+            } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
+            {
                 PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
                 String sexOutput = null;
                 String workLocOutput = null;
-                if (realPartTimeEmp.getSex() == 0) {
+                if (realPartTimeEmp.getSex() == 0)
+                {
                     sexOutput = "Male";
-                } else if (realPartTimeEmp.getSex() == 1) {
+                } else if (realPartTimeEmp.getSex() == 1)
+                {
                     sexOutput = "Female";
-                } else if (realPartTimeEmp.getSex() == 2) {
+                } else if (realPartTimeEmp.getSex() == 2)
+                {
                     sexOutput = "Other";
                 }
-                if (realPartTimeEmp.getWorkLocation() == 0) {
+                if (realPartTimeEmp.getWorkLocation() == 0)
+                {
                     workLocOutput = "Mississauga";
-                } else if (realPartTimeEmp.getWorkLocation() == 1) {
+                } else if (realPartTimeEmp.getWorkLocation() == 1)
+                {
                     workLocOutput = "Ottawa";
-                } else if (realPartTimeEmp.getWorkLocation() == 2) {
+                } else if (realPartTimeEmp.getWorkLocation() == 2)
+                {
                     workLocOutput = "Chicago";
                 }
-                model.addRow(new Object[]{
+                model.addRow(new Object[]
+                {
                     realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
                     sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
                     realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
@@ -1393,53 +1545,72 @@ public class MainMenu extends javax.swing.JFrame {
 
         DefaultTableModel model = (DefaultTableModel) outPutTable.getModel();
         int rows = model.getRowCount();
-        for (int i = rows - 1; i >= 0; i--) {
+        for (int i = rows - 1; i >= 0; i--)
+        {
             model.removeRow(i);
         }
 
-        for (int a = 0; a < theTable.getBuckets().length; a++) {
-            for (int b = 0; b < theTable.getBuckets()[a].size(); b++) {
-                if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee) {
+        for (int a = 0; a < theTable.getBuckets().length; a++)
+        {
+            for (int b = 0; b < theTable.getBuckets()[a].size(); b++)
+            {
+                if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
+                {
                     FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
                     String sexOutput = null;
                     String workLocOutput = null;
-                    if (realFullTimeEmp.getSex() == 0) {
+                    if (realFullTimeEmp.getSex() == 0)
+                    {
                         sexOutput = "Male";
-                    } else if (realFullTimeEmp.getSex() == 1) {
+                    } else if (realFullTimeEmp.getSex() == 1)
+                    {
                         sexOutput = "Female";
-                    } else if (realFullTimeEmp.getSex() == 2) {
+                    } else if (realFullTimeEmp.getSex() == 2)
+                    {
                         sexOutput = "Other";
                     }
-                    if (realFullTimeEmp.getWorkLocation() == 0) {
+                    if (realFullTimeEmp.getWorkLocation() == 0)
+                    {
                         workLocOutput = "Mississauga";
-                    } else if (realFullTimeEmp.getWorkLocation() == 1) {
+                    } else if (realFullTimeEmp.getWorkLocation() == 1)
+                    {
                         workLocOutput = "Ottawa";
-                    } else if (realFullTimeEmp.getWorkLocation() == 2) {
+                    } else if (realFullTimeEmp.getWorkLocation() == 2)
+                    {
                         workLocOutput = "Chicago";
                     }
-                    model.addRow(new Object[]{
+                    model.addRow(new Object[]
+                    {
                         realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
                         sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
                     });
-                } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee) {
+                } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
+                {
                     PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
                     String sexOutput = null;
                     String workLocOutput = null;
-                    if (realPartTimeEmp.getSex() == 0) {
+                    if (realPartTimeEmp.getSex() == 0)
+                    {
                         sexOutput = "Male";
-                    } else if (realPartTimeEmp.getSex() == 1) {
+                    } else if (realPartTimeEmp.getSex() == 1)
+                    {
                         sexOutput = "Female";
-                    } else if (realPartTimeEmp.getSex() == 2) {
+                    } else if (realPartTimeEmp.getSex() == 2)
+                    {
                         sexOutput = "Other";
                     }
-                    if (realPartTimeEmp.getWorkLocation() == 0) {
+                    if (realPartTimeEmp.getWorkLocation() == 0)
+                    {
                         workLocOutput = "Mississauga";
-                    } else if (realPartTimeEmp.getWorkLocation() == 1) {
+                    } else if (realPartTimeEmp.getWorkLocation() == 1)
+                    {
                         workLocOutput = "Ottawa";
-                    } else if (realPartTimeEmp.getWorkLocation() == 2) {
+                    } else if (realPartTimeEmp.getWorkLocation() == 2)
+                    {
                         workLocOutput = "Chicago";
                     }
-                    model.addRow(new Object[]{
+                    model.addRow(new Object[]
+                    {
                         realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
                         sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
                         realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
@@ -1488,10 +1659,19 @@ public class MainMenu extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_clickedLoadButFromMainPan
         // TODO add your handling code here:
         BufferedReader reader;
-        try {
+        try
+        {
+             for (int a = 0; a < theTable.getBuckets().length; a++)  
+        {
+            for (int b = 0; b < theTable.getBuckets()[a].size(); b++)   
+            {                                            
+                theTable.remove(theTable.getBuckets()[a].get(b).getEmpNum());
+            }
+        }
             reader = new BufferedReader(new FileReader(".\\SavedEmployeeData.txt"));
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null)
+            {
                 String[] oneEmp = line.split(";");
                 int empNumForInput = Integer.parseInt(oneEmp[1]);
                 String fNameForInput = oneEmp[2];
@@ -1500,12 +1680,14 @@ public class MainMenu extends javax.swing.JFrame {
                 int worklocCodeForInput = Integer.parseInt(oneEmp[5]);
                 double dedRateForInput = Double.parseDouble(oneEmp[6]);
 
-                if ("F".equals(oneEmp[0])) {
+                if ("F".equals(oneEmp[0]))
+                {
                     double annualSalForInput = Double.parseDouble(oneEmp[7]);
                     FullTimeEmployee fullTimeInput = new FullTimeEmployee(empNumForInput, fNameForInput, lNameForInput, sexCodeForInput,
                             worklocCodeForInput, dedRateForInput, annualSalForInput);
                     theTable.add(fullTimeInput);
-                } else if ("P".equals(oneEmp[0])) {
+                } else if ("P".equals(oneEmp[0]))
+                {
                     double hrlyWageForInput = Double.parseDouble(oneEmp[7]);
                     double hrsPerWeekForInput = Double.parseDouble(oneEmp[8]);
                     double weeksPerYr = Double.parseDouble(oneEmp[9]);
@@ -1515,9 +1697,11 @@ public class MainMenu extends javax.swing.JFrame {
                 }
             }
             loadSuccessNotice.setVisible(true);
-        } catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException ex)
+        {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (IOException ex)
+        {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -1541,33 +1725,42 @@ public class MainMenu extends javax.swing.JFrame {
         mainPan.setVisible(true);
     }//GEN-LAST:event_homeButFromAddPan1clickedHomeButFromAddPan
 
-    private void saveButFromAddPan1clickedSaveButFromAddPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButFromAddPan1clickedSaveButFromAddPan
+    private void clickedSaveButFromModifyPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSaveButFromModifyPan
         // TODO add your handling code here:
-         try {
-            int tempEmpNum = Integer.parseInt(empNumInput1.getText());
+        try
+        {
+            int tempEmpNum = Integer.parseInt(empNumModifyLabel.getText());
             String tempFName = fNameInput1.getText();
             String tempLName = lNameInput1.getText();
             int tempSex = 0;
-            if (maleRadBut1.isSelected() == true) {
+            if (maleRadBut1.isSelected() == true)
+            {
                 tempSex = 0;
-            } else if (femaleRadBut1.isSelected() == true) {
+            } else if (femaleRadBut1.isSelected() == true)
+            {
                 tempSex = 1;
-            } else if (otherRadBut1.isSelected() == true) {
+            } else if (otherRadBut1.isSelected() == true)
+            {
                 tempSex = 2;
             }
             int tempWorkLocation = 0;
-            if (workLocationDropdown1.getSelectedIndex() == 1) {
+            if (workLocationDropdown1.getSelectedIndex() == 1)
+            {
                 tempWorkLocation = 0;
-            } else if (workLocationDropdown1.getSelectedIndex() == 2) {
+            } else if (workLocationDropdown1.getSelectedIndex() == 2)
+            {
                 tempWorkLocation = 1;
-            } else if (workLocationDropdown1.getSelectedIndex() == 3) {
+            } else if (workLocationDropdown1.getSelectedIndex() == 3)
+            {
                 tempWorkLocation = 2;
-            } else if (workLocationDropdown1.getSelectedIndex() == 0) {
+            } else if (workLocationDropdown1.getSelectedIndex() == 0)
+            {
                 notFilledErrorMessage1.setVisible(true);
                 return;
             }
             double tempDeductionsRate = Double.parseDouble(deductionsRateInput1.getText()) / 100;
-            if (tempDeductionsRate > 1) {
+            if (tempDeductionsRate > 1)
+            {
                 notFilledErrorMessage1.setVisible(true);
                 return;
             }
@@ -1576,17 +1769,19 @@ public class MainMenu extends javax.swing.JFrame {
             double tempHoursPerWeek = 0;
             double tempWeeksPerYear = 0;
             theTable.remove(tempEmpNum);
-            
-            if (theTable.search(tempEmpNum) == -1) {
-                if (fullTimeRadBut1.isSelected() == true) {
+
+            if (theTable.search(tempEmpNum) == -1)
+            {
+                if (fullTimeRadBut1.isSelected() == true)
+                {
                     tempAnnualSalary = Double.parseDouble(annualSalaryInput1.getText());
-                } 
-                else if (partTimeRadBut1.isSelected() == true) 
+                } else if (partTimeRadBut1.isSelected() == true)
                 {
                     tempHourlyWage = Double.parseDouble(hourlyWageInput1.getText());
                     tempHoursPerWeek = Double.parseDouble(hoursPerWeekInput1.getText());
                     tempWeeksPerYear = Double.parseDouble(weeksPerYearInput1.getText());
-                    if (tempHoursPerWeek >= 168 || tempWeeksPerYear >= 52) {
+                    if (tempHoursPerWeek >= 168 || tempWeeksPerYear >= 52)
+                    {
                         notFilledErrorMessage1.setVisible(true);
                         return;
                     }
@@ -1594,21 +1789,24 @@ public class MainMenu extends javax.swing.JFrame {
                 FullTimeEmployee tempFullEmp = new FullTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation, tempDeductionsRate, tempAnnualSalary);
                 PartTimeEmployee tempPartEmp = new PartTimeEmployee(tempEmpNum, tempFName, tempLName, tempSex, tempWorkLocation, tempDeductionsRate, tempHourlyWage, tempHoursPerWeek, tempWeeksPerYear);
 
-                if (fullTimeRadBut1.isSelected() == true) {
+                if (fullTimeRadBut1.isSelected() == true)
+                {
                     theTable.add(tempFullEmp);
                     saveSuccessNotice1.setVisible(true);
-                } else if (partTimeRadBut1.isSelected() == true) {
+                } else if (partTimeRadBut1.isSelected() == true)
+                {
                     theTable.add(tempPartEmp);
                     saveSuccessNotice1.setVisible(true);
                 }
                 empExistNotice1.setVisible(false);
-            } else {
+            } else
+            {
                 saveSuccessNotice1.setVisible(false);
                 empExistNotice1.setVisible(true);
             }
-            notFilledErrorMessage1.setVisible(false); 
-        } 
-        catch (NumberFormatException e) {
+            notFilledErrorMessage1.setVisible(false);
+        } catch (NumberFormatException e)
+        {
             notFilledErrorMessage1.setVisible(true);
         }
 
@@ -1616,7 +1814,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         saveSuccessNotice1.setVisible(true);
 
-    }//GEN-LAST:event_saveButFromAddPan1clickedSaveButFromAddPan
+    }//GEN-LAST:event_clickedSaveButFromModifyPan
 
     private void cancelButFromAddPan1clickedCanelButFromModifyPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButFromAddPan1clickedCanelButFromModifyPan
         // TODO add your handling code here:
@@ -1632,16 +1830,19 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void outPutTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_outPutTableMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
+        if (evt.getClickCount() == 2)
+        {
             JTable outPutTable = (JTable) evt.getSource();
             int row = outPutTable.getSelectedRow();
             int empNumFromTable = Integer.parseInt(outPutTable.getModel().getValueAt(row, 0).toString());
             int buc = theTable.calcBuckets(empNumFromTable);
             int loc = theTable.search(empNumFromTable);
-            empNumInput1.setText(Integer.toString(empNumFromTable));
+            clearSelectionsInModify();
+            empNumModifyLabel.setText(Integer.toString(empNumFromTable));
             fNameInput1.setText(theTable.getBuckets()[buc].get(loc).getFirstName());
             lNameInput1.setText(theTable.getBuckets()[buc].get(loc).getLastName());
-            switch (theTable.getBuckets()[buc].get(loc).getSex()) {
+            switch (theTable.getBuckets()[buc].get(loc).getSex())
+            {
                 case 0:
                     maleRadBut1.setSelected(true);
                     break;
@@ -1655,22 +1856,27 @@ public class MainMenu extends javax.swing.JFrame {
                     break;
             }
 
-            if (theTable.getBuckets()[buc].get(loc).getWorkLocation() == 0) {
+            if (theTable.getBuckets()[buc].get(loc).getWorkLocation() == 0)
+            {
                 workLocationDropdown1.setSelectedIndex(1);
-            } else if (theTable.getBuckets()[buc].get(loc).getWorkLocation() == 1) {
+            } else if (theTable.getBuckets()[buc].get(loc).getWorkLocation() == 1)
+            {
                 workLocationDropdown1.setSelectedIndex(2);
-            } else if (theTable.getBuckets()[buc].get(loc).getWorkLocation() == 2) {
+            } else if (theTable.getBuckets()[buc].get(loc).getWorkLocation() == 2)
+            {
                 workLocationDropdown1.setSelectedIndex(3);
             }
 
-            if (theTable.getBuckets()[buc].get(loc) instanceof FullTimeEmployee) {
+            if (theTable.getBuckets()[buc].get(loc) instanceof FullTimeEmployee)
+            {
                 FullTimeEmployee fullForChange = (FullTimeEmployee) theTable.getBuckets()[buc].get(loc);
                 fullTimeRadBut1.setSelected(true);
                 fullTimeInputsPan1.setVisible(true);
                 partTimeInputsPan1.setVisible(false);
                 annualSalaryInput1.setText(Double.toString(fullForChange.getAnnualSalary()));
-                deductionsRateInput1.setText(Double.toString(fullForChange.getDeductionsRate()*100));
-            } else if (theTable.getBuckets()[buc].get(loc) instanceof PartTimeEmployee) {
+                deductionsRateInput1.setText(Double.toString(fullForChange.getDeductionsRate() * 100));
+            } else if (theTable.getBuckets()[buc].get(loc) instanceof PartTimeEmployee)
+            {
                 PartTimeEmployee partForChange = (PartTimeEmployee) theTable.getBuckets()[buc].get(loc);
                 partTimeRadBut1.setSelected(true);
                 fullTimeInputsPan1.setVisible(false);
@@ -1678,9 +1884,9 @@ public class MainMenu extends javax.swing.JFrame {
                 hourlyWageInput1.setText(Double.toString(partForChange.getHourlyWage()));
                 hoursPerWeekInput1.setText(Double.toString(partForChange.getHoursPerWeek()));
                 weeksPerYearInput1.setText(Double.toString(partForChange.getWeeksPerYear()));
-                deductionsRateInput1.setText(Double.toString(partForChange.getDeductionsRate()*100));
+                deductionsRateInput1.setText(Double.toString(partForChange.getDeductionsRate() * 100));
             }
-            
+
             /*String fNameFromTable = (outPutTable.getModel().getValueAt(row,1).toString());
             String lNameFromTable = (outPutTable.getModel().getValueAt(row,2).toString());
             String sexFromTable = (outPutTable.getModel().getValueAt(row,3).toString());
@@ -1737,27 +1943,41 @@ public class MainMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_outPutTableMouseClicked
 
-    private void modifyButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButActionPerformed
+    private void clickedModifyButActionFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedModifyButActionFromMainPan
         // TODO add your handling code here:
-        /*modifyPan.setVisible(true);
-        mainPan.setVisible(false);
-        fullTimeInputsPan1.setVisible(false);
-        partTimeInputsPan1.setVisible(false);
-        empExistNotice1.setVisible(false);
-        saveSuccessNotice1.setVisible(false);
-         */
-    }//GEN-LAST:event_modifyButActionPerformed
+        try
+        {
+            BufferedWriter writer;
+            writer = new BufferedWriter(new FileWriter(".\\SavedEmployeeData.txt"));
+            for (int x = 0; x < theTable.getBuckets().length; x++)
+            {
+                for (int y = 0; y < theTable.getBuckets()[x].size(); y++)
+                {
+                    writer.write(theTable.displayOneEmp(theTable.getBuckets()[x].get(y).getEmpNum()));
+                    writer.newLine();
+                }
+            }
+            writer.close();
+        } catch (IOException ex)
+        {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        savedSuccessNotice.setVisible(true);
+        loadSuccessNotice.setVisible(false);
+    }//GEN-LAST:event_clickedModifyButActionFromMainPan
 
     private void clickedLoginBut(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedLoginBut
     {//GEN-HEADEREND:event_clickedLoginBut
         // TODO add your handling code here:
         String pas = new String(passwordInput.getPassword());
-        if (usernameInput.getText().equals("a") && pas.equals("b")) {
+        if (usernameInput.getText().equals("a") && pas.equals("b"))
+        {
             JOptionPane.showMessageDialog(null, "Login Successful" + System.lineSeparator()
                     + "Welcome to the Employee Database System!");
             loginPan.setVisible(false);
             mainPan.setVisible(true);
-        } else {
+        } else
+        {
             JOptionPane.showMessageDialog(null, "Login Failed" + System.lineSeparator()
                     + "Please try again with valid username and password");
         }
@@ -1776,7 +1996,8 @@ public class MainMenu extends javax.swing.JFrame {
             Thread.sleep(500);
             saveSuccessNotice.setVisible(false);
             empExistNotice.setVisible(false);
-        } catch (InterruptedException ex) {
+        } catch (InterruptedException ex)
+        {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_mouseExitSaveButAddPan
@@ -1798,33 +2019,41 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(MainMenu.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -1832,8 +2061,10 @@ public class MainMenu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new MainMenu().setVisible(true);
             }
         });
@@ -1861,9 +2092,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel empExistNotice;
     private javax.swing.JLabel empExistNotice1;
     private javax.swing.JFormattedTextField empNumInput;
-    private javax.swing.JFormattedTextField empNumInput1;
     private javax.swing.JLabel empNumLabel;
     private javax.swing.JLabel empNumLabel1;
+    private javax.swing.JLabel empNumModifyLabel;
     private javax.swing.JTextField empNumRemoveSearchInput;
     private javax.swing.JTextField empNumSearchInput;
     private javax.swing.ButtonGroup empTypeSelectionRadButGroup;
@@ -1954,6 +2185,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton saveButFromAddPan1;
     private javax.swing.JLabel saveSuccessNotice;
     private javax.swing.JLabel saveSuccessNotice1;
+    private javax.swing.JLabel savedSuccessNotice;
     private javax.swing.JButton searchBut;
     private javax.swing.JButton searchButToRemove;
     private javax.swing.JButton searchButToRemove1;
