@@ -147,7 +147,6 @@ public class MainMenu extends javax.swing.JFrame
         exitBut4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         outPutTable = new javax.swing.JTable();
-        ModifyButFromDisplayPan = new javax.swing.JButton();
         savePan = new javax.swing.JPanel();
         homeButFromAddPan1 = new javax.swing.JButton();
         empNumLabel1 = new javax.swing.JLabel();
@@ -787,14 +786,6 @@ public class MainMenu extends javax.swing.JFrame
 
         displayPan.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 1250, 700));
 
-        ModifyButFromDisplayPan.setText("Modify");
-        ModifyButFromDisplayPan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ModifyButFromDisplayPanActionPerformed(evt);
-            }
-        });
-        displayPan.add(ModifyButFromDisplayPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 810, -1, -1));
-
         getContentPane().add(displayPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 960));
 
         savePan.setMaximumSize(new java.awt.Dimension(600, 450));
@@ -1173,9 +1164,12 @@ public class MainMenu extends javax.swing.JFrame
 
             if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
             {
+                //to get the fulltime employee from the hash table
                 FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
                 String sexOutput = null;
                 String workLocOutput = null;
+                
+                //use the employee variable to set the output information in the table
                 if (realFullTimeEmp.getSex() == 0)
                 {
                     sexOutput = "Male";
@@ -1196,16 +1190,23 @@ public class MainMenu extends javax.swing.JFrame
                 {
                     workLocOutput = "Chicago";
                 }
+                
+                DecimalFormat df = new DecimalFormat("#0.00");
+                String formattedIncome = df.format(realFullTimeEmp.calcAnnualIncome());
+                
                 model.addRow(new Object[]
                 {
                     realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
-                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
+                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
                 });
             } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
             {
+                //to get the parttime employee from the hash table
                 PartTimeEmployee realPartTimeEmp = (PartTimeEmployee) theTable.getBuckets()[a].get(b);
                 String sexOutput = null;
                 String workLocOutput = null;
+                
+                //use the employee variable to set the output information in the table
                 if (realPartTimeEmp.getSex() == 0)
                 {
                     sexOutput = "Male";
@@ -1236,21 +1237,25 @@ public class MainMenu extends javax.swing.JFrame
         }
     }//GEN-LAST:event_clickedSearchButToRemove
 
+    //clicked the exit button in main panel to exit the programme
     private void clickedExitButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedExitButFromMainPan
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_clickedExitButFromMainPan
 
+    //click exit button in add panel to exit the programme
     private void exitBut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut1ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitBut1ActionPerformed
 
+    //click exit button in remove panel to exit the programme
     private void exitBut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut2ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitBut2ActionPerformed
 
+    //click the remove button in main panel to show the remove panel and set the other panela invisible
     private void clickedRemoveFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedRemoveFromMainPan
         // TODO add your handling code here:
         removePan.setVisible(true);
@@ -1262,11 +1267,13 @@ public class MainMenu extends javax.swing.JFrame
         removeSuccessNotice.setVisible(false);
     }//GEN-LAST:event_clickedRemoveFromMainPan
 
+    //this method will add the corrected filled up employee into the hash table
     private void clickedSaveButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedSaveButFromAddPan
     {//GEN-HEADEREND:event_clickedSaveButFromAddPan
         // TODO add your handling code here:
         try
         {
+            //to get the information the users give
             int tempEmpNum = Integer.parseInt(empNumInput.getText());
             String tempFName = fNameInput.getText();
             String tempLName = lNameInput.getText();
@@ -1307,6 +1314,8 @@ public class MainMenu extends javax.swing.JFrame
             int tempHoursPerWeek = 0;
             int tempWeeksPerYear = 0;
 
+            //to check if the employee is in the hash table, if not, then add the employee into the hash table
+            //diffetiate the fulltime employee and parttime employee
             if (theTable.search(tempEmpNum) == -1)
             {
                 if (fullTimeRadBut.isSelected() == true)
@@ -1343,12 +1352,16 @@ public class MainMenu extends javax.swing.JFrame
                 empExistNotice.setVisible(true);
                 clearSelectionsInAdd();
             }
+            
             notFilledErrorMessage.setVisible(false);
 
         } catch (NumberFormatException e)
         {
+            //if any item is not corrected filled up, show the error message and do not add the employee into the hash table
             notFilledErrorMessage.setVisible(true);
         }
+        
+        //for programmers to see what is in the hash table
         theTable.displayContents();
     }//GEN-LAST:event_clickedSaveButFromAddPan
 
@@ -1357,6 +1370,7 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_workLocationDropdownActionPerformed
 
+    //click home button in search panel to show the main panel
     private void clickedHomeButFromSearchPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedHomeButFromSearchPan
         // TODO add your handling code here:
         searchPan.setVisible(false);
@@ -1364,6 +1378,7 @@ public class MainMenu extends javax.swing.JFrame
         setSize(600, 470);
     }//GEN-LAST:event_clickedHomeButFromSearchPan
 
+    //this method allows to show the information of an employee whose number get from the user in a table 
     private void clickedSearchButFromSearchPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSearchButFromSearchPan
         // TODO add your handling code here:
         int tempEmpNumInput = Integer.parseInt(empNumSearchInput.getText());
@@ -1411,10 +1426,14 @@ public class MainMenu extends javax.swing.JFrame
                 {
                     workLocOutput = "Chicago";
                 }
+                
+                DecimalFormat df = new DecimalFormat("#0.00");
+                String formattedIncome = df.format(realFullTimeEmp.calcAnnualIncome());
+                
                 model.addRow(new Object[]
                 {
                     realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
-                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", realFullTimeEmp.calcAnnualIncome()
+                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
                 });
             } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
             {
@@ -1596,10 +1615,10 @@ public class MainMenu extends javax.swing.JFrame
         BufferedReader reader;
         try
         {
-             for (int a = 0; a < theTable.getBuckets().length; a++)  
+            for (int a = 0; a < theTable.getBuckets().length; a++)  
         {
             for (int b = 0; b < theTable.getBuckets()[a].size(); b++)   
-            {                                            
+            {
                 theTable.remove(theTable.getBuckets()[a].get(b).getEmpNum());
             }
         }
@@ -1646,13 +1665,6 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitBut5ActionPerformed
-
-    private void ModifyButFromDisplayPanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyButFromDisplayPanActionPerformed
-        // TODO add your handling code here:
-        /*DefaultTableModel model = (DefaultTableModel) outPutTable.getModel();
-        model.setValueAt(empNumTextField.getText(), outPutTable.getSelectedRow(), 0);
-        model.setValueAt(fNTextField.getText(),outPutTable.getSelectedRow(), 1);*/
-    }//GEN-LAST:event_ModifyButFromDisplayPanActionPerformed
 
     private void homeButFromAddPan1clickedHomeButFromAddPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromAddPan1clickedHomeButFromAddPan
         // TODO add your handling code here:
@@ -1822,51 +1834,6 @@ public class MainMenu extends javax.swing.JFrame
                 deductionsRateInput1.setText(Double.toString(partForChange.getDeductionsRate() * 100));
             }
 
-            /*String fNameFromTable = (outPutTable.getModel().getValueAt(row,1).toString());
-            String lNameFromTable = (outPutTable.getModel().getValueAt(row,2).toString());
-            String sexFromTable = (outPutTable.getModel().getValueAt(row,3).toString());
-            String workLocFromTable = (outPutTable.getModel().getValueAt(row,4).toString());
-            //int workLocNumFromTable = Integer.parseInt(workLocFromTable);
-            String deductionRateFromTable = (outPutTable.getModel().getValueAt(row,5).toString());
-            String fullTimeFromTable = (outPutTable.getModel().getValueAt(row,6).toString());
-            String partTimeFromTable = (outPutTable.getModel().getValueAt(row,7).toString());
-            String annualSalaryFromTable = (outPutTable.getModel().getValueAt(row,8).toString());
-            String hourlyWageFromTable = (outPutTable.getModel().getValueAt(row,9).toString());
-            String hoursPerWeekFromTable = (outPutTable.getModel().getValueAt(row,10).toString());
-            String weeksPerYearFromTable = (outPutTable.getModel().getValueAt(row,11).toString());
-            
-            empNumInput1.setText(empNumFromTable);
-            fNameInput1.setText(fNameFromTable);
-            lNameInput1.setText(lNameFromTable);
-            if ("Male".equals(sexFromTable))
-            {
-                maleRadBut1.setSelected(true);
-            }
-            else if ("Female".equals(sexFromTable))
-            {
-                femaleRadBut1.setSelected(true);
-            }
-            else if ("Other".equals(sexFromTable))
-            {
-                otherRadBut1.setSelected(true);
-            }
-            //workLocationDropdown1.getSelectedIndex(workLocNumFromTable);
-            deductionsRateInput1.setText(deductionRateFromTable);
-            if("*".equals(fullTimeFromTable))
-            {
-                fullTimeInputsPan1.setVisible(true);
-                partTimeInputsPan1.setVisible(false);
-                deductionsRateInput1.setText(annualSalaryFromTable);
-            }
-            else if("*".equals(partTimeFromTable))
-            {
-                partTimeInputsPan1.setVisible(true);
-                fullTimeInputsPan1.setVisible(false);
-                hourlyWageInput1.setText(hourlyWageFromTable);
-                hoursPerWeekInput1.setText(hoursPerWeekFromTable);
-                weeksPerYearInput1.setText(weeksPerYearFromTable);
-            }
-             */
             displayPan.setVisible(false);
             savePan.setVisible(true);
             setSize(600, 470);
@@ -1874,8 +1841,6 @@ public class MainMenu extends javax.swing.JFrame
             empExistNotice1.setVisible(false);
             notFilledErrorMessage1.setVisible(false);
         }
-
-
     }//GEN-LAST:event_outPutTableMouseClicked
 
     private void clickedSaveButActionFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSaveButActionFromMainPan
@@ -1905,7 +1870,7 @@ public class MainMenu extends javax.swing.JFrame
     {//GEN-HEADEREND:event_clickedLoginBut
         // TODO add your handling code here:
         String pas = new String(passwordInput.getPassword());
-        if (usernameInput.getText().equals("a") && pas.equals("b"))
+        if (usernameInput.getText().equals("Hello") && pas.equals("World"))
         {
             JOptionPane.showMessageDialog(null, "Login Successful" + System.lineSeparator()
                     + "Welcome to the Employee Database System!");
@@ -2006,7 +1971,6 @@ public class MainMenu extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ModifyButFromDisplayPan;
     private javax.swing.JLabel Title;
     private javax.swing.JButton addBut;
     private javax.swing.JPanel addPan;
