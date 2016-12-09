@@ -24,12 +24,15 @@ import static jdk.nashorn.internal.objects.NativeMath.round;
  */
 public class MainMenu extends javax.swing.JFrame
 {
-
+    
+    //create a hash table to store the employee information
     OpenHashTable theTable = new OpenHashTable(2);
 
     /**
      * Creates new form NewJFrame
      */
+    
+    //initiate the mainmenu to show only the main panel
     public MainMenu()
     {
         initComponents();
@@ -43,7 +46,7 @@ public class MainMenu extends javax.swing.JFrame
         removePan.setVisible(false);
         searchPan.setVisible(false);
         displayPan.setVisible(false);
-        modifyPan.setVisible(false);
+        savePan.setVisible(false);
     }
 
     /**
@@ -145,7 +148,7 @@ public class MainMenu extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         outPutTable = new javax.swing.JTable();
         ModifyButFromDisplayPan = new javax.swing.JButton();
-        modifyPan = new javax.swing.JPanel();
+        savePan = new javax.swing.JPanel();
         homeButFromAddPan1 = new javax.swing.JButton();
         empNumLabel1 = new javax.swing.JLabel();
         fNameLabel1 = new javax.swing.JLabel();
@@ -794,10 +797,10 @@ public class MainMenu extends javax.swing.JFrame
 
         getContentPane().add(displayPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 960));
 
-        modifyPan.setMaximumSize(new java.awt.Dimension(600, 450));
-        modifyPan.setMinimumSize(new java.awt.Dimension(600, 450));
-        modifyPan.setPreferredSize(new java.awt.Dimension(600, 450));
-        modifyPan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        savePan.setMaximumSize(new java.awt.Dimension(600, 450));
+        savePan.setMinimumSize(new java.awt.Dimension(600, 450));
+        savePan.setPreferredSize(new java.awt.Dimension(600, 450));
+        savePan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homeButFromAddPan1.setText("Home");
         homeButFromAddPan1.addActionListener(new java.awt.event.ActionListener() {
@@ -805,39 +808,39 @@ public class MainMenu extends javax.swing.JFrame
                 homeButFromAddPan1clickedHomeButFromAddPan(evt);
             }
         });
-        modifyPan.add(homeButFromAddPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        savePan.add(homeButFromAddPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         empNumLabel1.setText("Employee Number:");
-        modifyPan.add(empNumLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
+        savePan.add(empNumLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
 
         fNameLabel1.setText("First Name:");
-        modifyPan.add(fNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, 20));
-        modifyPan.add(fNameInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, -1));
+        savePan.add(fNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 90, 20));
+        savePan.add(fNameInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, -1));
 
         lNameLabel1.setText("Last Name:");
-        modifyPan.add(lNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 90, 20));
-        modifyPan.add(lNameInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 140, -1));
+        savePan.add(lNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 90, 20));
+        savePan.add(lNameInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 140, -1));
 
         sexLabel1.setText("Sex:");
-        modifyPan.add(sexLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 40, 20));
+        savePan.add(sexLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 40, 20));
 
         genderSelectionRadButGroup.add(maleRadBut1);
         maleRadBut1.setText("Male");
-        modifyPan.add(maleRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
+        savePan.add(maleRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
 
         genderSelectionRadButGroup.add(femaleRadBut1);
         femaleRadBut1.setText("Female");
-        modifyPan.add(femaleRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+        savePan.add(femaleRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
 
         genderSelectionRadButGroup.add(otherRadBut1);
         otherRadBut1.setText("Other");
-        modifyPan.add(otherRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
+        savePan.add(otherRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
 
         workLocationLabel1.setText("Work Location:");
-        modifyPan.add(workLocationLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 120, 20));
+        savePan.add(workLocationLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 120, 20));
 
         workLocationDropdown1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Mississauga", "Ottawa", "Chicago" }));
-        modifyPan.add(workLocationDropdown1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        savePan.add(workLocationDropdown1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
         empTypeSelectionRadButGroup.add(fullTimeRadBut1);
         fullTimeRadBut1.setText("Full Time");
@@ -846,7 +849,7 @@ public class MainMenu extends javax.swing.JFrame
                 clickedFullTimeRadBut1FromModifyPan(evt);
             }
         });
-        modifyPan.add(fullTimeRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
+        savePan.add(fullTimeRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         empTypeSelectionRadButGroup.add(partTimeRadBut1);
         partTimeRadBut1.setText("Part Time");
@@ -855,13 +858,13 @@ public class MainMenu extends javax.swing.JFrame
                 clickedPartTimeRadButFromModifyPan(evt);
             }
         });
-        modifyPan.add(partTimeRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
+        savePan.add(partTimeRadBut1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
         deductionsRateLabel1.setText("Deductions Rate:");
-        modifyPan.add(deductionsRateLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 160, 20));
+        savePan.add(deductionsRateLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 160, 20));
 
         deductionsRateInput1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.00"))));
-        modifyPan.add(deductionsRateInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 70, -1));
+        savePan.add(deductionsRateInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 70, -1));
 
         saveButFromAddPan1.setText("Save");
         saveButFromAddPan1.addActionListener(new java.awt.event.ActionListener() {
@@ -869,7 +872,7 @@ public class MainMenu extends javax.swing.JFrame
                 clickedSaveButFromModifyPan(evt);
             }
         });
-        modifyPan.add(saveButFromAddPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 70, -1));
+        savePan.add(saveButFromAddPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 70, -1));
 
         cancelButFromAddPan1.setText("Cancel");
         cancelButFromAddPan1.addActionListener(new java.awt.event.ActionListener() {
@@ -877,10 +880,10 @@ public class MainMenu extends javax.swing.JFrame
                 cancelButFromAddPan1clickedCanelButFromModifyPan(evt);
             }
         });
-        modifyPan.add(cancelButFromAddPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
+        savePan.add(cancelButFromAddPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
 
         employeeTypeLabel1.setText("Employee Type:");
-        modifyPan.add(employeeTypeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 130, 20));
+        savePan.add(employeeTypeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 130, 20));
 
         partTimeInputsPan1.setMaximumSize(new java.awt.Dimension(200, 200));
 
@@ -934,7 +937,7 @@ public class MainMenu extends javax.swing.JFrame
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        modifyPan.add(partTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 230, 120));
+        savePan.add(partTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 230, 120));
 
         annualSalaryLabel1.setText("Annual Salary:");
 
@@ -961,7 +964,7 @@ public class MainMenu extends javax.swing.JFrame
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        modifyPan.add(fullTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
+        savePan.add(fullTimeInputsPan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 240, 50));
 
         exitBut6.setText("Exit");
         exitBut6.addActionListener(new java.awt.event.ActionListener() {
@@ -969,31 +972,31 @@ public class MainMenu extends javax.swing.JFrame
                 exitBut6ActionPerformed(evt);
             }
         });
-        modifyPan.add(exitBut6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
+        savePan.add(exitBut6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
 
         empExistNotice1.setForeground(new java.awt.Color(255, 0, 51));
         empExistNotice1.setText("No changes were made to existing employee data");
-        modifyPan.add(empExistNotice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 480, 30));
+        savePan.add(empExistNotice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 480, 30));
 
         percentSymbolLabel1.setText("%");
-        modifyPan.add(percentSymbolLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
+        savePan.add(percentSymbolLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
         saveSuccessNotice1.setForeground(new java.awt.Color(255, 0, 51));
         saveSuccessNotice1.setText("The employee info are changed successfully!");
-        modifyPan.add(saveSuccessNotice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, -1, -1));
+        savePan.add(saveSuccessNotice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, -1, -1));
 
         modifyTitle.setFont(new java.awt.Font("Arial", 1, 25)); // NOI18N
         modifyTitle.setText("Modify");
-        modifyPan.add(modifyTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        savePan.add(modifyTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         notFilledErrorMessage1.setForeground(new java.awt.Color(255, 0, 0));
         notFilledErrorMessage1.setText("The fields are not filled out correctly");
-        modifyPan.add(notFilledErrorMessage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 330, 20));
+        savePan.add(notFilledErrorMessage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 330, 20));
 
         empNumModifyLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        modifyPan.add(empNumModifyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 60, 20));
+        savePan.add(empNumModifyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 60, 20));
 
-        getContentPane().add(modifyPan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
+        getContentPane().add(savePan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
 
         loginPan.setMaximumSize(new java.awt.Dimension(600, 450));
         loginPan.setMinimumSize(new java.awt.Dimension(600, 450));
@@ -1039,7 +1042,8 @@ public class MainMenu extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //this method allows, when clicked the add button from main panel, to show the add panel and set the other panels invisible.
     private void clickedAddFromMainPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedAddFromMainPan
     {//GEN-HEADEREND:event_clickedAddFromMainPan
         // TODO add your handling code here:
@@ -1053,6 +1057,7 @@ public class MainMenu extends javax.swing.JFrame
         clearSelectionsInAdd();
     }//GEN-LAST:event_clickedAddFromMainPan
 
+    //this method allows, when clicked the home button from add panel, to show the main panel and set the other panels invisible.
     private void clickedHomeButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedHomeButFromAddPan
     {//GEN-HEADEREND:event_clickedHomeButFromAddPan
         // TODO add your handling code here:
@@ -1061,6 +1066,7 @@ public class MainMenu extends javax.swing.JFrame
         clearSelectionsInAdd();
     }//GEN-LAST:event_clickedHomeButFromAddPan
 
+    //to clear all the contents of the items in add panel
     private void clearSelectionsInAdd()
     {
         empNumInput.setText(null);
@@ -1078,6 +1084,7 @@ public class MainMenu extends javax.swing.JFrame
         partTimeInputsPan.setVisible(false);
     }
 
+    //to clear all the contents of the items in modify panel
     private void clearSelectionsInModify()
     {
         empNumModifyLabel.setText(null);
@@ -1095,6 +1102,7 @@ public class MainMenu extends javax.swing.JFrame
         fullTimeInputsPan1.setVisible(false);
     }
 
+    //in add panel, to switch to the items to fill up panel of fulltime
     private void fullTimeRadButClicked(java.awt.event.ActionEvent evt)//GEN-FIRST:event_fullTimeRadButClicked
     {//GEN-HEADEREND:event_fullTimeRadButClicked
         // TODO add your handling code here:
@@ -1102,6 +1110,7 @@ public class MainMenu extends javax.swing.JFrame
         partTimeInputsPan.setVisible(true);
     }//GEN-LAST:event_fullTimeRadButClicked
 
+    //in add panel, to switch to the items to fill up panel of parttime 
     private void partTimeRadButClicked(java.awt.event.ActionEvent evt)//GEN-FIRST:event_partTimeRadButClicked
     {//GEN-HEADEREND:event_partTimeRadButClicked
         // TODO add your handling code here:
@@ -1109,6 +1118,7 @@ public class MainMenu extends javax.swing.JFrame
         fullTimeInputsPan.setVisible(true);
     }//GEN-LAST:event_partTimeRadButClicked
 
+    //when clicked the cancel button from add panel, show the main panel
     private void clickedCanelButFromAddPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedCanelButFromAddPan
     {//GEN-HEADEREND:event_clickedCanelButFromAddPan
         // TODO add your handling code here:
@@ -1117,6 +1127,7 @@ public class MainMenu extends javax.swing.JFrame
         clearSelectionsInAdd();
     }//GEN-LAST:event_clickedCanelButFromAddPan
 
+    //when clicked the home button from remive panel, show the main panel
     private void homeButFromRemovePanclicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromRemovePanclicked
         // TODO add your handling code here:
         removePan.setVisible(false);
@@ -1124,29 +1135,39 @@ public class MainMenu extends javax.swing.JFrame
         setSize(600, 450);
     }//GEN-LAST:event_homeButFromRemovePanclicked
 
-
+    //this method allows to show the information of the employee to search in a table
     private void clickedSearchButToRemove(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSearchButToRemove
         // TODO add your handling code here:
         int tempEmpNum = Integer.parseInt(empNumRemoveSearchInput.getText());
 
-        if (theTable.search(tempEmpNum) < 0)
+        /*
+        use the search method from hash table to get the employee
+        and determine to show the not found message or the information of the employee
+        */
+        if (theTable.search(tempEmpNum) < 0)    //if the employee is not in the hash table, show the not found message
         {
             notFoundLabel.setVisible(true);
             removeResultPan.setVisible(false);
-        } else
+        } else  //if returned to the employee, then show the information of the employee
         {
+            //to set the information display panel visibel
             removeResultPan.setVisible(true);
             notFoundLabel.setVisible(false);
             removeSuccessNotice.setVisible(false);
             setSize(1280, 960);
             removePan.setSize(1280, 960);
 
+            //create a table to display the informaiton
+            
+            //initiate the output table
             DefaultTableModel model = (DefaultTableModel) outPutTable1.getModel();
             int rows = model.getRowCount();
             for (int i = rows - 1; i >= 0; i--)
             {
                 model.removeRow(i);
             }
+            
+            //to get attributes value from the employee
             int a = theTable.calcBuckets(tempEmpNum);
             int b = theTable.search(tempEmpNum);
 
@@ -1635,7 +1656,7 @@ public class MainMenu extends javax.swing.JFrame
 
     private void homeButFromAddPan1clickedHomeButFromAddPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButFromAddPan1clickedHomeButFromAddPan
         // TODO add your handling code here:
-        modifyPan.setVisible(false);
+        savePan.setVisible(false);
         mainPan.setVisible(true);
     }//GEN-LAST:event_homeButFromAddPan1clickedHomeButFromAddPan
 
@@ -1732,7 +1753,7 @@ public class MainMenu extends javax.swing.JFrame
 
     private void cancelButFromAddPan1clickedCanelButFromModifyPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButFromAddPan1clickedCanelButFromModifyPan
         // TODO add your handling code here:
-        modifyPan.setVisible(false);
+        savePan.setVisible(false);
         displayPan.setVisible(true);
         setSize(1280, 960);
     }//GEN-LAST:event_cancelButFromAddPan1clickedCanelButFromModifyPan
@@ -1847,7 +1868,7 @@ public class MainMenu extends javax.swing.JFrame
             }
              */
             displayPan.setVisible(false);
-            modifyPan.setVisible(true);
+            savePan.setVisible(true);
             setSize(600, 470);
             saveSuccessNotice1.setVisible(false);
             empExistNotice1.setVisible(false);
@@ -2064,7 +2085,6 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JRadioButton maleRadBut;
     private javax.swing.JRadioButton maleRadBut1;
     private javax.swing.JButton modifyBut;
-    private javax.swing.JPanel modifyPan;
     private javax.swing.JLabel modifyTitle;
     private javax.swing.JLabel notFilledErrorMessage;
     private javax.swing.JLabel notFilledErrorMessage1;
@@ -2098,6 +2118,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JButton removeYesBut;
     private javax.swing.JButton saveButFromAddPan;
     private javax.swing.JButton saveButFromAddPan1;
+    private javax.swing.JPanel savePan;
     private javax.swing.JLabel saveSuccessNotice;
     private javax.swing.JLabel saveSuccessNotice1;
     private javax.swing.JLabel savedSuccessNotice;
