@@ -17,7 +17,7 @@ public class OpenHashTable
     // buckets is an array of ArrayList.
     //Each item in an ArrayList is an EmployeeInfo object.
 
-    //constructor
+    //CONSTRUCTOR for OpenHashtable class
     public OpenHashTable(int howManyBuckets)
     {
         //instantiate an array to have an ArrayList as each element of the array.
@@ -29,19 +29,20 @@ public class OpenHashTable
             buckets[i] = new ArrayList();
         }
     }
-
+    //calcBucket method that returns the bucket number the value that's passed
     public int calcBuckets(int empNumber)
     {
         return (empNumber % buckets.length);
     }
-
+    
+    //method to add an employee into the hash table
     public void add(EmployeeInfo itemToAdd)
     {
-        int targetBucket = calcBuckets(itemToAdd.getEmpNum());
-        if (search(itemToAdd.getEmpNum()) ==-1)
-             buckets[targetBucket].add(itemToAdd);
+        int targetBucket = calcBuckets(itemToAdd.getEmpNum()); //use calcBucket to determine which bucket the employee belong to
+        if (search(itemToAdd.getEmpNum()) ==-1)  //if there is not this employee, add to according bucket
+             buckets[targetBucket].add(itemToAdd);  //in the ArrayList haning off it
         else
-        return;
+        return;                           //if the employee already exits, just return
     }
 
     public ArrayList<EmployeeInfo>[] getBuckets()
@@ -49,6 +50,8 @@ public class OpenHashTable
         return buckets;
     }
 
+    //method that display all of the employee in the hash table
+    //print the employee numbers in each bucket's ArrayList, starting with bucket 0, then 1 and so on.
     public void displayContents()
     {
         for (int a = 0; a < buckets.length; a++)  //first to loop through the buckets
@@ -62,8 +65,9 @@ public class OpenHashTable
         }
     }
 
+    //method that returns full information of one employee, used for write to file
 public String displayOneEmp (int theNumber)
-    {
+    {     //get all the attrubites of an employee
      int empNumForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getEmpNum();
      String empNumOut = Integer.toString(empNumForOut);
      String fNameOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getFirstName();
@@ -73,7 +77,7 @@ public String displayOneEmp (int theNumber)
      int workLocCode =  buckets[calcBuckets(theNumber)].get(search(theNumber)).getWorkLocation();
      String workLocOut = Integer.toString(workLocCode);
      double dedRateForOut=buckets[calcBuckets(theNumber)].get(search(theNumber)).getDeductionsRate();
-     String dedRateOut = Double.toString(dedRateForOut);
+     String dedRateOut = Double.toString(dedRateForOut);    //put the info in a string that can be returned
      if (buckets[calcBuckets(theNumber)].get(search(theNumber)) instanceof FullTimeEmployee)
      {
      FullTimeEmployee fullTimeEmpOut = (FullTimeEmployee) buckets[calcBuckets(theNumber)].get(search(theNumber));
@@ -94,6 +98,7 @@ public String displayOneEmp (int theNumber)
      return(null);
     }
     
+    //method that search the employee by employee number
     public int search(int keyToFind)
     {
         int targetBucket = calcBuckets(keyToFind);
@@ -109,6 +114,7 @@ public String displayOneEmp (int theNumber)
         return (-1); // The search key does not match any employee in the list
     }
 
+    //method that removes an employee from the hash table by employee number
     public EmployeeInfo remove(int keyToRemove)
     {
         int positionInList = search(keyToRemove);
@@ -119,14 +125,14 @@ public String displayOneEmp (int theNumber)
         {
             int targetBucket = calcBuckets(keyToRemove);
             EmployeeInfo employeeToRemove = buckets[targetBucket].remove(positionInList);
-            return (employeeToRemove);
+            return (employeeToRemove);  //by using the remove method from ArrayList, return the item that wanted to delete
         }
     }
     
-    
+    //clear the whole Hash Table so it's fresh and ready to be used again
     public void clearHashTable()
     {
         buckets=null;
     }
 
-}
+}               //end of OpenHashTable class

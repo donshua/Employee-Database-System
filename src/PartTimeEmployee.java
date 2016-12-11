@@ -8,9 +8,10 @@
  *
  * @author donshua
  */
-public class PartTimeEmployee extends EmployeeInfo // PartTImeEmployee is a
+public class PartTimeEmployee extends EmployeeInfo // PartTimeEmployee is a
 //subclass of EmployeeInfo
 {
+    //attributes for this subclasss
     private double hourlyWage;
     private double hoursPerWeek;
     private double weeksPerYear;
