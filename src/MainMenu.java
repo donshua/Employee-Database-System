@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import static jdk.nashorn.internal.objects.NativeMath.round;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -73,6 +72,7 @@ public class MainMenu extends javax.swing.JFrame
         loadSuccessNotice = new javax.swing.JLabel();
         savedSuccessNotice = new javax.swing.JLabel();
         errorInFileNoticeLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         picture = new javax.swing.JLabel();
         addPan = new javax.swing.JPanel();
         homeButFromAddPan = new javax.swing.JButton();
@@ -293,6 +293,16 @@ public class MainMenu extends javax.swing.JFrame
 
         errorInFileNoticeLabel.setText("The file format is not correct or the file doesn't exist");
         mainPan.add(errorInFileNoticeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
+
+        jButton1.setText("Help");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                clickedHelpFromMainPan(evt);
+            }
+        });
+        mainPan.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, -1));
 
         picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Little Man.jpg"))); // NOI18N
         mainPan.add(picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, -10, 470, 420));
@@ -1944,14 +1954,14 @@ public class MainMenu extends javax.swing.JFrame
         // TODO add your handling code here:
         try
         {
-            BufferedWriter writer;
-            writer = new BufferedWriter(new FileWriter(".\\SavedEmployeeData.txt"));
-            for (int x = 0; x < theTable.getBuckets().length; x++)
-            {
+            BufferedWriter writer;      //used BufferedWriter class
+            writer = new BufferedWriter(new FileWriter(".\\SavedEmployeeData.txt"));   //create a text file under the root directory
+            for (int x = 0; x < theTable.getBuckets().length; x++)          //use nested for loop to go through the buckets, and arraylist items
+            {                                                               //within it
                 for (int y = 0; y < theTable.getBuckets()[x].size(); y++)
-                {
+                {                                                           //used displayOneEmp method fromd OpenHashTable class
                     writer.write(theTable.displayOneEmp(theTable.getBuckets()[x].get(y).getEmpNum()));
-                    writer.newLine();
+                    writer.newLine();                                       //new line for every employee
                 }
             }
             writer.close();
@@ -1963,18 +1973,19 @@ public class MainMenu extends javax.swing.JFrame
         loadSuccessNotice.setVisible(false);
     }//GEN-LAST:event_clickedSaveButActionFromMainPan
 
+    //when the login button is clicked on the login panel, do the following
     private void clickedLoginBut(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedLoginBut
     {//GEN-HEADEREND:event_clickedLoginBut
         // TODO add your handling code here:
-        String pas = new String(passwordInput.getPassword());
+        String pas = new String(passwordInput.getPassword());        //check to see that username and password matches
         if (usernameInput.getText().equals("Hello") && pas.equals("World"))
-        {
+        {                                                      //if it is, give a dialog box and switch to main panel
             JOptionPane.showMessageDialog(null, "Login Successful" + System.lineSeparator()
                     + "Welcome to the Employee Database System!");
             loginPan.setVisible(false);
             mainPan.setVisible(true);
         } else
-        {
+        {                                                //or else reject the login, stay on login panel
             JOptionPane.showMessageDialog(null, "Login Failed" + System.lineSeparator()
                     + "Please try again with valid username and password");
         }
@@ -1986,6 +1997,7 @@ public class MainMenu extends javax.swing.JFrame
         System.exit(0);
     }//GEN-LAST:event_clickedCancelButFromLoginPan
 
+    //to avoid confusion to the user, when mouse exit the save button, the saveSuccessNotice disappear
     private void mouseExitSaveButAddPan(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseExitSaveButAddPan
         // TODO add your handling code here:
         try
@@ -1999,6 +2011,7 @@ public class MainMenu extends javax.swing.JFrame
         }
     }//GEN-LAST:event_mouseExitSaveButAddPan
 
+    //similar to add panel, the full time and part time panels change visibilities when the radio button is clicked
     private void clickedFullTimeRadBut1FromModifyPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedFullTimeRadBut1FromModifyPan
     {//GEN-HEADEREND:event_clickedFullTimeRadBut1FromModifyPan
         // TODO add your handling code here:
@@ -2012,6 +2025,20 @@ public class MainMenu extends javax.swing.JFrame
         fullTimeInputsPan1.setVisible(false);
         partTimeInputsPan1.setVisible(true);
     }//GEN-LAST:event_clickedPartTimeRadButFromModifyPan
+
+    //when help button is clicked from main panel, open the word(.docx) document under root directory
+    //which is the user guide written for this program
+    private void clickedHelpFromMainPan(java.awt.event.ActionEvent evt)//GEN-FIRST:event_clickedHelpFromMainPan
+    {//GEN-HEADEREND:event_clickedHelpFromMainPan
+        try
+        {
+            // TODO add your handling code here:
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+".\\User Guide.docx");
+        } catch (IOException ex)
+        {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_clickedHelpFromMainPan
 
     /**
      * @param args the command line arguments
@@ -2130,6 +2157,7 @@ public class MainMenu extends javax.swing.JFrame
     private javax.swing.JFormattedTextField hoursPerWeekInput1;
     private javax.swing.JLabel hoursPerWeekLabel;
     private javax.swing.JLabel hoursPerWeekLabel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
