@@ -1273,11 +1273,12 @@ public class MainMenu extends javax.swing.JFrame
                 
                 DecimalFormat df = new DecimalFormat("#0.00");
                 String formattedIncome = df.format(realFullTimeEmp.calcAnnualIncome());
+                String formattedDedRate = df.format(realFullTimeEmp.getDeductionsRate() * 100);
                 
                 model.addRow(new Object[]
                 {
                     realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
-                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
+                    sexOutput, workLocOutput, formattedDedRate + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
                 });
             } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
             {
@@ -1307,11 +1308,14 @@ public class MainMenu extends javax.swing.JFrame
                 {
                     workLocOutput = "Chicago";
                 }
+                DecimalFormat df = new DecimalFormat("#0.00");
+                String formattedIncome = df.format(realPartTimeEmp.calcAnnualIncome());
+                String formattedDedRate = df.format(realPartTimeEmp.getDeductionsRate() * 100);
                 model.addRow(new Object[]
                 {
                     realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
-                    sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
-                    realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
+                    sexOutput, workLocOutput, formattedDedRate + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
+                    realPartTimeEmp.getWeeksPerYear(), formattedIncome
                 });
             }
         }
@@ -1505,11 +1509,12 @@ public class MainMenu extends javax.swing.JFrame
                 
                 DecimalFormat df = new DecimalFormat("#0.00");
                 String formattedIncome = df.format(realFullTimeEmp.calcAnnualIncome());
+                String formattedDedRate = df.format(realFullTimeEmp.getDeductionsRate() * 100);
                 
                 model.addRow(new Object[]
                 {
                     realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
-                    sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
+                    sexOutput, workLocOutput, formattedDedRate + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
                 });
             } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
             {
@@ -1536,11 +1541,14 @@ public class MainMenu extends javax.swing.JFrame
                 {
                     workLocOutput = "Chicago";
                 }
+                DecimalFormat df = new DecimalFormat("#0.00");
+                String formattedIncome = df.format(realPartTimeEmp.calcAnnualIncome());
+                String formattedDedRate = df.format(realPartTimeEmp.getDeductionsRate() * 100);
                 model.addRow(new Object[]
                 {
                     realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
-                    sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
-                    realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
+                    sexOutput, workLocOutput, formattedDedRate + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
+                    realPartTimeEmp.getWeeksPerYear(), formattedIncome
                 });
             }
         }
@@ -1608,12 +1616,13 @@ public class MainMenu extends javax.swing.JFrame
                     }
                     DecimalFormat df = new DecimalFormat("#0.00");
                     String formattedIncome = df.format(realFullTimeEmp.calcAnnualIncome());
+                    String formattedDedRate = df.format(realFullTimeEmp.getDeductionsRate()*100);
                     
                     //here display everything formatted in the output table
                     model.addRow(new Object[]
                     {
                         realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
-                        sexOutput, workLocOutput, realFullTimeEmp.getDeductionsRate() * 100 + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
+                        sexOutput, workLocOutput, formattedDedRate + "%", "*", "-", realFullTimeEmp.getAnnualSalary(), "-", "-", "-", formattedIncome
                     });
                 } else if (theTable.getBuckets()[a].get(b) instanceof PartTimeEmployee)
                 {
@@ -1640,11 +1649,14 @@ public class MainMenu extends javax.swing.JFrame
                     {
                         workLocOutput = "Chicago";
                     }
+                    DecimalFormat df = new DecimalFormat("#0.00");
+                    String formattedIncome = df.format(realPartTimeEmp.calcAnnualIncome());
+                    String formattedDedRate = df.format(realPartTimeEmp.getDeductionsRate()*100);
                     model.addRow(new Object[]
                     {
                         realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
-                        sexOutput, workLocOutput, realPartTimeEmp.getDeductionsRate() * 100 + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
-                        realPartTimeEmp.getWeeksPerYear(), realPartTimeEmp.calcAnnualIncome()
+                        sexOutput, workLocOutput, formattedDedRate + "%", "-", "*", "-", realPartTimeEmp.getHourlyWage(), realPartTimeEmp.getHoursPerWeek(),
+                        realPartTimeEmp.getWeeksPerYear(), formattedIncome
                     });
                 }
             }
