@@ -2052,7 +2052,7 @@ public class MainMenu extends javax.swing.JFrame
         try
         {
             // TODO add your handling code here:
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+".\\User Guide.docx");
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+".\\User Guide.pdf");
         } catch (IOException ex)
         {
             Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
