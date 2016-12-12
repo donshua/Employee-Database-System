@@ -1409,9 +1409,9 @@ public class MainMenu extends javax.swing.JFrame
             int tempWeeksPerYear = 0;
 
             //to check if the employee is in the hash table, if not, then add the employee into the hash table
-            //diffetiate the fulltime employee and parttime employee
             if (theTable.search(tempEmpNum) == -1)
             {
+                //diffetiate the fulltime employee and parttime employee
                 if (fullTimeRadBut.isSelected() == true)
                 {
                     tempAnnualSalary = Double.parseDouble(annualSalaryInput.getText());
@@ -1471,17 +1471,24 @@ public class MainMenu extends javax.swing.JFrame
     //this method allows to show the information of an employee whose number get from the user in a table 
     private void clickedSearchButFromSearchPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedSearchButFromSearchPan
         // TODO add your handling code here:
+        
+        //to get the employee number the user gives
         int tempEmpNumInput = Integer.parseInt(empNumSearchInput.getText());
+        
+        //if the employee is not in the table, an error message will show up
         if (theTable.search(tempEmpNumInput) < 0)
         {
             notFoundLabelSearchPan.setVisible(true);
-        } else
+        } 
+        //if the employee is in the table, then create a table displaying the information
+        else
         {
             searchResultPan.setVisible(true);
             notFoundLabelSearchPan.setVisible(false);
             setSize(1280, 960);
             searchPan.setSize(1280, 960);
 
+            //initiate a table
             DefaultTableModel model = (DefaultTableModel) outPutTable2.getModel();
             int rows = model.getRowCount();
             for (int i = rows - 1; i >= 0; i--)
@@ -1491,6 +1498,7 @@ public class MainMenu extends javax.swing.JFrame
             int a = theTable.calcBuckets(tempEmpNumInput);
             int b = theTable.search(tempEmpNumInput);
 
+            //differentiate fulltime employee from parttime employee
             if (theTable.getBuckets()[a].get(b) instanceof FullTimeEmployee)
             {
                 FullTimeEmployee realFullTimeEmp = (FullTimeEmployee) theTable.getBuckets()[a].get(b);
@@ -1521,6 +1529,7 @@ public class MainMenu extends javax.swing.JFrame
                 String formattedIncome = df.format(realFullTimeEmp.calcAnnualIncome());
                 String formattedDedRate = df.format(realFullTimeEmp.getDeductionsRate() * 100);
                 
+                //here display everything formatted in the output table
                 model.addRow(new Object[]
                 {
                     realFullTimeEmp.getEmpNum(), realFullTimeEmp.getFirstName(), realFullTimeEmp.getLastName(),
@@ -1554,6 +1563,8 @@ public class MainMenu extends javax.swing.JFrame
                 DecimalFormat df = new DecimalFormat("#0.00");
                 String formattedIncome = df.format(realPartTimeEmp.calcAnnualIncome());
                 String formattedDedRate = df.format(realPartTimeEmp.getDeductionsRate() * 100);
+                
+                //here display everything formatted in the output table
                 model.addRow(new Object[]
                 {
                     realPartTimeEmp.getEmpNum(), realPartTimeEmp.getFirstName(), realPartTimeEmp.getLastName(),
@@ -1564,6 +1575,7 @@ public class MainMenu extends javax.swing.JFrame
         }
     }//GEN-LAST:event_clickedSearchButFromSearchPan
 
+    //when the exit button from search panel is clicked, it will exit the system
     private void exitBut3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBut3ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -1579,15 +1591,18 @@ public class MainMenu extends javax.swing.JFrame
         empNumSearchInput.setText(null);
     }//GEN-LAST:event_clickedSearchButFromMainPan
 
-    //when display button is clicked from main panel, show display panel..
+    //when display button is clicked from main panel, show display panel
     //and display all the employees in the hash table
     private void clickedDisplayButFromMainPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedDisplayButFromMainPan
         // TODO add your handling code here:
+        
+        //show the display panel
         mainPan.setVisible(false);
         setSize(1280, 960);
         displayPan.setSize(1280, 960);
         displayPan.setVisible(true);
 
+        //create a table
         DefaultTableModel model = (DefaultTableModel) outPutTable.getModel();
         int rows = model.getRowCount();
         for (int i = rows - 1; i >= 0; i--)
@@ -1699,6 +1714,7 @@ public class MainMenu extends javax.swing.JFrame
         removeSuccessNotice.setVisible(true);
     }//GEN-LAST:event_clickedYesButFromRemovePan
 
+    //it will not remove the employee and go back to the search part
     private void clickedNoButFromRemovePan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedNoButFromRemovePan
         // TODO add your handling code here:
         notFoundLabel.setVisible(false);
@@ -1866,6 +1882,7 @@ public class MainMenu extends javax.swing.JFrame
     }//GEN-LAST:event_clickedSaveButFromModifyPan
 
     //if cancel button from modify panel is clicked, don't modify the employee
+    //then return back to the display panel
     private void clickedCancelButFromModifyPan(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickedCancelButFromModifyPan
         // TODO add your handling code here:
         modifyPan.setVisible(false);
@@ -1889,7 +1906,8 @@ public class MainMenu extends javax.swing.JFrame
             int empNumFromTable = Integer.parseInt(outPutTable.getModel().getValueAt(row, 0).toString());
             int buc = theTable.calcBuckets(empNumFromTable);
             int loc = theTable.search(empNumFromTable);
-            clearSelectionsInModify();    //get info of the employee from table, fill it back into modify panel
+            clearSelectionsInModify();    
+            //get info of the employee from table, fill it back into modify panel
             empNumModifyLabel.setText(Integer.toString(empNumFromTable));
             fNameInput1.setText(theTable.getBuckets()[buc].get(loc).getFirstName());
             lNameInput1.setText(theTable.getBuckets()[buc].get(loc).getLastName());
@@ -1939,6 +1957,7 @@ public class MainMenu extends javax.swing.JFrame
                 deductionsRateInput1.setText(Double.toString(partForChange.getDeductionsRate() * 100));
             }
 
+            //to show the modify panel
             displayPan.setVisible(false);
             modifyPan.setVisible(true);
             setSize(600, 470);
