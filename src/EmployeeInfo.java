@@ -36,26 +36,31 @@ public class EmployeeInfo    //EmployeeInfo class, that contains the employee in
         return (empNumber);
     }
 
+    //getter method for getting first name
     public String getFirstName()
     {
         return firstName;
     }
 
+    //getter method for getting last name
     public String getLastName()
     {
         return lastName;
     }
 
+    //getter method for getting gender
     public int getSex()
     {
         return sex;
     }
 
+    //getter method for getting working location
     public int getWorkLocation()
     {
         return workLocation;
     }
 
+    //getter method for getting deduction rate
     public double getDeductionsRate()
     {
         return deductionsRate;
